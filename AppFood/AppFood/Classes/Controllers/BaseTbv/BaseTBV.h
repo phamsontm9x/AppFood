@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  BaseTBV.h
 //  AppFood
 //
 //  Created by ThanhSon on 3/8/18.
@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "define.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface BaseTBV : UITableView
 
 @end
-

@@ -16,7 +16,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //Init root VC
+    _rootNV = (BaseNV*)_window.rootViewController;
+    _mainVC = VCFromSB(MainVC, @"Main");
+    [_rootNV setViewControllers:@[_mainVC] animated:YES];
+    
     return YES;
 }
 
