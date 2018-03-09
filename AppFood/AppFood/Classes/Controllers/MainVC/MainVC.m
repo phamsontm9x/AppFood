@@ -8,7 +8,11 @@
 
 #import "MainVC.h"
 
-@interface MainVC ()
+@interface MainVC () {
+    UILongPressGestureRecognizer *_dragGesture;
+    CGFloat _originDragX;
+    CGFloat _originLeftX;
+}
 
 @end
 
@@ -39,25 +43,72 @@
 }
 
 #pragma mark - Show/Hide Menu
-- (void)showPanel:(BOOL)isShow {
 
+#pragma mark - Show/Hide Panel
+- (IBAction)hidePannel{
+    [self showPanel:NO];
+}
+
+- (void)showPanel:(BOOL)isShow {
+    [self showPanel:isShow animation:YES];
 }
 
 - (void)showPanel:(BOOL)isShow animation:(BOOL)animation {
-    _conLeftPanel.constant = isShow ? 0 : -MAX([UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
-    _vMask.hidden = !isShow;
+    
+    _conLeftPanel.constant = isShow ? 0 : -MAX(SWIDTH, SHEIGHT);
     if(animation) {
         [UIView animateWithDuration:0.35 animations:^{
             [self.view layoutIfNeeded];
             _vMask.alpha = (isShow ? 1 : 0);
         } completion:^(BOOL finished) {
-            _vMask.hidden = !isShow;
+            if(finished) {
+                _vMask.hidden = !isShow;
+            }
         }];
         
     } else {
         [self.view layoutIfNeeded];
     }
     
+    if(isShow) {
+        _vMask.hidden = NO;
+        
+    }else{
+        _vMask.hidden = YES;
+    }
 }
+
+#pragma mark - Gesture
+- (void) onDragEvent:(UILongPressGestureRecognizer*)gesture {
+    
+    NSInteger state = gesture.state;
+    CGPoint p = [gesture locationInView:gesture.view];
+    CGFloat width = _vLeftPanel.frame.size.width;
+    
+    if(state == UIGestureRecognizerStateBegan) {
+        _originDragX = p.x;
+        _originLeftX = _conLeftPanel.constant;
+        _vMask.hidden = NO;
+        [UIView animateWithDuration:0.18 animations:^{
+            _vMask.alpha = 1.0;
+        }];
+        
+    } else if(state == UIGestureRecognizerStateChanged) {
+        CGFloat delta = p.x - _originDragX;
+        
+        // [-width, 0]
+        CGFloat newX = _originLeftX + delta;
+        newX = MAX(-width, MIN(0, newX));
+        _conLeftPanel.constant = newX;
+        [self.view layoutIfNeeded];
+        
+    } else if(state == UIGestureRecognizerStateEnded ||
+              state == UIGestureRecognizerStateFailed ||
+              state == UIGestureRecognizerStateCancelled) {
+        BOOL needShowing = (_conLeftPanel.constant > -width/2.0);
+        [self showPanel:needShowing];
+    }
+}
+
     
 @end

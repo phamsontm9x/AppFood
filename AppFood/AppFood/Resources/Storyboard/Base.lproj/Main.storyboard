@@ -34,7 +34,7 @@
                                             <constraint firstAttribute="width" constant="40" id="QHz-I2-qQO"/>
                                             <constraint firstAttribute="height" constant="40" id="QW1-qM-FhE"/>
                                         </constraints>
-                                        <state key="normal" image="ic-Menu">
+                                        <state key="normal" image="menu">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -67,43 +67,32 @@
                                     <segue destination="7nI-hm-U80" kind="embed" identifier="nav_base" id="3tT-pw-aBi"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mV2-08-NFO" userLabel="vMenu">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yul-c3-pIm">
                                 <rect key="frame" x="0.0" y="80" width="220" height="587"/>
-                                <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yul-c3-pIm">
-                                        <rect key="frame" x="0.0" y="0.0" width="220" height="587"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="220" id="Da1-Um-rjm"/>
-                                        </constraints>
-                                        <connections>
-                                            <segue destination="dF4-kb-640" kind="embed" identifier="Main_Menu" id="8fR-Th-b1v"/>
-                                        </connections>
-                                    </containerView>
-                                </subviews>
                                 <constraints>
-                                    <constraint firstItem="Yul-c3-pIm" firstAttribute="leading" secondItem="mV2-08-NFO" secondAttribute="leading" id="F8H-W8-6ML"/>
-                                    <constraint firstAttribute="bottom" secondItem="Yul-c3-pIm" secondAttribute="bottom" id="LZq-b8-DE2"/>
-                                    <constraint firstAttribute="width" constant="220" id="RxI-Ah-HC8"/>
-                                    <constraint firstItem="Yul-c3-pIm" firstAttribute="top" secondItem="mV2-08-NFO" secondAttribute="top" id="xSi-SZ-dpO"/>
+                                    <constraint firstAttribute="width" constant="220" id="Da1-Um-rjm"/>
                                 </constraints>
-                            </view>
+                                <connections>
+                                    <segue destination="dF4-kb-640" kind="embed" identifier="Main_Menu" id="8fR-Th-b1v"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Yul-c3-pIm" firstAttribute="top" secondItem="9mk-Qw-kbf" secondAttribute="bottom" id="0re-se-vA6"/>
                             <constraint firstItem="xUj-sQ-L1x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7yC-Wj-HDs"/>
+                            <constraint firstItem="Yul-c3-pIm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="88E-eK-3yN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xUj-sQ-L1x" secondAttribute="trailing" id="HOQ-Ln-gR6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MHR-6s-HZO" secondAttribute="bottom" id="Jz2-Zz-FRa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MHR-6s-HZO" secondAttribute="trailing" id="MY3-hm-xXR"/>
-                            <constraint firstItem="mV2-08-NFO" firstAttribute="top" secondItem="9mk-Qw-kbf" secondAttribute="bottom" id="N6z-44-55O"/>
                             <constraint firstItem="xUj-sQ-L1x" firstAttribute="top" secondItem="9mk-Qw-kbf" secondAttribute="bottom" id="OOQ-Oc-uI9"/>
                             <constraint firstItem="yW6-Na-Y4B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XB3-Of-13I"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yW6-Na-Y4B" secondAttribute="trailing" id="YgE-rb-deg"/>
+                            <constraint firstItem="Yul-c3-pIm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="asA-eD-80P"/>
                             <constraint firstItem="MHR-6s-HZO" firstAttribute="top" secondItem="9mk-Qw-kbf" secondAttribute="bottom" id="db2-qu-Qyz"/>
                             <constraint firstItem="9mk-Qw-kbf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hj4-bu-Uq9"/>
                             <constraint firstItem="MHR-6s-HZO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jwx-Vb-TwS"/>
                             <constraint firstItem="yW6-Na-Y4B" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mI3-3R-FQa"/>
-                            <constraint firstItem="mV2-08-NFO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pQe-CQ-toW"/>
-                            <constraint firstItem="mV2-08-NFO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qGh-UM-qMT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9mk-Qw-kbf" secondAttribute="trailing" id="yXf-6g-WL8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xUj-sQ-L1x" secondAttribute="bottom" id="zHD-MN-HPo"/>
                             <constraint firstItem="9mk-Qw-kbf" firstAttribute="top" secondItem="yW6-Na-Y4B" secondAttribute="bottom" id="zzl-C0-wQ9"/>
@@ -112,12 +101,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="fUP-Si-Nxy"/>
                     <connections>
-                        <outlet property="conLeftPanel" destination="F8H-W8-6ML" id="Doo-AP-mcK"/>
-                        <outlet property="vLeftPanel" destination="mV2-08-NFO" id="DP1-VZ-BIp"/>
+                        <outlet property="conLeftPanel" destination="asA-eD-80P" id="oeq-EF-82D"/>
+                        <outlet property="vLeftPanel" destination="Yul-c3-pIm" id="XYF-id-OjH"/>
                         <outlet property="vMask" destination="MHR-6s-HZO" id="uYE-Uu-dyy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="vKM-gS-72j">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="5yN-FX-Jki"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="365.60000000000002" y="106.59670164917542"/>
         </scene>
@@ -244,6 +238,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic-Menu" width="30" height="16"/>
+        <image name="menu" width="30" height="16"/>
     </resources>
 </document>

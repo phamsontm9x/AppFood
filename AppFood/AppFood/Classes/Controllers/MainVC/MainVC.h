@@ -8,8 +8,7 @@
 
 #import "BaseVC.h"
 #import "MenuVC.h"
-#import "DishTypeList.h"
-
+#import "DishTypeListVC.h"
 @class MenuVC;
 @class BaseNV;
 

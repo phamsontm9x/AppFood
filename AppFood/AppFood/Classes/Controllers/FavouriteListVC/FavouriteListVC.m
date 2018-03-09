@@ -1,18 +1,18 @@
 //
-//  DishTypeList.m
+//  FavouriteListVC.m
 //  AppFood
 //
-//  Created by ThanhSon on 3/8/18.
+//  Created by ThanhSon on 3/9/18.
 //  Copyright © 2018 ThanhSon. All rights reserved.
 //
 
-#import "DishTypeList.h"
+#import "FavouriteListVC.h"
 
-@interface DishTypeList ()
+@interface FavouriteListVC ()
 
 @end
 
-@implementation DishTypeList
+@implementation FavouriteListVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

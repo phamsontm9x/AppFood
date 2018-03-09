@@ -19,7 +19,7 @@
     
     //Init root VC
     _rootNV = (BaseNV*)_window.rootViewController;
-    _mainVC = VCFromSB(MainVC, @"Main");
+    _mainVC = VCFromSB(MainVC, SB_Main);
     [_rootNV setViewControllers:@[_mainVC] animated:YES];
     
     return YES;

@@ -10,7 +10,6 @@
 		CA604D462051287000038AA9 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D452051287000038AA9 /* BaseCell.m */; };
 		CA604D4A20512A3100038AA9 /* BaseTBV.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D4920512A3100038AA9 /* BaseTBV.m */; };
 		CA604D4E20512C2B00038AA9 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D4D20512C2B00038AA9 /* MainVC.m */; };
-		CA604D5220512DA000038AA9 /* DishTypeList.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D5120512DA000038AA9 /* DishTypeList.m */; };
 		CA604D5620513AA700038AA9 /* SupportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D5520513AA700038AA9 /* SupportVC.m */; };
 		CA6F26F92051154D000D38C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6F26F82051154D000D38C7 /* AppDelegate.m */; };
 		CA6F26FF2051154D000D38C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6F26FD2051154D000D38C7 /* Main.storyboard */; };
@@ -24,7 +23,11 @@
 		CA7D32BD2052629000599755 /* Support.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7D32BC2052629000599755 /* Support.storyboard */; };
 		CA7D32C1205264FE00599755 /* MGCollapsingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32C0205264FD00599755 /* MGCollapsingHeaderView.m */; };
 		CA7D32C32052655200599755 /* ListFood.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7D32C22052655200599755 /* ListFood.storyboard */; };
-		CA7D32C72052658400599755 /* DetailDish.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32C62052658400599755 /* DetailDish.m */; };
+		CA7D32CB20526AC600599755 /* BaseDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32CA20526AC600599755 /* BaseDto.m */; };
+		CA7D32CF20526AE900599755 /* MenuDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32CE20526AE900599755 /* MenuDto.m */; };
+		CA7D32D32052727000599755 /* FavouriteListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32D22052727000599755 /* FavouriteListVC.m */; };
+		CA7D32D72052728B00599755 /* DetailDishVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32D62052728B00599755 /* DetailDishVC.m */; };
+		CA7D32DB2052729E00599755 /* DishTypeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32DA2052729E00599755 /* DishTypeListVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +47,6 @@
 		CA604D4920512A3100038AA9 /* BaseTBV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTBV.m; sourceTree = "<group>"; };
 		CA604D4C20512C2B00038AA9 /* MainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		CA604D4D20512C2B00038AA9 /* MainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
-		CA604D5020512DA000038AA9 /* DishTypeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DishTypeList.h; sourceTree = "<group>"; };
-		CA604D5120512DA000038AA9 /* DishTypeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DishTypeList.m; sourceTree = "<group>"; };
 		CA604D5420513AA700038AA9 /* SupportVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupportVC.h; sourceTree = "<group>"; };
 		CA604D5520513AA700038AA9 /* SupportVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupportVC.m; sourceTree = "<group>"; };
 		CA604D5920513D3B00038AA9 /* define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
@@ -70,8 +71,16 @@
 		CA7D32BF205264FD00599755 /* MGCollapsingHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGCollapsingHeaderView.h; sourceTree = "<group>"; };
 		CA7D32C0205264FD00599755 /* MGCollapsingHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGCollapsingHeaderView.m; sourceTree = "<group>"; };
 		CA7D32C22052655200599755 /* ListFood.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListFood.storyboard; sourceTree = "<group>"; };
-		CA7D32C52052658400599755 /* DetailDish.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailDish.h; sourceTree = "<group>"; };
-		CA7D32C62052658400599755 /* DetailDish.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailDish.m; sourceTree = "<group>"; };
+		CA7D32C920526AC600599755 /* BaseDto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseDto.h; sourceTree = "<group>"; };
+		CA7D32CA20526AC600599755 /* BaseDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseDto.m; sourceTree = "<group>"; };
+		CA7D32CD20526AE900599755 /* MenuDto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuDto.h; sourceTree = "<group>"; };
+		CA7D32CE20526AE900599755 /* MenuDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuDto.m; sourceTree = "<group>"; };
+		CA7D32D12052727000599755 /* FavouriteListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavouriteListVC.h; sourceTree = "<group>"; };
+		CA7D32D22052727000599755 /* FavouriteListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavouriteListVC.m; sourceTree = "<group>"; };
+		CA7D32D52052728B00599755 /* DetailDishVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailDishVC.h; sourceTree = "<group>"; };
+		CA7D32D62052728B00599755 /* DetailDishVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailDishVC.m; sourceTree = "<group>"; };
+		CA7D32D92052729E00599755 /* DishTypeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DishTypeListVC.h; sourceTree = "<group>"; };
+		CA7D32DA2052729E00599755 /* DishTypeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DishTypeListVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,15 +126,6 @@
 				CA604D4D20512C2B00038AA9 /* MainVC.m */,
 			);
 			path = MainVC;
-			sourceTree = "<group>";
-		};
-		CA604D4F20512D4800038AA9 /* DishTypeList */ = {
-			isa = PBXGroup;
-			children = (
-				CA604D5020512DA000038AA9 /* DishTypeList.h */,
-				CA604D5120512DA000038AA9 /* DishTypeList.m */,
-			);
-			path = DishTypeList;
 			sourceTree = "<group>";
 		};
 		CA604D5320513A7D00038AA9 /* SupportVC */ = {
@@ -209,6 +209,8 @@
 		CA6F272020511625000D38C7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CA7D32CC20526ACA00599755 /* BaseDto */,
+				CA7D32C820526AA600599755 /* MenuDto */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,8 +239,9 @@
 				CA6F272820511855000D38C7 /* BaseVC */,
 				CA604D4B20512C1200038AA9 /* MainVC */,
 				CA6F272720511845000D38C7 /* MenuVC */,
-				CA7D32C42052656700599755 /* DetailDish */,
-				CA604D4F20512D4800038AA9 /* DishTypeList */,
+				CA7D32D82052729100599755 /* DishTypeListVC */,
+				CA7D32D42052728000599755 /* DetailDishVC */,
+				CA7D32D02052724800599755 /* FavouriteListVC */,
 				CA604D5320513A7D00038AA9 /* SupportVC */,
 			);
 			path = Controllers;
@@ -307,13 +310,49 @@
 			path = MGCollapsingHeader;
 			sourceTree = "<group>";
 		};
-		CA7D32C42052656700599755 /* DetailDish */ = {
+		CA7D32C820526AA600599755 /* MenuDto */ = {
 			isa = PBXGroup;
 			children = (
-				CA7D32C52052658400599755 /* DetailDish.h */,
-				CA7D32C62052658400599755 /* DetailDish.m */,
+				CA7D32CD20526AE900599755 /* MenuDto.h */,
+				CA7D32CE20526AE900599755 /* MenuDto.m */,
 			);
-			path = DetailDish;
+			path = MenuDto;
+			sourceTree = "<group>";
+		};
+		CA7D32CC20526ACA00599755 /* BaseDto */ = {
+			isa = PBXGroup;
+			children = (
+				CA7D32C920526AC600599755 /* BaseDto.h */,
+				CA7D32CA20526AC600599755 /* BaseDto.m */,
+			);
+			path = BaseDto;
+			sourceTree = "<group>";
+		};
+		CA7D32D02052724800599755 /* FavouriteListVC */ = {
+			isa = PBXGroup;
+			children = (
+				CA7D32D12052727000599755 /* FavouriteListVC.h */,
+				CA7D32D22052727000599755 /* FavouriteListVC.m */,
+			);
+			path = FavouriteListVC;
+			sourceTree = "<group>";
+		};
+		CA7D32D42052728000599755 /* DetailDishVC */ = {
+			isa = PBXGroup;
+			children = (
+				CA7D32D52052728B00599755 /* DetailDishVC.h */,
+				CA7D32D62052728B00599755 /* DetailDishVC.m */,
+			);
+			path = DetailDishVC;
+			sourceTree = "<group>";
+		};
+		CA7D32D82052729100599755 /* DishTypeListVC */ = {
+			isa = PBXGroup;
+			children = (
+				CA7D32D92052729E00599755 /* DishTypeListVC.h */,
+				CA7D32DA2052729E00599755 /* DishTypeListVC.m */,
+			);
+			path = DishTypeListVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,8 +459,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA7D32DB2052729E00599755 /* DishTypeListVC.m in Sources */,
+				CA7D32CB20526AC600599755 /* BaseDto.m in Sources */,
 				CA604D4E20512C2B00038AA9 /* MainVC.m in Sources */,
+				CA7D32CF20526AE900599755 /* MenuDto.m in Sources */,
 				CA6F27072051154D000D38C7 /* main.m in Sources */,
+				CA7D32D32052727000599755 /* FavouriteListVC.m in Sources */,
 				CA7D32BB20525D2E00599755 /* BaseNV.m in Sources */,
 				CA604D462051287000038AA9 /* BaseCell.m in Sources */,
 				CA604D5620513AA700038AA9 /* SupportVC.m in Sources */,
@@ -429,8 +472,7 @@
 				CA6F26F92051154D000D38C7 /* AppDelegate.m in Sources */,
 				CA7D32C1205264FE00599755 /* MGCollapsingHeaderView.m in Sources */,
 				CA6F272E2051187D000D38C7 /* MenuVC.m in Sources */,
-				CA604D5220512DA000038AA9 /* DishTypeList.m in Sources */,
-				CA7D32C72052658400599755 /* DetailDish.m in Sources */,
+				CA7D32D72052728B00599755 /* DetailDishVC.m in Sources */,
 				CA6F272B2051186B000D38C7 /* BaseVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

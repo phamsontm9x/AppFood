@@ -10,25 +10,53 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dish Type List-->
+        <!--Dish Type ListVC-->
         <scene sceneID="tbT-qb-kx5">
             <objects>
-                <viewController storyboardIdentifier="DishTypeList" id="EdJ-46-evQ" customClass="DishTypeList" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DishTypeListVC" id="EdJ-46-evQ" customClass="DishTypeListVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r2G-wH-Vtq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B7-3X-94T">
+                                <rect key="frame" x="151" y="318.5" width="73" height="30"/>
+                                <state key="normal" title="Detail Test"/>
+                                <connections>
+                                    <action selector="btnDetailTest:" destination="EdJ-46-evQ" eventType="touchUpInside" id="HkZ-Dd-NtY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1B7-3X-94T" firstAttribute="centerX" secondItem="r2G-wH-Vtq" secondAttribute="centerX" id="KoN-YX-407"/>
+                            <constraint firstItem="1B7-3X-94T" firstAttribute="centerY" secondItem="r2G-wH-Vtq" secondAttribute="centerY" id="XY9-Hq-idc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tsz-uD-Cal"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrw-9M-Ehs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-265" y="239"/>
+            <point key="canvasLocation" x="-266.39999999999998" y="238.83058470764618"/>
         </scene>
-        <!--Detail Dish-->
+        <!--Favourite ListVC-->
+        <scene sceneID="2E6-V4-Y3m">
+            <objects>
+                <viewController storyboardIdentifier="FavouriteListVC" id="ITX-z5-SSw" customClass="FavouriteListVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pAg-1R-gIg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="GVi-sB-E3C"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cy9-sZ-vbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-207" y="947"/>
+        </scene>
+        <!--Detail DishVC-->
         <scene sceneID="PRy-Lc-iJB">
             <objects>
-                <viewController storyboardIdentifier="DetailDish" id="QPZ-rZ-QdT" customClass="DetailDish" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailDishVC" id="QPZ-rZ-QdT" customClass="DetailDishVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ULE-Jg-Ap0"/>
                         <viewControllerLayoutGuide type="bottom" id="I9J-LF-HUY"/>
@@ -90,6 +118,9 @@
                                                 <state key="normal" title="B4">
                                                     <color key="titleColor" red="0.93647369300000005" green="0.93647369300000005" blue="0.93647369300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnDismisDetail:" destination="QPZ-rZ-QdT" eventType="touchUpInside" id="0Yf-XN-jvx"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLe-nG-yYD">
                                                 <rect key="frame" x="278" y="163" width="80" height="70"/>

@@ -1,5 +1,5 @@
 //
-//  DetailDish.h
+//  FavouriteListVC.h
 //  AppFood
 //
 //  Created by ThanhSon on 3/9/18.
@@ -8,6 +8,6 @@
 
 #import "BaseVC.h"
 
-@interface DetailDish : BaseVC
+@interface FavouriteListVC : BaseVC
 
 @end
