@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad
 {
+    _label.text = _txtDishName;
     [super viewDidLoad];
     
     [self.headerView setDelegate:self];

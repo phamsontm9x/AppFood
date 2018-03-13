@@ -10,4 +10,6 @@
 
 @interface DishTypeListVC : BaseVC
 
+@property (nonatomic, weak) IBOutlet UICollectionView *clvListFood;
+
 @end

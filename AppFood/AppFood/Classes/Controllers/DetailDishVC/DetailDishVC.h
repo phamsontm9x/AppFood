@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *button5;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
+@property (weak, nonatomic) NSString *txtDishName;
+
 @end
 
 

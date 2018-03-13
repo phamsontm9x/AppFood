@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4261A3CA20576E85005B71AB /* DishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4261A3C920576E85005B71AB /* DishListCell.m */; };
 		CA604D462051287000038AA9 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D452051287000038AA9 /* BaseCell.m */; };
 		CA604D4A20512A3100038AA9 /* BaseTBV.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D4920512A3100038AA9 /* BaseTBV.m */; };
 		CA604D4E20512C2B00038AA9 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D4D20512C2B00038AA9 /* MainVC.m */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4261A3C820576E85005B71AB /* DishListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DishListCell.h; sourceTree = "<group>"; };
+		4261A3C920576E85005B71AB /* DishListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DishListCell.m; sourceTree = "<group>"; };
 		CA604D442051287000038AA9 /* BaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
 		CA604D452051287000038AA9 /* BaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
 		CA604D4820512A3100038AA9 /* BaseTBV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTBV.h; sourceTree = "<group>"; };
@@ -101,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4261A3C720576E49005B71AB /* DishListCell */ = {
+			isa = PBXGroup;
+			children = (
+				4261A3C820576E85005B71AB /* DishListCell.h */,
+				4261A3C920576E85005B71AB /* DishListCell.m */,
+			);
+			path = DishListCell;
+			sourceTree = "<group>";
+		};
 		CA604D432051285A00038AA9 /* BaseCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +361,7 @@
 		CA7D32D82052729100599755 /* DishTypeListVC */ = {
 			isa = PBXGroup;
 			children = (
+				4261A3C720576E49005B71AB /* DishListCell */,
 				CA7D32D92052729E00599755 /* DishTypeListVC.h */,
 				CA7D32DA2052729E00599755 /* DishTypeListVC.m */,
 			);
@@ -472,6 +485,7 @@
 				CA6F26F92051154D000D38C7 /* AppDelegate.m in Sources */,
 				CA7D32C1205264FE00599755 /* MGCollapsingHeaderView.m in Sources */,
 				CA6F272E2051187D000D38C7 /* MenuVC.m in Sources */,
+				4261A3CA20576E85005B71AB /* DishListCell.m in Sources */,
 				CA7D32D72052728B00599755 /* DetailDishVC.m in Sources */,
 				CA6F272B2051186B000D38C7 /* BaseVC.m in Sources */,
 			);
