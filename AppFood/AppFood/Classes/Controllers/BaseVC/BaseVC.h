@@ -11,4 +11,8 @@
 
 @interface BaseVC : UIViewController
 
+- (void)setTitleNav:(NSString *)title andImgButton:(UIImage*)imgBtn;
+- (void)selectedRightButton;
+- (void)selectedLeftButton;
+
 @end

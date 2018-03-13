@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initData];
+    // Do any additional setup after loading the view.
+    [self setTitleNav:@"ListFood" andImgButton:[UIImage imageNamed:@"menu"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,7 +56,6 @@
     DetailDishVC * vc = VCFromSB(DetailDishVC,SB_ListFood);
     
     vc.txtDishName = _arrFood[indexPath.row];
-    
-    [self presentViewController:vc animated:YES completion:NO];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

@@ -8,7 +8,7 @@
 
 #import "MainVC.h"
 
-@interface MainVC () {
+@interface MainVC () <UIGestureRecognizerDelegate> {
     UILongPressGestureRecognizer *_dragGesture;
     CGFloat _originDragX;
     CGFloat _originLeftX;
@@ -22,11 +22,18 @@
     [super viewDidLoad];
     [self showPanel:NO animation:NO];
     // Do any additional setup after loading the view.
+    [self initLayout];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) initLayout {
+    BaseVC *vc = VCFromSB(DishTypeListVC,@"ListFood");
+    [App.mainVC showPanel:NO animation:NO];
+    [App.mainVC.contentNV setViewControllers:@[vc] animated:NO];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -37,7 +44,7 @@
     }
 }
 
-- (IBAction)btnMenu:(id)btn {
+- (void)showMenu {
     [self showPanel:_conLeftPanel.constant == 0 ? NO : YES animation:YES];
     [_menuVC.tbvMenu reloadData];
 }

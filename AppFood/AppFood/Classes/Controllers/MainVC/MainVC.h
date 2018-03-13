@@ -27,5 +27,7 @@
 - (void)showPanel:(BOOL)isShow;
 - (void)showPanel:(BOOL)isShow animation:(BOOL)animation;
 
+- (void)showMenu;
+
 
 @end
