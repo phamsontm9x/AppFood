@@ -7,6 +7,8 @@
 //
 
 #import "BaseVC.h"
+#import "AppDelegate.h"
+#import "MainVC.h"
 
 @interface BaseVC ()
 
@@ -24,14 +26,45 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+// Demo Nav
+- (void)setTitleNav:(NSString *)title andImgButton:(UIImage*)imgBtn {
+    self.navigationItem.title = title;
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithImage:imgBtn style:UIBarButtonItemStyleDone target:self action:@selector(selectedRightButton)];
+    self.navigationItem.rightBarButtonItem = btn;
+    
+    // set if need
+    UINavigationController *nav = self.navigationController;
+    if(nav) {
+        NSString *strMenu = @"back";
+        if(nav.viewControllers.count <= 1) {
+            if(!nav.presentingViewController) {
+                // menu
+                strMenu = @"menu";
+            }
+        }
+        UIBarButtonItem *btnMenu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:strMenu] style:UIBarButtonItemStyleDone target:self action:@selector(selectedLeftButton)];
+        self.navigationItem.leftBarButtonItem = btnMenu;
+    }
 }
-*/
+
+- (void)setButtonLeft {
+    
+}
+
+- (void)selectedRightButton {
+
+}
+    
+- (void)selectedLeftButton {
+    UINavigationController *nav = self.navigationController;
+    if(nav) {
+        if(nav.viewControllers.count <= 1) {
+            if(!nav.presentingViewController) {
+                // menu
+                [App.mainVC showMenu];
+            }
+        }
+    }
+}
 
 @end

@@ -20,55 +20,23 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yW6-Na-Y4B">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                <color key="backgroundColor" red="0.070588235289999995" green="0.53725490200000003" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.48527669906616211" green="0.65898215770721436" blue="0.44416600465774536" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="e1r-U4-ejA"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mk-Qw-kbf" userLabel="Header">
-                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ez-eb-r0I">
-                                        <rect key="frame" x="10" y="10" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="QHz-I2-qQO"/>
-                                            <constraint firstAttribute="height" constant="40" id="QW1-qM-FhE"/>
-                                        </constraints>
-                                        <state key="normal" image="menu">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnMenu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MVq-EK-akl"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AppFood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gM4-jT-t3C">
-                                        <rect key="frame" x="138" y="15" width="99" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.070588235289999995" green="0.53725490200000003" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="7Qz-Ch-Ugi"/>
-                                    <constraint firstItem="gM4-jT-t3C" firstAttribute="centerY" secondItem="9mk-Qw-kbf" secondAttribute="centerY" id="URO-F2-3bM"/>
-                                    <constraint firstItem="gM4-jT-t3C" firstAttribute="centerX" secondItem="9mk-Qw-kbf" secondAttribute="centerX" id="dJx-gd-Gs7"/>
-                                    <constraint firstItem="8ez-eb-r0I" firstAttribute="leading" secondItem="9mk-Qw-kbf" secondAttribute="leading" constant="10" id="dfe-XM-LiF"/>
-                                    <constraint firstItem="8ez-eb-r0I" firstAttribute="centerY" secondItem="9mk-Qw-kbf" secondAttribute="centerY" id="tIg-Cs-C3K"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHR-6s-HZO">
-                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUj-sQ-L1x" userLabel="vContent">
-                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <connections>
                                     <segue destination="7nI-hm-U80" kind="embed" identifier="nav_base" id="3tT-pw-aBi"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yul-c3-pIm">
-                                <rect key="frame" x="0.0" y="80" width="220" height="587"/>
+                                <rect key="frame" x="0.0" y="20" width="220" height="647"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="Da1-Um-rjm"/>
                                 </constraints>
@@ -79,23 +47,20 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Yul-c3-pIm" firstAttribute="top" secondItem="9mk-Qw-kbf" secondAttribute="bottom" id="0re-se-vA6"/>
                             <constraint firstItem="xUj-sQ-L1x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7yC-Wj-HDs"/>
                             <constraint firstItem="Yul-c3-pIm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="88E-eK-3yN"/>
+                            <constraint firstItem="MHR-6s-HZO" firstAttribute="top" secondItem="yW6-Na-Y4B" secondAttribute="bottom" id="AcH-NK-tho"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xUj-sQ-L1x" secondAttribute="trailing" id="HOQ-Ln-gR6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MHR-6s-HZO" secondAttribute="bottom" id="Jz2-Zz-FRa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MHR-6s-HZO" secondAttribute="trailing" id="MY3-hm-xXR"/>
-                            <constraint firstItem="xUj-sQ-L1x" firstAttribute="top" secondItem="9mk-Qw-kbf" secondAttribute="bottom" id="OOQ-Oc-uI9"/>
+                            <constraint firstItem="xUj-sQ-L1x" firstAttribute="top" secondItem="yW6-Na-Y4B" secondAttribute="bottom" id="PZs-8U-Ecf"/>
                             <constraint firstItem="yW6-Na-Y4B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XB3-Of-13I"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yW6-Na-Y4B" secondAttribute="trailing" id="YgE-rb-deg"/>
                             <constraint firstItem="Yul-c3-pIm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="asA-eD-80P"/>
-                            <constraint firstItem="MHR-6s-HZO" firstAttribute="top" secondItem="9mk-Qw-kbf" secondAttribute="bottom" id="db2-qu-Qyz"/>
-                            <constraint firstItem="9mk-Qw-kbf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hj4-bu-Uq9"/>
                             <constraint firstItem="MHR-6s-HZO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jwx-Vb-TwS"/>
                             <constraint firstItem="yW6-Na-Y4B" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mI3-3R-FQa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9mk-Qw-kbf" secondAttribute="trailing" id="yXf-6g-WL8"/>
+                            <constraint firstItem="Yul-c3-pIm" firstAttribute="top" secondItem="yW6-Na-Y4B" secondAttribute="bottom" id="nfy-z6-CvY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xUj-sQ-L1x" secondAttribute="bottom" id="zHD-MN-HPo"/>
-                            <constraint firstItem="9mk-Qw-kbf" firstAttribute="top" secondItem="yW6-Na-Y4B" secondAttribute="bottom" id="zzl-C0-wQ9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -135,11 +100,11 @@
             <objects>
                 <viewController id="dF4-kb-640" customClass="MenuVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7lc-c1-Oqa">
-                        <rect key="frame" x="0.0" y="0.0" width="220" height="587"/>
+                        <rect key="frame" x="0.0" y="0.0" width="220" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OFu-ho-MWR" customClass="BaseTBV">
-                                <rect key="frame" x="0.0" y="70" width="220" height="517"/>
+                                <rect key="frame" x="0.0" y="70" width="220" height="577"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="duA-6W-FMZ" customClass="BaseCell">
@@ -225,10 +190,14 @@
         <!--BaseNV-->
         <scene sceneID="r41-gB-4wW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="7nI-hm-U80" customClass="BaseNV" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7nI-hm-U80" customClass="BaseNV" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="z69-kK-qBM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.40746444459999998" green="0.61068558689999997" blue="0.3555859327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                 </navigationController>
@@ -237,7 +206,4 @@
             <point key="canvasLocation" x="874" y="828"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="menu" width="30" height="16"/>
-    </resources>
 </document>

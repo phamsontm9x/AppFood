@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setTitleNav:@"ListFood" andImgButton:[UIImage imageNamed:@"menu"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,7 +28,7 @@
 
 - (IBAction)btnDetailTest:(id)sender {
     DetailDishVC * vc = VCFromSB(DetailDishVC,SB_ListFood);
-    [self presentViewController:vc animated:YES completion:NO];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
