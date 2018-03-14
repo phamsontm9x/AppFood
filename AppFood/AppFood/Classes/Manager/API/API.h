@@ -2,20 +2,23 @@
 //  API.h
 //  AppFood
 //
-//  Created by HHumorous on 3/14/18.
+//  Created by ThanhSon on 3/14/18.
 //  Copyright © 2018 ThanhSon. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseDto.h"
+#import "define.h"
+#import "UIKit/UIKit.h"
 
-@interface API : NSObject
+#define API [_API shared]
 
 typedef void (^APICallback)(BOOL success, id data);
 
-@end
 @interface _API : NSObject
 
 + (_API*) shared;
+
 
 - (void) processAPI:(NSString*)route
           serverURL:(NSString*)server
@@ -31,12 +34,9 @@ typedef void (^APICallback)(BOOL success, id data);
        successClass:(Class)successClass
            callback:(APICallback)callback;
 
-- (void) processAPIFileItem:(NSString*)route
-                  serverURL:(NSString*)server
-                     method:(NSInteger)methodType
-                     header:(NSDictionary*)headers
-                       body:(id)body
-               successClass:(Class)successClass
-                   callback:(APICallback)callback;
-
 @end
+
+
+
+
+
