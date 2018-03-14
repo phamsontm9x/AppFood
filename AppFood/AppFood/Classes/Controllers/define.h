@@ -41,6 +41,7 @@
 // Application Delegate
 #define AppShare [UIApplication sharedApplication]
 #define App ((AppDelegate*)AppShare.delegate)
+#define AppNav [SlideNavigationController sharedInstance]
 
 // ImagePicker
 #define IMAGE_PICKER     [ImagePicker shared]

@@ -8,9 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		4261A3CA20576E85005B71AB /* DishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4261A3C920576E85005B71AB /* DishListCell.m */; };
+		42D94A2F2058C582008C5202 /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D94A2E2058C582008C5202 /* SlideNavigationController.m */; };
+		42D94A3E2058C5A6008C5202 /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D94A352058C5A6008C5202 /* SlideNavigationContorllerAnimatorFade.m */; };
+		42D94A3F2058C5A6008C5202 /* SlideNavigationContorllerAnimatorScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D94A372058C5A6008C5202 /* SlideNavigationContorllerAnimatorScale.m */; };
+		42D94A402058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D94A392058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m */; };
+		42D94A412058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D94A3B2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlide.m */; };
+		42D94A422058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D94A3D2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m */; };
+		42D94A462058CF6D008C5202 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D94A452058CF6D008C5202 /* API.m */; };
 		CA604D462051287000038AA9 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D452051287000038AA9 /* BaseCell.m */; };
 		CA604D4A20512A3100038AA9 /* BaseTBV.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D4920512A3100038AA9 /* BaseTBV.m */; };
-		CA604D4E20512C2B00038AA9 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D4D20512C2B00038AA9 /* MainVC.m */; };
 		CA604D5620513AA700038AA9 /* SupportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D5520513AA700038AA9 /* SupportVC.m */; };
 		CA6F26F92051154D000D38C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6F26F82051154D000D38C7 /* AppDelegate.m */; };
 		CA6F26FF2051154D000D38C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6F26FD2051154D000D38C7 /* Main.storyboard */; };
@@ -44,12 +50,25 @@
 /* Begin PBXFileReference section */
 		4261A3C820576E85005B71AB /* DishListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DishListCell.h; sourceTree = "<group>"; };
 		4261A3C920576E85005B71AB /* DishListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DishListCell.m; sourceTree = "<group>"; };
+		42D94A2D2058C582008C5202 /* SlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationController.h; sourceTree = "<group>"; };
+		42D94A2E2058C582008C5202 /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
+		42D94A332058C5A6008C5202 /* SlideNavigationContorllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimator.h; sourceTree = "<group>"; };
+		42D94A342058C5A6008C5202 /* SlideNavigationContorllerAnimatorFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorFade.h; sourceTree = "<group>"; };
+		42D94A352058C5A6008C5202 /* SlideNavigationContorllerAnimatorFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorFade.m; sourceTree = "<group>"; };
+		42D94A362058C5A6008C5202 /* SlideNavigationContorllerAnimatorScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScale.h; sourceTree = "<group>"; };
+		42D94A372058C5A6008C5202 /* SlideNavigationContorllerAnimatorScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScale.m; sourceTree = "<group>"; };
+		42D94A382058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScaleAndFade.h; sourceTree = "<group>"; };
+		42D94A392058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScaleAndFade.m; sourceTree = "<group>"; };
+		42D94A3A2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlide.h; sourceTree = "<group>"; };
+		42D94A3B2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlide.m; sourceTree = "<group>"; };
+		42D94A3C2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlideAndFade.h; sourceTree = "<group>"; };
+		42D94A3D2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlideAndFade.m; sourceTree = "<group>"; };
+		42D94A442058CF6D008C5202 /* API.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		42D94A452058CF6D008C5202 /* API.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		CA604D442051287000038AA9 /* BaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
 		CA604D452051287000038AA9 /* BaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
 		CA604D4820512A3100038AA9 /* BaseTBV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTBV.h; sourceTree = "<group>"; };
 		CA604D4920512A3100038AA9 /* BaseTBV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTBV.m; sourceTree = "<group>"; };
-		CA604D4C20512C2B00038AA9 /* MainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
-		CA604D4D20512C2B00038AA9 /* MainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		CA604D5420513AA700038AA9 /* SupportVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupportVC.h; sourceTree = "<group>"; };
 		CA604D5520513AA700038AA9 /* SupportVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupportVC.m; sourceTree = "<group>"; };
 		CA604D5920513D3B00038AA9 /* define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
@@ -113,6 +132,42 @@
 			path = DishListCell;
 			sourceTree = "<group>";
 		};
+		42D94A2C2058C568008C5202 /* SlideNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				42D94A2D2058C582008C5202 /* SlideNavigationController.h */,
+				42D94A2E2058C582008C5202 /* SlideNavigationController.m */,
+			);
+			path = SlideNavigationController;
+			sourceTree = "<group>";
+		};
+		42D94A322058C5A6008C5202 /* AnimationsSlideNav */ = {
+			isa = PBXGroup;
+			children = (
+				42D94A332058C5A6008C5202 /* SlideNavigationContorllerAnimator.h */,
+				42D94A342058C5A6008C5202 /* SlideNavigationContorllerAnimatorFade.h */,
+				42D94A352058C5A6008C5202 /* SlideNavigationContorllerAnimatorFade.m */,
+				42D94A362058C5A6008C5202 /* SlideNavigationContorllerAnimatorScale.h */,
+				42D94A372058C5A6008C5202 /* SlideNavigationContorllerAnimatorScale.m */,
+				42D94A382058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.h */,
+				42D94A392058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m */,
+				42D94A3A2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlide.h */,
+				42D94A3B2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlide.m */,
+				42D94A3C2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.h */,
+				42D94A3D2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m */,
+			);
+			path = AnimationsSlideNav;
+			sourceTree = "<group>";
+		};
+		42D94A432058CF4D008C5202 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				42D94A442058CF6D008C5202 /* API.h */,
+				42D94A452058CF6D008C5202 /* API.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		CA604D432051285A00038AA9 /* BaseCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,15 +184,6 @@
 				CA604D4920512A3100038AA9 /* BaseTBV.m */,
 			);
 			path = BaseTbv;
-			sourceTree = "<group>";
-		};
-		CA604D4B20512C1200038AA9 /* MainVC */ = {
-			isa = PBXGroup;
-			children = (
-				CA604D4C20512C2B00038AA9 /* MainVC.h */,
-				CA604D4D20512C2B00038AA9 /* MainVC.m */,
-			);
-			path = MainVC;
 			sourceTree = "<group>";
 		};
 		CA604D5320513A7D00038AA9 /* SupportVC */ = {
@@ -191,12 +237,10 @@
 		CA6F271D205115EA000D38C7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				42D94A432058CF4D008C5202 /* Manager */,
 				CA6F272420511667000D38C7 /* Views */,
 				CA6F272320511650000D38C7 /* Controllers */,
-				CA6F272220511647000D38C7 /* Utilities */,
-				CA6F27212051162F000D38C7 /* Catagory */,
 				CA6F272020511625000D38C7 /* Models */,
-				CA6F271F2051161A000D38C7 /* Manager */,
 				CA6F271E205115FD000D38C7 /* AppDelegate */,
 			);
 			path = Classes;
@@ -211,13 +255,6 @@
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		CA6F271F2051161A000D38C7 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
 		CA6F272020511625000D38C7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,20 +262,6 @@
 				CA7D32C820526AA600599755 /* MenuDto */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		CA6F27212051162F000D38C7 /* Catagory */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Catagory;
-			sourceTree = "<group>";
-		};
-		CA6F272220511647000D38C7 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 		CA6F272320511650000D38C7 /* Controllers */ = {
@@ -249,7 +272,6 @@
 				CA604D4720512A1E00038AA9 /* BaseTbv */,
 				CA604D432051285A00038AA9 /* BaseCell */,
 				CA6F272820511855000D38C7 /* BaseVC */,
-				CA604D4B20512C1200038AA9 /* MainVC */,
 				CA6F272720511845000D38C7 /* MenuVC */,
 				CA7D32D82052729100599755 /* DishTypeListVC */,
 				CA7D32D42052728000599755 /* DetailDishVC */,
@@ -262,6 +284,8 @@
 		CA6F272420511667000D38C7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				42D94A322058C5A6008C5202 /* AnimationsSlideNav */,
+				42D94A2C2058C568008C5202 /* SlideNavigationController */,
 				CA7D32BE205264FD00599755 /* MGCollapsingHeader */,
 			);
 			path = Views;
@@ -472,9 +496,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D94A462058CF6D008C5202 /* API.m in Sources */,
+				42D94A3E2058C5A6008C5202 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
+				42D94A2F2058C582008C5202 /* SlideNavigationController.m in Sources */,
 				CA7D32DB2052729E00599755 /* DishTypeListVC.m in Sources */,
 				CA7D32CB20526AC600599755 /* BaseDto.m in Sources */,
-				CA604D4E20512C2B00038AA9 /* MainVC.m in Sources */,
+				42D94A422058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				42D94A402058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				CA7D32CF20526AE900599755 /* MenuDto.m in Sources */,
 				CA6F27072051154D000D38C7 /* main.m in Sources */,
 				CA7D32D32052727000599755 /* FavouriteListVC.m in Sources */,
@@ -484,10 +512,12 @@
 				CA604D4A20512A3100038AA9 /* BaseTBV.m in Sources */,
 				CA6F26F92051154D000D38C7 /* AppDelegate.m in Sources */,
 				CA7D32C1205264FE00599755 /* MGCollapsingHeaderView.m in Sources */,
+				42D94A3F2058C5A6008C5202 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				CA6F272E2051187D000D38C7 /* MenuVC.m in Sources */,
 				4261A3CA20576E85005B71AB /* DishListCell.m in Sources */,
 				CA7D32D72052728B00599755 /* DetailDishVC.m in Sources */,
 				CA6F272B2051186B000D38C7 /* BaseVC.m in Sources */,
+				42D94A412058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

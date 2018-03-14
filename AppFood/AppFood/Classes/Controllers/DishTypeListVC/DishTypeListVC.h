@@ -8,7 +8,7 @@
 
 #import "BaseVC.h"
 
-@interface DishTypeListVC : BaseVC
+@interface DishTypeListVC : BaseVC  <SlideNavigationControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UICollectionView *clvListFood;
 

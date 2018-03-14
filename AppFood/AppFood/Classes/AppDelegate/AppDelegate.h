@@ -8,17 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "define.h"
-#import "BaseNV.h"
-#import "MainVC.h"
-
-@class MainVC;
+#import "SlideNavigationController.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, strong) BaseNV *rootNV;
-@property (nonatomic, strong) MainVC *mainVC;
 
 
 @end

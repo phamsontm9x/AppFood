@@ -16,7 +16,7 @@ typedef enum : NSUInteger {
     List = 0,
     Favourite,
     Support,
-} Menu;
+} MenuList;
 
 @interface MenuVC () <UITableViewDelegate, UITableViewDataSource, BaseCellDelegate> {
     MenuListDto *_listMenu;
@@ -76,17 +76,16 @@ typedef enum : NSUInteger {
     
     if (indexPath.row == List) {
         vc = VCFromSB(DishTypeListVC,@"ListFood");
-    } else if (indexPath.row == Support) {
+    } else if (indexPath.row == Favourite) {
         vc = VCFromSB(FavouriteListVC, @"ListFood");
     } else {
         vc = VCFromSB(SupportVC, @"Support");
     }
     
     if(vc) {
-        [App.mainVC showPanel:NO animation:NO];
-        [App.mainVC.contentNV setViewControllers:@[vc] animated:NO];
+        [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
+                                     andCompletion:nil];
     }
-    
 }
 
 @end

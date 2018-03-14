@@ -23,11 +23,17 @@
     [super viewDidLoad];
     [self initData];
     // Do any additional setup after loading the view.
-    [self setTitleNav:@"ListFood" andImgButton:[UIImage imageNamed:@"menu"]];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - SlideNavigationController Methods -
+
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
 }
 
 - (void)initData {
@@ -56,6 +62,7 @@
     DetailDishVC * vc = VCFromSB(DetailDishVC,SB_ListFood);
     
     vc.txtDishName = _arrFood[indexPath.row];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self presentViewController:vc animated:YES completion:nil];
+    //[self.navigationController pushViewController:vc animated:YES];
 }
 @end

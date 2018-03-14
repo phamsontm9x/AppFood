@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "define.h"
+#import "SlideNavigationController.h"
 
 @interface BaseVC : UIViewController
-
-- (void)setTitleNav:(NSString *)title andImgButton:(UIImage*)imgBtn;
-- (void)selectedRightButton;
-- (void)selectedLeftButton;
 
 @end

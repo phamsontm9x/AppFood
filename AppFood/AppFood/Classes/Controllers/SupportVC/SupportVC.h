@@ -8,6 +8,6 @@
 
 #import "BaseVC.h"
 
-@interface SupportVC : BaseVC
+@interface SupportVC : BaseVC <SlideNavigationControllerDelegate>
 
 @end
