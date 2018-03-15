@@ -10,6 +10,7 @@
 #import "DetailDishVC.h"
 #import "DishListCell.h"
 #import "ListDishDto.h"
+#import "DishListVC.h"
 
 @interface DishTypeListVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
     
@@ -90,10 +91,10 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    DetailDishVC * vc = VCFromSB(DetailDishVC,SB_ListFood);
+    DishListVC * vc = VCFromSB(DishListVC,SB_ListFood);
     ListDishDto *dto = _arrDishType[indexPath.row];
-    vc.txtDishName = dto.name;
-    [self presentViewController:vc animated:YES completion:nil];
-    //[self.navigationController pushViewController:vc animated:YES];
+    vc.typeDto = dto;
+
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

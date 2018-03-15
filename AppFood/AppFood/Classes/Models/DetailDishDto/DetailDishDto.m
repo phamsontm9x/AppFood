@@ -25,4 +25,33 @@
     
 }
 
+-(id)initWithData:(NSDictionary *)dic {
+    self = [super init];
+    if (dic) {
+        if ([dic isKindOfClass:[NSDictionary class]]) {
+            IOK(_id,@"ID");
+            IOK(img,@"");
+            IOK(name,@"TenMonAn");
+            IOK(desc,@"MoTa");
+            IOK(url,@"Url");
+            IOK(material,@"NguyenLieu");
+            IOK(making,@"CachLam");
+        }
+    }
+    return self;
+}
+
+- (NSMutableDictionary *)getJSONObject {
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    
+    return dic;
+}
+
+- (id )getJSONObjectWithMethod:(NSInteger)method{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+
+    return dic;
+    
+}
+
 @end

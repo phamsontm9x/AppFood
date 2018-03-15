@@ -16,6 +16,7 @@
 		42D94A402058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D94A392058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m */; };
 		42D94A412058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D94A3B2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlide.m */; };
 		42D94A422058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D94A3D2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m */; };
+		CA11035E205A686300905CC4 /* DishListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA11035D205A686300905CC4 /* DishListVC.m */; };
 		CA4311F1205971DA003A3568 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4311F0205971DA003A3568 /* API.m */; };
 		CA604D462051287000038AA9 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D452051287000038AA9 /* BaseCell.m */; };
 		CA604D4A20512A3100038AA9 /* BaseTBV.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D4920512A3100038AA9 /* BaseTBV.m */; };
@@ -73,6 +74,8 @@
 		93852F45A48A349F33CA59C9 /* Pods-AppFoodUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppFoodUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppFoodUITests/Pods-AppFoodUITests.release.xcconfig"; sourceTree = "<group>"; };
 		98B806FA9E9536EFE1107895 /* Pods-AppFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppFood.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppFood/Pods-AppFood.release.xcconfig"; sourceTree = "<group>"; };
 		BADFC49C246072D3785D4196 /* Pods-AppFood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppFood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppFood/Pods-AppFood.debug.xcconfig"; sourceTree = "<group>"; };
+		CA11035C205A686300905CC4 /* DishListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DishListVC.h; sourceTree = "<group>"; };
+		CA11035D205A686300905CC4 /* DishListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DishListVC.m; sourceTree = "<group>"; };
 		CA4311EF205971DA003A3568 /* API.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		CA4311F0205971DA003A3568 /* API.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		CA604D442051287000038AA9 /* BaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
@@ -194,6 +197,15 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		CA11035B205A684700905CC4 /* DishListVC */ = {
+			isa = PBXGroup;
+			children = (
+				CA11035C205A686300905CC4 /* DishListVC.h */,
+				CA11035D205A686300905CC4 /* DishListVC.m */,
+			);
+			path = DishListVC;
+			sourceTree = "<group>";
+		};
 		CA4311EE205971CC003A3568 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +324,7 @@
 				CA604D432051285A00038AA9 /* BaseCell */,
 				CA6F272820511855000D38C7 /* BaseVC */,
 				CA6F272720511845000D38C7 /* MenuVC */,
+				CA11035B205A684700905CC4 /* DishListVC */,
 				CA7D32D82052729100599755 /* DishTypeListVC */,
 				CA7D32D42052728000599755 /* DetailDishVC */,
 				CA7D32D02052724800599755 /* FavouriteListVC */,
@@ -674,6 +687,7 @@
 				CA7D32DB2052729E00599755 /* DishTypeListVC.m in Sources */,
 				CA7D32CB20526AC600599755 /* BaseDto.m in Sources */,
 				42D94A422058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				CA11035E205A686300905CC4 /* DishListVC.m in Sources */,
 				42D94A402058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				CA7D32CF20526AE900599755 /* MenuDto.m in Sources */,
 				CA6F27072051154D000D38C7 /* main.m in Sources */,

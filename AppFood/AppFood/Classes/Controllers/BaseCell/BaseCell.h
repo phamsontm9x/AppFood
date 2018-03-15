@@ -20,8 +20,12 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *lblTitle;
 @property (nonatomic, weak) IBOutlet UILabel *lblSubTitle;
+
 @property (nonatomic, weak) IBOutlet UIButton *btnAction;
+
 @property (nonatomic, weak) IBOutlet UIImageView *imgIcon;
+
+@property (nonatomic, weak) IBOutlet UIView *vBackground;
 
 @property (nonatomic, weak) id<BaseCellDelegate> delegate;
 
