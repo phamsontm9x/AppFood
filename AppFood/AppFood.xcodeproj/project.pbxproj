@@ -37,6 +37,8 @@
 		CA7D32D32052727000599755 /* FavouriteListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32D22052727000599755 /* FavouriteListVC.m */; };
 		CA7D32D72052728B00599755 /* DetailDishVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32D62052728B00599755 /* DetailDishVC.m */; };
 		CA7D32DB2052729E00599755 /* DishTypeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32DA2052729E00599755 /* DishTypeListVC.m */; };
+		CA7F70ED205A132B007F93C0 /* ListDishDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F70EC205A132B007F93C0 /* ListDishDto.m */; };
+		CA7F70F0205A133F007F93C0 /* DetailDishDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7F70EF205A133F007F93C0 /* DetailDishDto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,10 @@
 		CA7D32D62052728B00599755 /* DetailDishVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailDishVC.m; sourceTree = "<group>"; };
 		CA7D32D92052729E00599755 /* DishTypeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DishTypeListVC.h; sourceTree = "<group>"; };
 		CA7D32DA2052729E00599755 /* DishTypeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DishTypeListVC.m; sourceTree = "<group>"; };
+		CA7F70EB205A132B007F93C0 /* ListDishDto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListDishDto.h; sourceTree = "<group>"; };
+		CA7F70EC205A132B007F93C0 /* ListDishDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListDishDto.m; sourceTree = "<group>"; };
+		CA7F70EE205A133F007F93C0 /* DetailDishDto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailDishDto.h; sourceTree = "<group>"; };
+		CA7F70EF205A133F007F93C0 /* DetailDishDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailDishDto.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +295,8 @@
 		CA6F272020511625000D38C7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CA7F70E6205A12E2007F93C0 /* DetailDishDto */,
+				CA7F70E5205A12CC007F93C0 /* ListDishDto */,
 				CA7D32CC20526ACA00599755 /* BaseDto */,
 				CA7D32C820526AA600599755 /* MenuDto */,
 			);
@@ -421,6 +429,24 @@
 				CA7D32DA2052729E00599755 /* DishTypeListVC.m */,
 			);
 			path = DishTypeListVC;
+			sourceTree = "<group>";
+		};
+		CA7F70E5205A12CC007F93C0 /* ListDishDto */ = {
+			isa = PBXGroup;
+			children = (
+				CA7F70EB205A132B007F93C0 /* ListDishDto.h */,
+				CA7F70EC205A132B007F93C0 /* ListDishDto.m */,
+			);
+			path = ListDishDto;
+			sourceTree = "<group>";
+		};
+		CA7F70E6205A12E2007F93C0 /* DetailDishDto */ = {
+			isa = PBXGroup;
+			children = (
+				CA7F70EE205A133F007F93C0 /* DetailDishDto.h */,
+				CA7F70EF205A133F007F93C0 /* DetailDishDto.m */,
+			);
+			path = DetailDishDto;
 			sourceTree = "<group>";
 		};
 		E98553B3EDCE16409FE48F32 /* Frameworks */ = {
@@ -644,6 +670,7 @@
 				CA4311F1205971DA003A3568 /* API.m in Sources */,
 				42D94A3E2058C5A6008C5202 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				42D94A2F2058C582008C5202 /* SlideNavigationController.m in Sources */,
+				CA7F70ED205A132B007F93C0 /* ListDishDto.m in Sources */,
 				CA7D32DB2052729E00599755 /* DishTypeListVC.m in Sources */,
 				CA7D32CB20526AC600599755 /* BaseDto.m in Sources */,
 				42D94A422058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
@@ -660,6 +687,7 @@
 				42D94A3F2058C5A6008C5202 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				CA6F272E2051187D000D38C7 /* MenuVC.m in Sources */,
 				4261A3CA20576E85005B71AB /* DishListCell.m in Sources */,
+				CA7F70F0205A133F007F93C0 /* DetailDishDto.m in Sources */,
 				CA7D32D72052728B00599755 /* DetailDishVC.m in Sources */,
 				CA6F272B2051186B000D38C7 /* BaseVC.m in Sources */,
 				42D94A412058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
