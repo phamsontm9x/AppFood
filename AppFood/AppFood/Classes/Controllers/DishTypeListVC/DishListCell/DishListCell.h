@@ -11,5 +11,6 @@
 @interface DishListCell : UICollectionViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *lblTitle;
+@property (nonatomic, weak) IBOutlet UIImageView *imgFood;
 
 @end

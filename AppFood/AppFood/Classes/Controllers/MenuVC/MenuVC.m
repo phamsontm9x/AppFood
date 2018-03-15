@@ -15,6 +15,8 @@
 typedef enum : NSUInteger {
     List = 0,
     Favourite,
+    MoreApp,
+    Update,
     Support,
 } MenuList;
 
@@ -42,9 +44,11 @@ typedef enum : NSUInteger {
 - (void)initMenu {
     _listMenu = [[MenuListDto alloc] init];
     // ListFood
-    [_listMenu.list addObject:[[MenuDto alloc] initWithTitle:@"ListFood" andImage:@"list"]];
-    [_listMenu.list addObject:[[MenuDto alloc] initWithTitle:@"Favourite food" andImage:@"favourite"]];
-    [_listMenu.list addObject:[[MenuDto alloc] initWithTitle:@"Support" andImage:@"support"]];
+    [_listMenu.list addObject:[[MenuDto alloc] initWithTitle:@"Danh Mục" andImage:@"danhmuc"]];
+    [_listMenu.list addObject:[[MenuDto alloc] initWithTitle:@"Danh Sách Món Ăn Yêu Thích" andImage:@"favourite"]];
+    [_listMenu.list addObject:[[MenuDto alloc] initWithTitle:@"Ứng dụng hay" andImage:@"ungdung"]];
+    [_listMenu.list addObject:[[MenuDto alloc] initWithTitle:@"Kiểm tra bản cập nhật" andImage:@"update"]];
+    [_listMenu.list addObject:[[MenuDto alloc] initWithTitle:@"Về chúng tôi" andImage:@"info"]];
 }
 
 #pragma mark - UITableViewCell
@@ -85,6 +89,8 @@ typedef enum : NSUInteger {
     if(vc) {
         [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
                                      andCompletion:nil];
+    } else {
+
     }
 }
 
