@@ -11,6 +11,7 @@
 #import "DishTypeListVC.h"
 #import "SupportVC.h"
 #import "FavouriteListVC.h"
+#import "UserDto.h"
 
 typedef enum : NSUInteger {
     List = 0,
@@ -18,6 +19,7 @@ typedef enum : NSUInteger {
     MoreApp,
     Update,
     Support,
+    User,
 } MenuList;
 
 @interface MenuVC () <UITableViewDelegate, UITableViewDataSource, BaseCellDelegate> {
@@ -57,21 +59,32 @@ typedef enum : NSUInteger {
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return  _listMenu.list.count;
+    return  _listMenu.list.count + 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return VALCond(indexPath.row == User, 100, 60);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BaseCell * cell = [_tbvMenu dequeueReusableCellWithIdentifier:@"MenuCell"];
     
-    MenuDto *menuDto = _listMenu.list[indexPath.row];
-    cell.lblTitle.text = menuDto.title;
-    cell.imgIcon.image = [UIImage imageNamed:menuDto.img];
-    
-    return cell;
+    if (indexPath.row == User) {
+        BaseCell *cell = [_tbvMenu dequeueReusableCellWithIdentifier:@"UserCell"];
+        UserDto *user = [[UserDto alloc] init];
+        [cell.btnAvatar setStyleAvatar];
+        cell.lblFullName.text = user.fullName;
+        cell.userInteractionEnabled = NO;
+        
+        return cell;
+    } else {
+        BaseCell * cell = [_tbvMenu dequeueReusableCellWithIdentifier:@"MenuCell"];
+        
+        MenuDto *menuDto = _listMenu.list[indexPath.row];
+        cell.lblTitle.text = menuDto.title;
+        cell.imgIcon.image = [UIImage imageNamed:menuDto.img];
+        
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

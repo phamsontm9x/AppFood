@@ -10,6 +10,7 @@
 #import "SignUpVC.h"
 #import "WelcomeVC.h"
 #import "DishTypeListVC.h"
+#import "Configure.h"
 
 @interface SignInVC () <UITextFieldDelegate, UIGestureRecognizerDelegate> {
     
