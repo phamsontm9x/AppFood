@@ -16,7 +16,7 @@
 
 @interface DishTypeListVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
     
-    NSMutableArray * _arrDishType;
+    ListDishTypeDto * _arrDishType;
 }
 
 @end
@@ -25,9 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initData];
-    //[self getDataFromServer];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    [self getDataFromServer];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -38,13 +38,13 @@
 
 #pragma mark -GetDataFromServer
 - (void)getDataFromServer {
-    UserDto *user = [[UserDto alloc] init];
-    user.email = @"phananh123qqq@gmail.com";
-    user.password = @"123123qqq";
-    
-    [API login:user callback:^(BOOL success, id data) {
+    _arrDishType = [[ListDishTypeDto alloc] init];
+    [App showLoading];
+    [API getListTypeDish:^(BOOL success, id data) {
+        [App hideLoading];
         if (success) {
-            NSLog(@"%@",data);
+            _arrDishType = data;
+            [_clvListFood reloadData];
         }
     }];
 }
@@ -56,20 +56,6 @@
     return YES;
 }
 
-- (void)initData {
-    
-    self.navigationItem.title = @"Danh Mục";
-    
-    NSArray * _arrName = @[@"Thịt Heo", @"Thịt Vịt", @"Rau Củ", @"Thịt Bò", @"Đậu phụ", @"Thịt Gà", @"Hải sản", @"Trứng"];
-    NSArray * _arrImg = @[@"thitheo", @"thitvit", @"raucu", @"thitbo", @"dauphu", @"thitga", @"haisankhac", @"trung"];
-    NSArray * _idDishType = @[@"Heo", @"Vit", @"Rau", @"Bo", @"Dau", @"Ga", @"HS", @"Trung"];
-    
-    _arrDishType = [[NSMutableArray alloc] init];
-    for (int i = 0; i < _arrName.count ; i++) {
-        [_arrDishType addObject: [[ListDishDto alloc] initWithID:_idDishType[i] Image:_arrImg[i] andName:_arrName[i]]];
-    }
-    [_clvListFood reloadData];
-}
 
 #pragma mark - CollectionView
 
@@ -96,21 +82,22 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _arrDishType.count;
+    return _arrDishType.list.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DishListCell *cell = [_clvListFood dequeueReusableCellWithReuseIdentifier:@"DishListCell" forIndexPath:indexPath];
-    ListDishDto *dto = _arrDishType[indexPath.row];
+    DishTypeDto *dto = _arrDishType.list[indexPath.row];
     cell.lblTitle.text = dto.name;
-    cell.imgFood.image = [UIImage imageNamed:dto.img];
+    [cell.imgFood sd_setImageWithURL:[NSURL URLWithString:dto.image]
+                      placeholderImage:[UIImage imageNamed:@"none.9"]];
     
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     DishListVC * vc = VCFromSB(DishListVC,SB_ListFood);
-    ListDishDto *dto = _arrDishType[indexPath.row];
+    DishTypeDto *dto = _arrDishType.list[indexPath.row];
     vc.typeDto = dto;
 
     [self.navigationController pushViewController:vc animated:YES];

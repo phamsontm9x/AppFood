@@ -8,6 +8,7 @@
 
 #import "API.h"
 #import "UserDto.h"
+#import "ListDishDto.h"
 #import "Configure.h"
 #import "AppDelegate.h"
 
@@ -122,13 +123,23 @@
             // Print Track Log
             NSString *strLog = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"[API] [%@] [%@] SERVER RESPONSE: \n==>\n %@ \n\n<==\n\n", method, route, strLog);
-            
-            NSString *token = [respondData objectForKey:@"token"];
-            if (![token isEqualToString:@""]) {
-                NSLog(@"%@",token);
-                App.configure.token = token;
-                cb(YES, data);
+            if ([respondData isKindOfClass:[NSDictionary class]]) {
+                NSString *token = [respondData objectForKey:@"token"];
+                if (![token isEqualToString:@""]) {
+                    NSLog(@"%@",token);
+                    App.configure.token = token;
+                    cb(YES, data);
+                } else {
+                    cb (YES,data);
+                }
+            } else {
+                if(cb) {
+                    cb(YES, successClass ? [[successClass alloc] initWithData:respondData] : nil);
+                    cb = NULL;
+                    return;
+                }
             }
+             
         }
     };
 
@@ -187,6 +198,15 @@
               header:nil
                 body:user
         successClass:[UserDto class]
+            callback:callback];
+}
+
+- (void)getListTypeDish:(APICallback)callback {
+    [self processAPI:@"category/"
+              method:METHOD_GET
+              header:nil
+                body:nil
+        successClass:[ListDishTypeDto class]
             callback:callback];
 }
 

@@ -11,7 +11,7 @@
 
 @interface DishListVC : BaseVC
 
-@property (nonatomic, strong) ListDishDto *typeDto;
+@property (nonatomic, strong) DishTypeDto *typeDto;
 @property (nonatomic, weak) IBOutlet UITableView *tbvDish;
 
 @end
