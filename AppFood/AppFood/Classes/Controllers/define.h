@@ -495,7 +495,7 @@ for (NSInteger i = 0; i< _##Key.count; i++) { \
 #define SB_ListFood       @"ListFood"
 #define SB_Support        @"Support"
 #define SB_Main           @"Main"
-
+#define SB_Login          @"Login"
 
 #define COMPANY_PLACEHODER_ICON @"CompanyLogo"
 #define USER_PLACEHOLDER_ICON @"avatarCandidate"

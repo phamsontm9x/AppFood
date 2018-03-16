@@ -7,6 +7,9 @@
 //
 
 #import "WelcomeVC.h"
+#import "SignInVC.h"
+#import "SignUpVC.h"
+
 
 @interface WelcomeVC ()
 
@@ -24,14 +27,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)onBtnLoginClicked:(HButton*)btn {
+    SignInVC *vc = VCFromSB(SignInVC, SB_Login);
+    [self.navigationController pushViewController:vc animated:YES];
 }
-*/
+
+- (IBAction)onBtnSignUpClicked:(HButton*)btn {
+    SignUpVC *vc = VCFromSB(SignUpVC, SB_Login);
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end

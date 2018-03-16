@@ -7,7 +7,11 @@
 		<key>AppFood.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>5</integer>
+=======
+			<integer>8</integer>
+>>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
 		</dict>
 	</dict>
 </dict>
