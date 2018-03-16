@@ -1,3 +1,20 @@
-PODFILE CHECKSUM: 95cef089e2c04cdc1e196a18abd9ad98607b6481
+PODS:
+  - MBProgressHUD (1.1.0)
+  - Reachability (3.2)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
+
+DEPENDENCIES:
+  - MBProgressHUD
+  - Reachability
+  - SDWebImage
+
+SPEC CHECKSUMS:
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
+
+PODFILE CHECKSUM: 1390300fbfbf4f76139a1b01f092f86fd60b24bf
 
 COCOAPODS: 1.3.1
