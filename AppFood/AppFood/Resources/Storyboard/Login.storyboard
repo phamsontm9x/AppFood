@@ -58,7 +58,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94524437189999999" green="0.84510415715175091" blue="0.80850310769289835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ogF-fy-e2l" firstAttribute="leading" secondItem="X55-OQ-cDU" secondAttribute="leading" constant="40" id="5G9-tj-lys"/>
                             <constraint firstItem="X55-OQ-cDU" firstAttribute="trailing" secondItem="3e0-bo-G52" secondAttribute="trailing" constant="40" id="AfB-v8-A9v"/>
@@ -181,7 +181,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94524437189999999" green="0.84510415719999998" blue="0.8085031077" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="we1-xH-1CD" firstAttribute="top" secondItem="ipX-kh-jST" secondAttribute="bottom" constant="50" id="8dV-R7-kXN"/>
                             <constraint firstItem="wWC-Ks-WlL" firstAttribute="leading" secondItem="zsI-nO-5YG" secondAttribute="leading" constant="5" id="CU7-mQ-fp8"/>
@@ -361,7 +361,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94524437189999999" green="0.84510415719999998" blue="0.8085031077" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yDt-LB-EJP" firstAttribute="centerX" secondItem="h25-DE-bjx" secondAttribute="centerX" id="1BB-Aj-5u4"/>
                             <constraint firstItem="17o-2h-loe" firstAttribute="top" secondItem="yDt-LB-EJP" secondAttribute="bottom" constant="30" id="4SK-Tk-gF5"/>
@@ -406,6 +406,6 @@
     </scenes>
     <resources>
         <image name="back" width="20" height="29"/>
-        <image name="cookbooklogo.9" width="196" height="86"/>
+        <image name="cookbooklogo.9" width="1000" height="391"/>
     </resources>
 </document>
