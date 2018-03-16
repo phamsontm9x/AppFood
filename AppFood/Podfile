@@ -4,8 +4,7 @@
 target 'AppFood' do
     pod 'MBProgressHUD'
     pod 'SDWebImage'
-    pod 'Reachability'
-    pod 'RMessage' 
+    pod 'Reachability' 
 
   target 'AppFoodUITests' do
     inherit! :search_paths

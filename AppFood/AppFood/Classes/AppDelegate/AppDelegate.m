@@ -24,24 +24,24 @@
     _configure = [[Configure alloc] init];
     
     //Init SlideNav
-//
-//    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-//                                                             bundle: nil];
-//
-//    MenuVC *leftMenu = (MenuVC*)[mainStoryboard
-//                                                                 instantiateViewControllerWithIdentifier: @"MenuVC"];
-//
-//
-//    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
-//    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = 0.3;
-//    [SlideNavigationController sharedInstance].portraitSlideOffset = 100;
-//    [SlideNavigationController sharedInstance].enableShadow = YES;
-//
-//
-//    DishTypeListVC *vc = VCFromSB(DishTypeListVC, @"ListFood");
-//    [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
-//                                 andCompletion:nil];
-//
+
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle: nil];
+
+    MenuVC *leftMenu = (MenuVC*)[mainStoryboard
+                                                                 instantiateViewControllerWithIdentifier: @"MenuVC"];
+
+
+    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = 0.3;
+    [SlideNavigationController sharedInstance].portraitSlideOffset = 100;
+    [SlideNavigationController sharedInstance].enableShadow = YES;
+
+
+    DishTypeListVC *vc = VCFromSB(DishTypeListVC, @"ListFood");
+    [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
+                                 andCompletion:nil];
+
     
     
     return YES;

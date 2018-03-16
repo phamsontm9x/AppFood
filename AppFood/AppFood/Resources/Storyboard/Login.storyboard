@@ -20,11 +20,7 @@
         <!--WelcomeVC-->
         <scene sceneID="yz1-fO-9s0">
             <objects>
-<<<<<<< HEAD
-                <viewController id="JAd-k7-raW" customClass="WelcomeVC" sceneMemberID="viewController">
-=======
                 <viewController storyboardIdentifier="WelcomeVC" id="JAd-k7-raW" customClass="WelcomeVC" sceneMemberID="viewController">
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                     <view key="view" contentMode="scaleToFill" id="ZTw-Dq-Bhv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,12 +38,9 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="White"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Sign Up"/>
                                 </userDefinedRuntimeAttributes>
-<<<<<<< HEAD
-=======
                                 <connections>
                                     <action selector="onBtnSignUpClicked:" destination="JAd-k7-raW" eventType="touchUpInside" id="P9U-mu-CmP"/>
                                 </connections>
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogF-fy-e2l" customClass="HButton">
                                 <rect key="frame" x="40" y="567" width="120" height="50"/>
@@ -60,12 +53,9 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="Blue"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Login"/>
                                 </userDefinedRuntimeAttributes>
-<<<<<<< HEAD
-=======
                                 <connections>
                                     <action selector="onBtnLoginClicked:" destination="JAd-k7-raW" eventType="touchUpInside" id="DIF-BT-h7u"/>
                                 </connections>
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -82,13 +72,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="X55-OQ-cDU"/>
                     </view>
-<<<<<<< HEAD
-=======
                     <connections>
                         <outlet property="btnLogin" destination="ogF-fy-e2l" id="1Np-n9-PbF"/>
                         <outlet property="btnRegister" destination="3e0-bo-G52" id="uux-zs-GL3"/>
                     </connections>
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CDe-Fg-PGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,11 +84,7 @@
         <!--Sign InVC-->
         <scene sceneID="T09-sY-VYJ">
             <objects>
-<<<<<<< HEAD
-                <viewController id="y8u-2d-ViN" customClass="SignInVC" sceneMemberID="viewController">
-=======
                 <viewController storyboardIdentifier="SignInVC" id="y8u-2d-ViN" customClass="SignInVC" sceneMemberID="viewController">
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                     <view key="view" contentMode="scaleToFill" id="kqR-FJ-hoq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,11 +147,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Login"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWC-Ks-WlL">
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWC-Ks-WlL" customClass="HButton">
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                                 <rect key="frame" x="5" y="583" width="365" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Cdb-zI-XTf"/>
@@ -179,7 +158,6 @@
                                             <attributes>
                                                 <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <font key="NSFont" size="17" name="Helvetica"/>
-<<<<<<< HEAD
                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                     <tabStops>
                                                         <textTab alignment="left" location="28">
@@ -220,16 +198,12 @@
                                                         </textTab>
                                                     </tabStops>
                                                 </paragraphStyle>
-=======
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                                             </attributes>
                                         </fragment>
                                         <fragment content="  Sign up here.">
                                             <attributes>
                                                 <color key="NSColor" red="0.24706" green="0.72548999999999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <font key="NSFont" size="17" name="Helvetica"/>
-<<<<<<< HEAD
                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                     <tabStops>
                                                         <textTab alignment="left" location="28">
@@ -270,9 +244,6 @@
                                                         </textTab>
                                                     </tabStops>
                                                 </paragraphStyle>
-=======
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -303,15 +274,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zsI-nO-5YG"/>
                     </view>
-<<<<<<< HEAD
-=======
                     <connections>
                         <outlet property="btnLogin" destination="Nmb-h3-eUz" id="x5a-5B-di5"/>
                         <outlet property="btnRegister" destination="wWC-Ks-WlL" id="ynL-Ci-D7q"/>
                         <outlet property="tfEmail" destination="02A-Jr-hGG" id="hw6-ia-jqJ"/>
                         <outlet property="tfPassword" destination="eS5-wS-WUS" id="ZOa-gj-fZV"/>
                     </connections>
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQV-uK-GXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -320,11 +288,7 @@
         <!--Sign UpVC-->
         <scene sceneID="70J-sv-UIp">
             <objects>
-<<<<<<< HEAD
-                <viewController id="a5q-CH-iOG" customClass="SignUpVC" sceneMemberID="viewController">
-=======
                 <viewController storyboardIdentifier="SignUpVC" id="a5q-CH-iOG" customClass="SignUpVC" sceneMemberID="viewController">
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                     <view key="view" contentMode="scaleToFill" id="9NH-Ai-z33">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -401,7 +365,6 @@
                                             <attributes>
                                                 <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <font key="NSFont" size="18" name="Helvetica"/>
-<<<<<<< HEAD
                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                     <tabStops>
                                                         <textTab alignment="left" location="28">
@@ -442,16 +405,12 @@
                                                         </textTab>
                                                     </tabStops>
                                                 </paragraphStyle>
-=======
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                                             </attributes>
                                         </fragment>
                                         <fragment content=" ">
                                             <attributes>
                                                 <color key="NSColor" red="0.0" green="0.61568999999999996" blue="0.96862999999999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <font key="NSFont" size="18" name="Helvetica"/>
-<<<<<<< HEAD
                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                     <tabStops>
                                                         <textTab alignment="left" location="28">
@@ -492,16 +451,12 @@
                                                         </textTab>
                                                     </tabStops>
                                                 </paragraphStyle>
-=======
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                                             </attributes>
                                         </fragment>
                                         <fragment content="Login here">
                                             <attributes>
                                                 <color key="NSColor" red="0.24706" green="0.72548999999999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <font key="NSFont" size="18" name="Helvetica"/>
-<<<<<<< HEAD
                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                     <tabStops>
                                                         <textTab alignment="left" location="28">
@@ -542,9 +497,6 @@
                                                         </textTab>
                                                     </tabStops>
                                                 </paragraphStyle>
-=======
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -603,8 +555,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cel-Zj-drZ"/>
                     </view>
-<<<<<<< HEAD
-=======
                     <connections>
                         <outlet property="btnLogin" destination="cuh-kG-t4g" id="eJy-n9-rZB"/>
                         <outlet property="btnRegister" destination="GVw-k3-qcA" id="VQf-tI-maY"/>
@@ -612,7 +562,6 @@
                         <outlet property="tfPassword" destination="yDt-LB-EJP" id="rds-eh-NRy"/>
                         <outlet property="tfRePassword" destination="17o-2h-loe" id="7pX-Ih-M6J"/>
                     </connections>
->>>>>>> 60efe464715db29e718bd06949526f724e4dfeb9
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdb-Z7-lXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
