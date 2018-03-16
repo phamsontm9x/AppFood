@@ -7,6 +7,9 @@
 //
 
 #import "API.h"
+#import "UserDto.h"
+#import "Configure.h"
+#import "AppDelegate.h"
 
 @interface _API ()
 @property (nonatomic, assign) NSInteger _countRequest;
@@ -47,23 +50,19 @@
         cb = [callback copy];
     }
     
-    //ROUTE -> URL
-    NSString *strURL;
-
-    // For debug route
-    route = [strURL substringFromIndex:server.length];
-    
     
     // REQUEST
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    request.URL = [NSURL URLWithString:strURL];
+    request.URL = [NSURL URLWithString:SF(@"%@/%@",server,route)];
     request.cachePolicy = NSURLRequestReloadIgnoringCacheData;
     request.timeoutInterval = 30.0f;
     
     
+    
     // METHOD
-    //@[@"GET", @"POST", @"PUT", @"UPDATE", @"DELETE"]
-    NSString *method;
+    NSArray *arrMethod = arrMethods;
+    //methodType = VALRANGE(methodType, 0, [arrMethod count]);
+    NSString *method = arrMethod[methodType%NUM_METHOD];
     request.HTTPMethod = method;
     
     // HEADER
@@ -71,6 +70,10 @@
     [allHeader setObject:@"application/json" forKey:@"Content-Type"];
     if(headers) {
         [allHeader addEntriesFromDictionary:headers];
+    }
+    
+    if (App.configure.token) {
+        [allHeader setObject:App.configure.token forKey:@"token"];
     }
     
     request.allHTTPHeaderFields = allHeader;
@@ -120,39 +123,11 @@
             NSString *strLog = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"[API] [%@] [%@] SERVER RESPONSE: \n==>\n %@ \n\n<==\n\n", method, route, strLog);
             
-            BOOL serviceSuccess = [[respondData objectForKey:@"success"] boolValue];
-            if(serviceSuccess) {
-                NSMutableDictionary *content = [respondData objectForKey:@"results"];
-                if(content) {
-                    if([content isKindOfClass:[NSDictionary class]]) {
-                        NSString *token = [content objectForKey:@"token"];
-                        if(token && [token isKindOfClass:[NSString class]] && [token length] > 5) {
-                            NSInteger pfL = TK_RPREFIX.length;
-                            NSInteger sfL = TK_RSUFFIX.length;
-                            NSRange r = NSMakeRange(pfL, token.length-pfL-sfL);
-                            token = [token substringWithRange:r];
-                            token = SF(@"%@%@%@", TK_SPREFIX, token, TK_SSUFFIX);
-                            NSLog(@"%@",token);
-                            content = [content objectForKey:@"user"];
-                            [content setObject:token forKey:@"token"];
-                        }
-                    }
-                    if(cb) {
-                        cb(YES, successClass ? [[successClass alloc] initWithData:content] : nil);
-                        cb = NULL;
-                        return;
-                    }
-                }
-                
-            } else {
-                if ([respondData isKindOfClass:[NSDictionary class]]) {
-                    cb = NULL;
-                    return;
-                }else{
-                    NSLog(@"\nSERVER RETURN WRONG ERROR MESSAGE FORMAT!\n");
-                }
+            NSString *token = [respondData objectForKey:@"token"];
+            if (![token isEqualToString:@""]) {
+                NSLog(@"%@",token);
+                App.configure.token = token;
             }
-            
         }
     };
 
@@ -192,6 +167,26 @@
     }];
     
     [task resume];
+}
+
+- (void) processAPI:(NSString*)route
+             method:(NSInteger)methodType
+             header:(NSDictionary*)headers
+               body:(id)body
+       successClass:(Class)successClass
+           callback:(APICallback)callback {
+    
+    [self processAPI:route serverURL:ServerURL method:methodType header:headers body:body successClass:successClass callback:callback];
+}
+
+
+- (void)login:(UserDto*)user callback:(APICallback)callback {
+    [self processAPI:@"users/sign_in"
+              method:METHOD_POST
+              header:nil
+                body:user
+        successClass:[UserDto class]
+            callback:callback];
 }
 
 @end

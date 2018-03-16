@@ -19,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    //
+    _configure = [[Configure alloc] init];
+    
     //Init SlideNav
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"

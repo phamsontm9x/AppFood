@@ -11,6 +11,8 @@
 #import "DishListCell.h"
 #import "ListDishDto.h"
 #import "DishListVC.h"
+#import "UserDto.h"
+
 
 @interface DishTypeListVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
     
@@ -24,11 +26,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initData];
+    [self getDataFromServer];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+
+#pragma mark -GetDataFromServer
+- (void)getDataFromServer {
+    UserDto *user = [[UserDto alloc] init];
+    user.email = @"phananh123qqq@gmail.com";
+    user.password = @"123123qqq";
+    
+    [API login:user callback:^(BOOL success, id data) {
+        if (success) {
+            NSLog(@"%@",data);
+        }
+    }];
+    
+    
 }
 
 #pragma mark - SlideNavigationController Methods -

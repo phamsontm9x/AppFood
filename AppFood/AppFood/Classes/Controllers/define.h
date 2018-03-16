@@ -6,7 +6,37 @@
 //  Copyright © 2018 ThanhSon. All rights reserved.
 //
 
-#define ServerURL @"http://minamino.16mb.com/monanviet7.php"
+#define ServerURL @"https://cookbook-server.herokuapp.com"
+
+// Method Index
+#define NUM_METHOD          5
+
+#define METHOD_GET          (0*NUM_METHOD+0)
+#define METHOD_GET_2        (1*NUM_METHOD+0)
+
+#define METHOD_POST         (0*NUM_METHOD+1)
+#define METHOD_POST_2       (1*NUM_METHOD+1)
+#define METHOD_POST_3       (2*NUM_METHOD+1)
+#define METHOD_POST_4       (3*NUM_METHOD+1)
+#define METHOD_POST_5       (4*NUM_METHOD+1)
+#define METHOD_POST_6       (5*NUM_METHOD+1)
+#define METHOD_SAVEDATA     (6*NUM_METHOD+1)
+
+#define METHOD_PUT          (0*NUM_METHOD+2)
+#define METHOD_PUT_2        (1*NUM_METHOD+2)
+#define METHOD_PUT_3        (2*NUM_METHOD+2)
+#define METHOD_PUT_4        (3*NUM_METHOD+2)
+#define METHOD_PUT_5        (4*NUM_METHOD+2)
+#define METHOD_PUT_6        (5*NUM_METHOD+2)
+#define METHOD_PUT_7        (6*NUM_METHOD+2)
+//#define METHOD_UPDATE       (0*NUM_METHOD+3)
+//#define METHOD_UPDATE_2     (1*NUM_METHOD+3)
+
+
+#define METHOD_DELETE       (0*NUM_METHOD+4)
+#define METHOD_DELETE_2     (1*NUM_METHOD+4)
+#define METHOD_DELETE_3     (2*NUM_METHOD+4)
+#define METHOD_DELETE_4     (3*NUM_METHOD+4)
 
 #define arrMethods          @[@"GET", @"POST", @"PUT", @"UPDATE", @"DELETE"]
 
@@ -34,6 +64,8 @@
 
 #define TK_SPREFIX       @"cccc"
 #define TK_SSUFFIX       @"dddd"
+
+#define MAINCOLOR RGB(0x009DF7)
 
 
 #define IOS_8_OR_LATER() ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)

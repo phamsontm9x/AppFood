@@ -11,6 +11,8 @@
 #import "BaseCell.h"
 #import "DetailDishVC.h"
 
+
+
 @interface DishListVC () <UITableViewDelegate, UITableViewDataSource> {
     NSMutableArray *_listDish;
 }
@@ -87,7 +89,8 @@
     } else {
         cell.vBackground.backgroundColor = RGB(0xAAC9BB);
     }
-    
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:dto.url]
+                 placeholderImage:[UIImage imageNamed:@"none.9"]];
     //cell.imgIcon.image = [UIImage imageNamed:menuDto.img];
     return cell;
 }

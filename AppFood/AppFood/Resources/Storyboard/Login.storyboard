@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+            <string>Helvetica-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--WelcomeVC-->
+        <scene sceneID="yz1-fO-9s0">
+            <objects>
+                <viewController id="JAd-k7-raW" customClass="WelcomeVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZTw-Dq-Bhv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cookbooklogo.9" translatesAutoresizingMaskIntoConstraints="NO" id="vKd-hJ-oir">
+                                <rect key="frame" x="10" y="120" width="354" height="354"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vKd-hJ-oir" secondAttribute="height" multiplier="1:1" id="oZl-BV-LnE"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3e0-bo-G52" customClass="HButton">
+                                <rect key="frame" x="215" y="567" width="120" height="50"/>
+                                <state key="normal" title="Sign Up"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="White"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Sign Up"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogF-fy-e2l" customClass="HButton">
+                                <rect key="frame" x="40" y="567" width="120" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KUl-0p-KsB"/>
+                                    <constraint firstAttribute="width" constant="120" id="qWP-I0-8YG"/>
+                                </constraints>
+                                <state key="normal" title="Login"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="Blue"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Login"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ogF-fy-e2l" firstAttribute="leading" secondItem="X55-OQ-cDU" secondAttribute="leading" constant="40" id="5G9-tj-lys"/>
+                            <constraint firstItem="X55-OQ-cDU" firstAttribute="trailing" secondItem="3e0-bo-G52" secondAttribute="trailing" constant="40" id="AfB-v8-A9v"/>
+                            <constraint firstItem="ogF-fy-e2l" firstAttribute="height" secondItem="3e0-bo-G52" secondAttribute="height" id="RoT-uQ-Vfe"/>
+                            <constraint firstItem="ogF-fy-e2l" firstAttribute="centerY" secondItem="3e0-bo-G52" secondAttribute="centerY" id="StK-0d-o9j"/>
+                            <constraint firstItem="vKd-hJ-oir" firstAttribute="leading" secondItem="X55-OQ-cDU" secondAttribute="leading" constant="10" id="XUT-2Q-zXe"/>
+                            <constraint firstItem="X55-OQ-cDU" firstAttribute="bottom" secondItem="ogF-fy-e2l" secondAttribute="bottom" constant="50" id="avz-If-n73"/>
+                            <constraint firstItem="vKd-hJ-oir" firstAttribute="centerX" secondItem="ZTw-Dq-Bhv" secondAttribute="centerX" id="gXH-Sy-7ao"/>
+                            <constraint firstItem="ogF-fy-e2l" firstAttribute="width" secondItem="3e0-bo-G52" secondAttribute="width" id="so4-fL-kdB"/>
+                            <constraint firstItem="vKd-hJ-oir" firstAttribute="top" secondItem="X55-OQ-cDU" secondAttribute="top" constant="100" id="zSf-ci-lUj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="X55-OQ-cDU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CDe-Fg-PGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-260" y="146.17691154422789"/>
+        </scene>
+        <!--Sign InVC-->
+        <scene sceneID="T09-sY-VYJ">
+            <objects>
+                <viewController id="y8u-2d-ViN" customClass="SignInVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kqR-FJ-hoq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="02A-Jr-hGG">
+                                <rect key="frame" x="37" y="340" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4dk-nf-YJt"/>
+                                    <constraint firstAttribute="width" constant="300" id="zCu-0R-jWm"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eS5-wS-WUS">
+                                <rect key="frame" x="37" y="419" width="300" height="50"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ipX-kh-jST">
+                                <rect key="frame" x="0.0" y="30" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3i-O5-sXF">
+                                        <rect key="frame" x="20" y="15.5" width="20" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="PRT-Qa-UDg"/>
+                                            <constraint firstAttribute="width" constant="20" id="qLm-S4-xr9"/>
+                                        </constraints>
+                                        <state key="normal" image="back"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgj-gD-OF9">
+                                        <rect key="frame" x="160.5" y="19" width="54.5" height="23"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="53t-Oa-cqf"/>
+                                    <constraint firstItem="H3i-O5-sXF" firstAttribute="leading" secondItem="ipX-kh-jST" secondAttribute="leading" constant="20" id="Nbb-ec-qmy"/>
+                                    <constraint firstItem="sgj-gD-OF9" firstAttribute="centerY" secondItem="ipX-kh-jST" secondAttribute="centerY" id="g1z-k9-KM2"/>
+                                    <constraint firstItem="sgj-gD-OF9" firstAttribute="centerX" secondItem="ipX-kh-jST" secondAttribute="centerX" id="i6n-GO-CPO"/>
+                                    <constraint firstItem="H3i-O5-sXF" firstAttribute="centerY" secondItem="ipX-kh-jST" secondAttribute="centerY" id="rQ2-Co-mbU"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cookbooklogo.9" translatesAutoresizingMaskIntoConstraints="NO" id="we1-xH-1CD">
+                                <rect key="frame" x="50" y="140" width="274" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="E9o-CU-WV3"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmb-h3-eUz" customClass="HButton">
+                                <rect key="frame" x="37" y="508" width="300" height="50"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <state key="normal" title="Login"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="Blue"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Login"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWC-Ks-WlL">
+                                <rect key="frame" x="5" y="583" width="365" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Cdb-zI-XTf"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Don't have an account yet?">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="17" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="28">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="56">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="84">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="112">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="140">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="168">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="196">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="224">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="280">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="308">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="336">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="  Sign up here.">
+                                            <attributes>
+                                                <color key="NSColor" red="0.24706" green="0.72548999999999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="17" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="28">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="56">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="84">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="112">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="140">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="168">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="196">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="224">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="280">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="308">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="336">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="we1-xH-1CD" firstAttribute="top" secondItem="ipX-kh-jST" secondAttribute="bottom" constant="50" id="8dV-R7-kXN"/>
+                            <constraint firstItem="wWC-Ks-WlL" firstAttribute="leading" secondItem="zsI-nO-5YG" secondAttribute="leading" constant="5" id="CU7-mQ-fp8"/>
+                            <constraint firstItem="ipX-kh-jST" firstAttribute="leading" secondItem="zsI-nO-5YG" secondAttribute="leading" id="JXa-ho-i6O"/>
+                            <constraint firstItem="02A-Jr-hGG" firstAttribute="centerX" secondItem="kqR-FJ-hoq" secondAttribute="centerX" id="PZ1-hK-hbg"/>
+                            <constraint firstItem="eS5-wS-WUS" firstAttribute="height" secondItem="02A-Jr-hGG" secondAttribute="height" id="Qvs-KU-P3P"/>
+                            <constraint firstItem="wWC-Ks-WlL" firstAttribute="top" secondItem="Nmb-h3-eUz" secondAttribute="bottom" constant="25" id="TOe-L2-ZJH"/>
+                            <constraint firstItem="ipX-kh-jST" firstAttribute="top" secondItem="kqR-FJ-hoq" secondAttribute="top" constant="30" id="To2-YL-Mvb"/>
+                            <constraint firstItem="we1-xH-1CD" firstAttribute="leading" secondItem="zsI-nO-5YG" secondAttribute="leading" constant="50" id="UyC-nR-iPo"/>
+                            <constraint firstItem="Nmb-h3-eUz" firstAttribute="height" secondItem="eS5-wS-WUS" secondAttribute="height" id="WSy-L4-oCT"/>
+                            <constraint firstItem="eS5-wS-WUS" firstAttribute="width" secondItem="02A-Jr-hGG" secondAttribute="width" id="Wt1-SQ-8ud"/>
+                            <constraint firstItem="eS5-wS-WUS" firstAttribute="centerX" secondItem="02A-Jr-hGG" secondAttribute="centerX" id="YWS-FL-4Mr"/>
+                            <constraint firstItem="eS5-wS-WUS" firstAttribute="top" secondItem="02A-Jr-hGG" secondAttribute="bottom" constant="29" id="ZPs-7k-nbC"/>
+                            <constraint firstItem="Nmb-h3-eUz" firstAttribute="top" secondItem="eS5-wS-WUS" secondAttribute="bottom" constant="39" id="avf-EM-zOG"/>
+                            <constraint firstItem="02A-Jr-hGG" firstAttribute="top" secondItem="we1-xH-1CD" secondAttribute="bottom" constant="70" id="fJS-iD-GHr"/>
+                            <constraint firstItem="we1-xH-1CD" firstAttribute="centerX" secondItem="kqR-FJ-hoq" secondAttribute="centerX" id="ggN-NI-07G"/>
+                            <constraint firstItem="wWC-Ks-WlL" firstAttribute="centerX" secondItem="kqR-FJ-hoq" secondAttribute="centerX" id="ijD-y4-5Ks"/>
+                            <constraint firstItem="Nmb-h3-eUz" firstAttribute="centerX" secondItem="eS5-wS-WUS" secondAttribute="centerX" id="nt4-9g-FaS"/>
+                            <constraint firstItem="Nmb-h3-eUz" firstAttribute="width" secondItem="eS5-wS-WUS" secondAttribute="width" id="qTV-u9-Gs6"/>
+                            <constraint firstItem="zsI-nO-5YG" firstAttribute="trailing" secondItem="ipX-kh-jST" secondAttribute="trailing" id="uef-UJ-BT5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zsI-nO-5YG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQV-uK-GXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="508" y="139.880059970015"/>
+        </scene>
+        <!--Sign UpVC-->
+        <scene sceneID="70J-sv-UIp">
+            <objects>
+                <viewController id="a5q-CH-iOG" customClass="SignUpVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9NH-Ai-z33">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="h25-DE-bjx">
+                                <rect key="frame" x="37" y="190" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KLN-1e-BI4"/>
+                                    <constraint firstAttribute="width" constant="300" id="XFP-pk-o7W"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yDt-LB-EJP">
+                                <rect key="frame" x="37" y="270" width="300" height="50"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tD2-GT-8no">
+                                <rect key="frame" x="0.0" y="30" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xsj-sa-pva">
+                                        <rect key="frame" x="20" y="15.5" width="20" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="AwT-MW-HER"/>
+                                            <constraint firstAttribute="height" constant="30" id="Ll7-uF-i2q"/>
+                                        </constraints>
+                                        <state key="normal" image="back"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPq-TL-c6L">
+                                        <rect key="frame" x="147.5" y="19" width="80.5" height="23"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="HPq-TL-c6L" firstAttribute="centerY" secondItem="tD2-GT-8no" secondAttribute="centerY" id="b3h-Zq-kwy"/>
+                                    <constraint firstItem="Xsj-sa-pva" firstAttribute="centerY" secondItem="tD2-GT-8no" secondAttribute="centerY" id="jMf-oK-O5E"/>
+                                    <constraint firstItem="Xsj-sa-pva" firstAttribute="leading" secondItem="tD2-GT-8no" secondAttribute="leading" constant="20" id="kaZ-AH-Mmi"/>
+                                    <constraint firstItem="HPq-TL-c6L" firstAttribute="centerX" secondItem="tD2-GT-8no" secondAttribute="centerX" id="lwI-Xc-zz3"/>
+                                    <constraint firstAttribute="height" constant="60" id="y2W-rM-IaC"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re - Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="17o-2h-loe">
+                                <rect key="frame" x="37" y="350" width="300" height="50"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVw-k3-qcA" customClass="HButton">
+                                <rect key="frame" x="37" y="475" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Od5-En-ySC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <state key="normal" title="Sign Up"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="White"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Sign Up"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cuh-kG-t4g" customClass="HButton">
+                                <rect key="frame" x="5" y="560" width="365" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="NBL-Bh-aXG"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Already have an account?">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="18" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="28">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="56">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="84">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="112">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="140">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="168">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="196">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="224">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="280">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="308">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="336">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content=" ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.61568999999999996" blue="0.96862999999999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="18" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="28">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="56">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="84">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="112">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="140">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="168">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="196">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="224">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="280">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="308">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="336">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Login here">
+                                            <attributes>
+                                                <color key="NSColor" red="0.24706" green="0.72548999999999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="18" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="28">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="56">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="84">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="112">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="140">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="168">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="196">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="224">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="280">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="308">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="336">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMp-SQ-Vk7">
+                                <rect key="frame" x="37" y="410" width="300" height="35"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="By registering, you automatically accept the ">
+                                        <attributes>
+                                            <font key="NSFont" size="15" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Terms &amp; Policies">
+                                        <attributes>
+                                            <color key="NSColor" red="0.35231176018714905" green="0.76333862543106079" blue="0.94524437189102173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="15" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" of app.">
+                                        <attributes>
+                                            <font key="NSFont" size="15" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yDt-LB-EJP" firstAttribute="centerX" secondItem="h25-DE-bjx" secondAttribute="centerX" id="1BB-Aj-5u4"/>
+                            <constraint firstItem="17o-2h-loe" firstAttribute="top" secondItem="yDt-LB-EJP" secondAttribute="bottom" constant="30" id="4SK-Tk-gF5"/>
+                            <constraint firstItem="GVw-k3-qcA" firstAttribute="top" secondItem="JMp-SQ-Vk7" secondAttribute="bottom" constant="30" id="73d-h2-ZiA"/>
+                            <constraint firstItem="h25-DE-bjx" firstAttribute="top" secondItem="tD2-GT-8no" secondAttribute="bottom" constant="100" id="Dnk-f7-ihA"/>
+                            <constraint firstItem="17o-2h-loe" firstAttribute="height" secondItem="yDt-LB-EJP" secondAttribute="height" id="H2p-LO-lum"/>
+                            <constraint firstItem="17o-2h-loe" firstAttribute="width" secondItem="yDt-LB-EJP" secondAttribute="width" id="Ito-0k-m3l"/>
+                            <constraint firstItem="Cel-Zj-drZ" firstAttribute="trailing" secondItem="tD2-GT-8no" secondAttribute="trailing" id="K75-k5-WJl"/>
+                            <constraint firstItem="JMp-SQ-Vk7" firstAttribute="top" secondItem="17o-2h-loe" secondAttribute="bottom" constant="10" id="KSN-34-dho"/>
+                            <constraint firstItem="cuh-kG-t4g" firstAttribute="leading" secondItem="Cel-Zj-drZ" secondAttribute="leading" constant="5" id="MsV-1v-ixs"/>
+                            <constraint firstItem="GVw-k3-qcA" firstAttribute="centerX" secondItem="JMp-SQ-Vk7" secondAttribute="centerX" id="Ord-In-K8j"/>
+                            <constraint firstItem="yDt-LB-EJP" firstAttribute="top" secondItem="h25-DE-bjx" secondAttribute="bottom" constant="30" id="PMh-Pf-Mgz"/>
+                            <constraint firstItem="GVw-k3-qcA" firstAttribute="width" secondItem="JMp-SQ-Vk7" secondAttribute="width" id="SWN-Yr-EeM"/>
+                            <constraint firstItem="JMp-SQ-Vk7" firstAttribute="centerX" secondItem="17o-2h-loe" secondAttribute="centerX" id="T0T-EE-13g"/>
+                            <constraint firstItem="yDt-LB-EJP" firstAttribute="height" secondItem="h25-DE-bjx" secondAttribute="height" id="b7v-Qb-OgR"/>
+                            <constraint firstItem="17o-2h-loe" firstAttribute="centerX" secondItem="yDt-LB-EJP" secondAttribute="centerX" id="bvf-u7-aTv"/>
+                            <constraint firstItem="h25-DE-bjx" firstAttribute="centerX" secondItem="9NH-Ai-z33" secondAttribute="centerX" id="cHU-qx-51p"/>
+                            <constraint firstItem="Cel-Zj-drZ" firstAttribute="trailing" secondItem="cuh-kG-t4g" secondAttribute="trailing" constant="5" id="hA8-1G-wFd"/>
+                            <constraint firstItem="yDt-LB-EJP" firstAttribute="width" secondItem="h25-DE-bjx" secondAttribute="width" id="kfs-uJ-TJF"/>
+                            <constraint firstItem="tD2-GT-8no" firstAttribute="top" secondItem="9NH-Ai-z33" secondAttribute="top" constant="30" id="nD2-Ms-wMJ"/>
+                            <constraint firstItem="JMp-SQ-Vk7" firstAttribute="width" secondItem="17o-2h-loe" secondAttribute="width" id="oin-I0-wyK"/>
+                            <constraint firstItem="tD2-GT-8no" firstAttribute="leading" secondItem="Cel-Zj-drZ" secondAttribute="leading" id="vu2-zb-Tne"/>
+                            <constraint firstItem="cuh-kG-t4g" firstAttribute="top" secondItem="GVw-k3-qcA" secondAttribute="bottom" constant="35" id="zsA-Zb-Lo1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cel-Zj-drZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gdb-Z7-lXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1244" y="139.880059970015"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back" width="20" height="29"/>
+        <image name="cookbooklogo.9" width="196" height="86"/>
+    </resources>
+</document>
