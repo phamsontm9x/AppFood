@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "define.h"
 #import "SlideNavigationController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface BaseVC : UIViewController
 

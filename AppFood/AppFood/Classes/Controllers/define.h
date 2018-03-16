@@ -35,6 +35,8 @@
 #define TK_SPREFIX       @"cccc"
 #define TK_SSUFFIX       @"dddd"
 
+#define MAINCOLOR RGB(0x009DF7)
+
 
 #define IOS_8_OR_LATER() ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 #define IOS_9_OR_LATER() ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
@@ -463,7 +465,7 @@ for (NSInteger i = 0; i< _##Key.count; i++) { \
 #define SB_ListFood       @"ListFood"
 #define SB_Support        @"Support"
 #define SB_Main           @"Main"
-
+#define SB_Login          @"Login"
 
 #define COMPANY_PLACEHODER_ICON @"CompanyLogo"
 #define USER_PLACEHOLDER_ICON @"avatarCandidate"

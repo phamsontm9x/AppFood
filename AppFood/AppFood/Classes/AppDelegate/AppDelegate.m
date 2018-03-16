@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MenuVC.h"
 #import "DishTypeListVC.h"
+#import "WelcomeVC.h"
 
 @interface AppDelegate ()
 
@@ -20,23 +21,25 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     //Init SlideNav
+//
+//    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+//                                                             bundle: nil];
+//
+//    MenuVC *leftMenu = (MenuVC*)[mainStoryboard
+//                                                                 instantiateViewControllerWithIdentifier: @"MenuVC"];
+//
+//
+//    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+//    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = 0.3;
+//    [SlideNavigationController sharedInstance].portraitSlideOffset = 100;
+//    [SlideNavigationController sharedInstance].enableShadow = YES;
+//
+//
+//    DishTypeListVC *vc = VCFromSB(DishTypeListVC, @"ListFood");
+//    [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
+//                                 andCompletion:nil];
+//
     
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-                                                             bundle: nil];
-    
-    MenuVC *leftMenu = (MenuVC*)[mainStoryboard
-                                                                 instantiateViewControllerWithIdentifier: @"MenuVC"];
-    
-    
-    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
-    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = 0.3;
-    [SlideNavigationController sharedInstance].portraitSlideOffset = 100;
-    [SlideNavigationController sharedInstance].enableShadow = YES;
-    
-    
-    DishTypeListVC *vc = VCFromSB(DishTypeListVC, @"ListFood");
-    [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
-                                 andCompletion:nil];
     
     return YES;
 }
