@@ -15,7 +15,6 @@
 @property (nonatomic, weak) IBOutlet UITextField *tfPassword;
 @property (nonatomic, weak) IBOutlet HButton *btnLogin;
 @property (nonatomic, weak) IBOutlet HButton *btnRegister;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *csHeight;
 
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *password;

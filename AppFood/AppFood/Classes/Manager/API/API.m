@@ -180,6 +180,7 @@
     [self processAPI:route serverURL:ServerURL method:methodType header:headers body:body successClass:successClass callback:callback];
 }
 
+#pragma mark - Login
 
 - (void)login:(UserDto*)user callback:(APICallback)callback {
     [self processAPI:@"users/sign_in"
@@ -189,5 +190,15 @@
         successClass:[UserDto class]
             callback:callback];
 }
+
+- (void)registerAccount:(UserDto*)user callback:(APICallback)callback {
+    [self processAPI:@"users/register"
+              method:METHOD_POST_2
+              header:nil
+                body:user
+        successClass:nil
+            callback:callback];
+}
+
 
 @end

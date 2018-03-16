@@ -14,7 +14,13 @@
 @property (nonatomic, weak) IBOutlet UITextField *tfEmail;
 @property (nonatomic, weak) IBOutlet UITextField *tfPassword;
 @property (nonatomic, weak) IBOutlet UITextField *tfRePassword;
+@property (nonatomic, weak) IBOutlet UITextField *tfFullName;
 @property (nonatomic, weak) IBOutlet HButton *btnLogin;
 @property (nonatomic, weak) IBOutlet HButton *btnRegister;
+
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *password;
+@property (nonatomic, strong) NSString *repassword;
+@property (nonatomic, strong) NSString *fullName;
 
 @end

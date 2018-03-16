@@ -7,7 +7,6 @@
 //
 
 #import "SignInVC.h"
-
 #import "SignUpVC.h"
 #import "WelcomeVC.h"
 #import "DishTypeListVC.h"
@@ -36,13 +35,6 @@
 }
 
 - (void)initUI {
-    if (IP5) {
-        _csHeight.constant = 40;
-    } else if (IP6) {
-        _csHeight.constant = 80;
-    } else if (IP6PLUS) {
-        _csHeight.constant = 100;
-    }
     UITapGestureRecognizer *gesRecognizer = [[UITapGestureRecognizer alloc]
                                              initWithTarget:self
                                              action:@selector(hiddenKeybroad)];
@@ -96,7 +88,9 @@
     }];
 }
 
-
+- (IBAction)onBtnBackClicked:(HButton *)btn {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 //- (void)saveKeychainRememberLogin:(LoginDto*)dto {
 //
 //    NSError *error;

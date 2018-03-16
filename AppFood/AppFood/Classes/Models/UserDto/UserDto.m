@@ -32,8 +32,14 @@
 
 - (id )getJSONObjectWithMethod:(NSInteger)method{
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    JO(email);
-    JO(password);
+    if (method == METHOD_POST) {
+        JO(email);
+        JO(password);
+    } else if (method == METHOD_POST_2) {
+        JO(email);
+        JO(password);
+        JO(fullName);
+    }
     return dic;
 }
 

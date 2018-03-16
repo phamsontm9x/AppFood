@@ -38,9 +38,12 @@ typedef void (^APICallback)(BOOL success, id data);
        successClass:(Class)successClass
            callback:(APICallback)callback;
 
-
+#pragma mark - ListFood
 - (void)getListTypeDish:(APICallback)callback;
+
+#pragma mark - Login
 - (void)login:(UserDto*)user callback:(APICallback)callback;
+- (void)registerAccount:(UserDto*)user callback:(APICallback)callback;
 
 @end
 
