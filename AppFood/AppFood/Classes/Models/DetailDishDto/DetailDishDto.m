@@ -14,9 +14,9 @@
     self = [super init];
     
     __id = _id;
-    _img = strImg;
+    _image = strImg;
     _name = name;
-    _desc = desc;
+    _decriptions = desc;
     _url = url;
     _material = material;
     _making = making;
@@ -29,13 +29,14 @@
     self = [super init];
     if (dic) {
         if ([dic isKindOfClass:[NSDictionary class]]) {
-            IOK(_id,@"ID");
-            IOK(img,@"");
-            IOK(name,@"TenMonAn");
-            IOK(desc,@"MoTa");
-            IOK(url,@"Url");
-            IOK(material,@"NguyenLieu");
-            IOK(making,@"CachLam");
+            IO(_id);
+            IO(image);
+            IO(name);
+            IO(decriptions);
+            IO(url);
+            IO(material);
+            IO(making);
+            IO(categoryId);
         }
     }
     return self;
@@ -52,6 +53,22 @@
 
     return dic;
     
+}
+
+@end
+
+@implementation ListDishDetailDto
+
+- (instancetype)init {
+    self = [super init];
+    _list = [[NSMutableArray alloc] init];
+    return self;
+}
+
+- (id)initWithData:(NSDictionary *)dic {
+    self = [super init];
+    IAObj(list, dic, DetailDishDto);
+    return self;
 }
 
 @end

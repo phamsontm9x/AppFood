@@ -9,6 +9,7 @@
 #import "API.h"
 #import "UserDto.h"
 #import "ListDishDto.h"
+#import "DetailDishDto.h"
 #import "Configure.h"
 #import "AppDelegate.h"
 
@@ -219,4 +220,14 @@
         successClass:[ListDishTypeDto class]
             callback:callback];
 }
+
+- (void)getListDishDetail:(DishTypeDto*)dto callback:(APICallback)callback {
+    [self processAPI:SF(@"food/%@",dto._id)
+              method:METHOD_GET
+              header:nil
+                body:nil
+        successClass:[ListDishDetailDto class]
+            callback:callback];
+}
+
 @end

@@ -16,6 +16,7 @@
 @class UserDto;
 @class DetailDishDto;
 @class ListDishDto;
+@class DishTypeDto;
 
 typedef void (^APICallback)(BOOL success, id data);
 
@@ -40,6 +41,8 @@ typedef void (^APICallback)(BOOL success, id data);
 
 #pragma mark - ListFood
 - (void)getListTypeDish:(APICallback)callback;
+- (void)getListDishDetail:(DishTypeDto*)dto callback:(APICallback)callback;
+
 
 #pragma mark - Login
 - (void)login:(UserDto*)user callback:(APICallback)callback;
