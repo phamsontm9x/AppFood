@@ -8,12 +8,21 @@
 
 #import "BaseDto.h"
 
-@interface ListDishDto : BaseDto
+@class DishTypeDto;
+
+@interface DishTypeDto : BaseDto
 
 @property (nonatomic, strong) NSString *_id;
-@property (nonatomic, strong) NSString *img;
+@property (nonatomic, strong) NSString *image;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *created;
 
 - (id)initWithID:(NSString *)_id Image:(NSString *)strImg andName:(NSString*)name;
+
+@end
+
+@interface ListDishTypeDto : BaseDto
+
+@property (nonatomic, strong) NSMutableArray <DishTypeDto *>*list;
 
 @end
