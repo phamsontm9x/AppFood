@@ -10,6 +10,7 @@
 
 #import "SignUpVC.h"
 #import "WelcomeVC.h"
+#import "DishTypeListVC.h"
 
 @interface SignInVC () <UITextFieldDelegate, UIGestureRecognizerDelegate> {
     
@@ -29,6 +30,9 @@
     
     _tfEmail.returnKeyType = UIReturnKeyNext;
     _tfPassword.returnKeyType = UIReturnKeyGo;
+    _tfEmail.text = @"phananh123qqq@gmail.com";
+    _tfPassword.text =@"123123qqq";
+    
 }
 
 - (void)initUI {
@@ -75,53 +79,22 @@
 //}
 
 #pragma mark Login
-//- (IBAction)onBtnLoginClicked:(UIButton*)btn {
-
-//    [self.view endEditing:YES];
-//
-//    if(![self checkForAction]) {
-//        [App hideLoading];
-//        return;
-//    }
-//
-//    LoginDto *dto = [[LoginDto alloc] init];
-//    dto.email = _tfEmail.text;
-//    dto.password = _tfPassword.text;
-//
-//#if TARGET_OS_SIMULATOR
-//#else
-//    NSMutableDictionary *dicDeviceInfo = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_INFO_DEVICE];
-//    NSLog(@"\n\nDEVICE INFOR = %@ \n\n\n\n", dicDeviceInfo);
-//    dto.deviceDescription = dicDeviceInfo[@"deviceDescription"];
-//    dto.deviceOS = dicDeviceInfo[@"deviceOS"];
-//    dto.deviceName = dicDeviceInfo[@"deviceName"];
-//    dto.deviceOSVersion = dicDeviceInfo[@"deviceOSVersion"];
-//    dto.deviceFcmToken = dicDeviceInfo[@"deviceFcmToken"];
-//    dto.deviceAPNSToken = dicDeviceInfo[@"deviceAPNSToken"];
-//    Config.deviceAPNSToken = dicDeviceInfo[@"deviceAPNSToken"];
-//#endif
-//    NSLog(@"\n\nLOGIN INFOR = %@ \n\n\n\n", [dto getJSONObject]);
-//
-//    // Change Domain
-//    [Config setDomain:_tfDomain.text];
-//    [App showLoading];
-//    [API login:dto callback:^(BOOL success, UserDto *data) {
-//        if(success) {
-//
-//            [Config.userDefaults setBool:YES forKey:@"login"];
-//            [Config.userDefaults setObject:data.token forKey:@"tokenTemp"];
-//            [Config.userDefaults synchronize];
-//
-//            [Config setUser:data];
-//
-//            [self saveKeychainRememberLogin:dto];
-//            [App onLoginSuccess];
-//        } else {
-//            [self removeKeychainRememberLogin];
-//        }
-//        [App hideLoading];
-//    }];
-//}
+- (IBAction)onBtnLoginClicked:(UIButton*)btn {
+    
+    [App showLoading];
+    UserDto *user = [[UserDto alloc] init];
+    user.email = _tfEmail.text;
+    user.password = _tfPassword.text;
+    
+    [API login:user callback:^(BOOL success, id data) {
+        [App hideLoading];
+        if (success) {
+            DishTypeListVC *vc = VCFromSB(DishTypeListVC, SB_ListFood);
+            [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
+                                         andCompletion:nil];
+        }
+    }];
+}
 
 
 //- (void)saveKeychainRememberLogin:(LoginDto*)dto {

@@ -127,6 +127,7 @@
             if (![token isEqualToString:@""]) {
                 NSLog(@"%@",token);
                 App.configure.token = token;
+                cb(YES, data);
             }
         }
     };

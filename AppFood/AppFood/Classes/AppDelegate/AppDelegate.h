@@ -17,5 +17,8 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) Configure *configure;
 
+- (void) showLoading;
+- (void) hideLoading;
+
 @end
 

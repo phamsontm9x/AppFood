@@ -8,8 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MenuVC.h"
-#import "DishTypeListVC.h"
 #import "WelcomeVC.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface AppDelegate ()
 
@@ -38,7 +38,7 @@
     [SlideNavigationController sharedInstance].enableShadow = YES;
 
 
-    DishTypeListVC *vc = VCFromSB(DishTypeListVC, @"ListFood");
+    WelcomeVC *vc = VCFromSB(WelcomeVC, SB_Login);
     [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
                                  andCompletion:nil];
 
@@ -74,5 +74,24 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark - Loading
+
+- (void)showLoading{
+    [self showLoadingAction];
+}
+
+- (void)showLoadingAction {
+    if(![MBProgressHUD HUDForView:_window]) {
+        [MBProgressHUD showHUDAddedTo:_window animated:YES];
+    }
+}
+
+- (void)hideLoading {
+    [self performSelector:@selector(hideLoadingAction) withObject:nil afterDelay:0.25];
+}
+
+- (void) hideLoadingAction {
+    [MBProgressHUD hideHUDForView:_window animated:YES];
+}
 
 @end

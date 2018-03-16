@@ -26,7 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initData];
-    [self getDataFromServer];
+    //[self getDataFromServer];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     // Do any additional setup after loading the view.
 }
 
@@ -46,8 +47,6 @@
             NSLog(@"%@",data);
         }
     }];
-    
-    
 }
 
 #pragma mark - SlideNavigationController Methods -

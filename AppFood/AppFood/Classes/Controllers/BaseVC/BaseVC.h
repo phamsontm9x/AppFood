@@ -11,6 +11,7 @@
 #import "SlideNavigationController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "API.h"
+#import "AppDelegate.h"
 
 @interface BaseVC : UIViewController
 
