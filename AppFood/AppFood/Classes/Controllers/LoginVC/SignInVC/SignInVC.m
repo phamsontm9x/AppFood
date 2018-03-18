@@ -90,7 +90,7 @@
 }
 
 - (IBAction)onBtnBackClicked:(HButton *)btn {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 //- (void)saveKeychainRememberLogin:(LoginDto*)dto {
 //
