@@ -11,4 +11,12 @@
 
 @interface BaseTBV : UITableView
 
+@property (nonatomic, strong) UIRefreshControl *refreshCtrl;
+
+- (void)addPullRefreshAtVC:(id)vc toReloadAction:(SEL)action;
+
+- (void)showIndicator;
+- (void)hideIndicator;
+- (BOOL)isRefreshing;
+
 @end

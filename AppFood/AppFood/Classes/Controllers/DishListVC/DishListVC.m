@@ -23,7 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _listData = [[ListDishDetailDto alloc] init];
+    [self initUI];
+    [_tbvDish addPullRefreshAtVC:self toReloadAction:@selector(getDataFromServer)];
     [self getDataFromServer];
 }
 
@@ -32,11 +33,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initUI {
+    _listData = [[ListDishDetailDto alloc] init];
+    self.navigationItem.title = _typeDto.name;
+}
+
 - (void)getDataFromServer {
  
-    [App showLoading];
+    if (![_tbvDish.refreshCtrl isRefreshing]) {
+        [App showLoading];
+    }
     [API getListDishDetail:_typeDto callback:^(BOOL success, id data) {
         [App hideLoading];
+        [_tbvDish hideIndicator];
         if (success) {
             _listData = data;
             [_tbvDish reloadData];
@@ -55,7 +64,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return 80;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -70,14 +79,14 @@
     } else {
         cell.vBackground.backgroundColor = RGB(0xAAC9BB);
     }
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:dto.image]
+    [cell.imgIcon sd_setImageWithURL:[NSURL URLWithString:dto.image]
                  placeholderImage:[UIImage imageNamed:@"none.9"]];
-    //cell.imgIcon.image = [UIImage imageNamed:menuDto.img];
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DishListVC * vc = VCFromSB(DishListVC,SB_ListFood);
+    DetailDishVC * vc = VCFromSB(DetailDishVC,SB_ListFood);
     [self presentViewController:vc animated:YES completion:nil];
 }
 
