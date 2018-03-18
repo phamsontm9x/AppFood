@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -88,42 +89,43 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOe-rR-XzR" customClass="HButton">
-                                                    <rect key="frame" x="20" y="5.5" width="90" height="90"/>
+                                                    <rect key="frame" x="10" y="21" width="60" height="60"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                                     </accessibility>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="90" id="Q6K-1x-h9C"/>
-                                                        <constraint firstAttribute="height" constant="90" id="qOk-iL-n1q"/>
+                                                        <constraint firstAttribute="width" constant="60" id="Q6K-1x-h9C"/>
+                                                        <constraint firstAttribute="height" constant="60" id="qOk-iL-n1q"/>
                                                     </constraints>
                                                     <state key="normal" image="haisankhac"/>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjs-hj-3hi">
-                                                    <rect key="frame" x="120" y="5.5" width="185" height="45"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjs-hj-3hi">
+                                                    <rect key="frame" x="80" y="20.5" width="185" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="45" id="6PL-wc-xhx"/>
+                                                        <constraint firstAttribute="height" constant="40" id="r96-dr-1Ng"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQW-Zt-pKg">
-                                                    <rect key="frame" x="120" y="60" width="185" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="8uG-P0-J5O"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="80" y="60.5" width="185" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Log Out"/>
+                                                    <connections>
+                                                        <action selector="btnLogout:" destination="dF4-kb-640" eventType="touchUpInside" id="G8d-Tc-R2G"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="XOe-rR-XzR" firstAttribute="centerY" secondItem="V3w-2U-NCG" secondAttribute="centerY" id="1lC-UN-n27"/>
-                                                <constraint firstItem="PQW-Zt-pKg" firstAttribute="width" secondItem="Bjs-hj-3hi" secondAttribute="width" id="QD8-QB-CXH"/>
-                                                <constraint firstItem="Bjs-hj-3hi" firstAttribute="top" secondItem="XOe-rR-XzR" secondAttribute="top" id="Zlb-q3-hGJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="Bjs-hj-3hi" secondAttribute="trailing" constant="70" id="cf0-lz-vX3"/>
-                                                <constraint firstItem="Bjs-hj-3hi" firstAttribute="leading" secondItem="XOe-rR-XzR" secondAttribute="trailing" constant="10" id="hgX-R6-vhq"/>
-                                                <constraint firstItem="PQW-Zt-pKg" firstAttribute="centerX" secondItem="Bjs-hj-3hi" secondAttribute="centerX" id="naJ-tQ-hQx"/>
-                                                <constraint firstItem="PQW-Zt-pKg" firstAttribute="top" secondItem="Bjs-hj-3hi" secondAttribute="bottom" constant="10" id="rx0-mD-PDz"/>
-                                                <constraint firstItem="XOe-rR-XzR" firstAttribute="leading" secondItem="V3w-2U-NCG" secondAttribute="leading" constant="20" id="v0G-3a-K9g"/>
+                                                <constraint firstAttribute="trailing" secondItem="PQW-Zt-pKg" secondAttribute="trailing" constant="110" id="NLy-Vg-u10"/>
+                                                <constraint firstItem="PQW-Zt-pKg" firstAttribute="leading" secondItem="XOe-rR-XzR" secondAttribute="trailing" constant="10" id="SEu-gA-lfL"/>
+                                                <constraint firstItem="PQW-Zt-pKg" firstAttribute="top" secondItem="Bjs-hj-3hi" secondAttribute="bottom" id="V6r-p9-2zW"/>
+                                                <constraint firstItem="Bjs-hj-3hi" firstAttribute="leading" secondItem="XOe-rR-XzR" secondAttribute="trailing" constant="10" id="acy-1c-Tgm"/>
+                                                <constraint firstAttribute="trailing" secondItem="Bjs-hj-3hi" secondAttribute="trailing" constant="110" id="bsD-vC-FFc"/>
+                                                <constraint firstItem="Bjs-hj-3hi" firstAttribute="centerY" secondItem="V3w-2U-NCG" secondAttribute="centerY" multiplier="0.8" id="eaR-jT-sfR"/>
+                                                <constraint firstItem="XOe-rR-XzR" firstAttribute="leading" secondItem="V3w-2U-NCG" secondAttribute="leading" constant="10" id="v0G-3a-K9g"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

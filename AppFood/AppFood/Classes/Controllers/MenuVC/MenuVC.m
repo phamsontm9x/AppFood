@@ -12,6 +12,7 @@
 #import "SupportVC.h"
 #import "FavouriteListVC.h"
 #import "UserDto.h"
+#import "WelcomeVC.h"
 
 typedef enum : NSUInteger {
     List = 0,
@@ -53,6 +54,14 @@ typedef enum : NSUInteger {
     [_listMenu.list addObject:[[MenuDto alloc] initWithTitle:@"Về chúng tôi" andImage:@"info"]];
 }
 
+#pragma mark Action
+- (IBAction)btnLogout:(id)sender {
+    App.configure.userDto = nil;
+    WelcomeVC *vc = VCFromSB(WelcomeVC, SB_Login);
+    [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
+                                 andCompletion:nil];
+}
+
 #pragma mark - UITableViewCell
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -70,9 +79,8 @@ typedef enum : NSUInteger {
     
     if (indexPath.row == User) {
         BaseCell *cell = [_tbvMenu dequeueReusableCellWithIdentifier:@"UserCell"];
-        UserDto *user = [[UserDto alloc] init];
         [cell.btnAvatar setStyleAvatar];
-        cell.lblFullName.text = user.fullName;
+        cell.lblFullName.text = App.configure.userDto.fullName;
         cell.userInteractionEnabled = NO;
         
         return cell;

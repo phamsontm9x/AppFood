@@ -127,8 +127,10 @@
             if ([respondData isKindOfClass:[NSDictionary class]]) {
                 NSString *token = [respondData objectForKey:@"token"];
                 if (![token isEqualToString:@""]) {
-                    NSLog(@"%@",token);
+                    NSString *fullName = [respondData objectForKey:@"fullName"];
                     App.configure.token = token;
+                    App.configure.userDto = body;
+                    App.configure.userDto.fullName = fullName;
                     cb(YES, data);
                 } else {
                     cb (YES,data);
