@@ -142,16 +142,16 @@
                     return;
                 }
             }
-             
+            
         }
     };
-
+    
     [self increaseCountRequest];
     
     if (__countRequest > 0) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     }
-
+    
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -173,7 +173,7 @@
                     }
                 }
             }else{
-               
+                
             }
             
             // Other Case, Failed
@@ -214,6 +214,8 @@
             callback:callback];
 }
 
+#pragma mark - Category Food
+
 - (void)getListTypeDish:(APICallback)callback {
     [self processAPI:@"category/"
               method:METHOD_GET
@@ -232,4 +234,23 @@
             callback:callback];
 }
 
+- (void)createTypeDish:(DetailDishDto *)dto callback:(APICallback)callback {
+    [self processAPI:@"category/create"
+              method:METHOD_POST
+              header:nil
+                body:dto
+        successClass:[ListDishDetailDto class]
+            callback:callback];
+}
+
+- (void)getDiskDetail:(DetailDishDto *)dto callback:(APICallback)callback {
+    [self processAPI:SF(@"food/%@/detail",dto._id)
+              method:METHOD_GET
+              header:nil
+                body:nil
+        successClass:[DetailDishDto class]
+            callback:callback];
+}
+
 @end
+

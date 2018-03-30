@@ -42,15 +42,11 @@ typedef void (^APICallback)(BOOL success, id data);
 #pragma mark - ListFood
 - (void)getListTypeDish:(APICallback)callback;
 - (void)getListDishDetail:(DishTypeDto*)dto callback:(APICallback)callback;
-
+- (void)createTypeDish:(DishTypeDto *)dto callback:(APICallback)callback;
+- (void)getDiskDetail:(DetailDishDto *)dto callback:(APICallback)callback;
 
 #pragma mark - Login
 - (void)login:(UserDto*)user callback:(APICallback)callback;
 - (void)registerAccount:(UserDto*)user callback:(APICallback)callback;
 
 @end
-
-
-
-
-

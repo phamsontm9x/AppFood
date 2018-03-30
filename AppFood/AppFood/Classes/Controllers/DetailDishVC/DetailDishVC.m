@@ -7,8 +7,22 @@
 //
 
 #import "DetailDishVC.h"
+#import "DetailDishCell.h"
 
-@interface DetailDishVC ()
+
+typedef enum : NSUInteger {
+    Youtube = 0,
+    Desc,
+    Material,
+    Step,
+} Section;
+
+@interface DetailDishVC () <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate> {
+    
+    NSArray *arrTitle;
+    NSArray *arrIcon;
+    
+}
 
 @end
 
@@ -16,20 +30,44 @@
 
 - (void)viewDidLoad
 {
-    _label.text = _txtDishName;
+    _label.text = _fooddish.name;
     [super viewDidLoad];
     
+    [self initHeader];
+    [self initVar];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)initVar {
+    arrTitle = @[@"Video", @"Description", @"Material", @"Step"];
+    arrIcon = @[@"youtube", @"description", @"material", @"step"];
+    if (!_fooddish) {
+        _fooddish = [[DetailDishDto alloc] init];
+    }
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+- (void) initHeader {
     [self.headerView setDelegate:self];
     [self.headerView setCollapsingConstraint:_headerHeight];
     
-    // Setting alwaysCollapse to NO will cause the header to collapse only if there is
-    // enough room to scroll in the scroll view. Otherwise, scrolling through any content
-    // size (even if empty) will collapse the header with a content inset (default).
-    //    [self.headerView setAlwaysCollapse:NO];
-    
-    // Multiple vertical contraints can be added to collapse. Note that the transformation
-    // values will differ depending on how the header view is congifured to collapse.
-    //
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: _fooddish.image]];
+        if ( data == nil )
+            return;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // WARNING: is the cell still using the same data by this point??
+            _headerImageView.image = [UIImage imageWithData: data];
+        });
+    });
     //    [self.headerView setCollapsingConstraint:_headerTop];
     //    [self.headerView setCollapsingConstraint:_tableViewTop];
     
@@ -68,28 +106,108 @@
     [self.headerView addTransformingSubview:self.label attributes:attrs];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
-
 #pragma mark -
 #pragma mark Tableview data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 14;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return arrTitle.count;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    switch (section) {
+        case Step:
+            return _fooddish.content.count;
+        case Material:
+            return _fooddish.materials.count;
+            break;
+        default:
+            return 1;
+            break;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 40;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger section = indexPath.section;
+    switch (section) {
+        case Youtube:
+            return 250;
+            break;
+        case Desc:
+            return 150;
+            break;
+            
+        default:
+            return UITableViewAutomaticDimension;
+            break;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    DetailDishCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailDishHeaderCell"];
+    cell.lblTitle.text = arrTitle[section];
+    cell.imageIcon.image = [UIImage imageNamed:arrIcon[section]];
+    
+    return cell;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    cell.textLabel.text   = [NSString stringWithFormat:@"CONTENT %d", (int)indexPath.row];
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    
+    DetailDishCell *cell;
+    switch (section) {
+        case Youtube: {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"DetailDishYoutubeCell"];
+            cell.wvYoutube.allowsInlineMediaPlayback = YES;
+            cell.wvYoutube.delegate = self;
+            cell.wvYoutube.mediaPlaybackRequiresUserAction = NO;
+            cell.wvYoutube.mediaPlaybackAllowsAirPlay = YES;
+            cell.wvYoutube.scrollView.bounces = NO;
+            
+            NSString *linkUrl = _fooddish.youtube;
+            NSString *embemdHTML = SF(@"<iframe width=""%f"" height=""%f"" src=""%@"" frameborder=""0"" allow=""autoplay; encrypted-media"" allowfullscreen></iframe>",cell.wvYoutube.frame.size.width, cell.wvYoutube.frame.size.height, linkUrl);
+            [cell.wvYoutube loadHTMLString:embemdHTML baseURL:nil];
+            cell.backgroundColor = [UIColor darkGrayColor];
+            
+            return cell;
+        }
+        case Desc: {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"DetailDishDescCell"];
+            cell.lblSubTitle.text = _fooddish.decriptions;
+            return cell;
+        }
+        case Material: {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"DetailDishMaterialCell"];
+            
+            if (row == 0) {
+                cell.lblMaterial.text = @"Material";
+                cell.lblAmount.text = @"Amount";
+                cell.lblMaterial.textAlignment = NSTextAlignmentCenter;
+                cell.lblAmount.textAlignment = NSTextAlignmentCenter;
+                cell.lblAmount.font = [UIFont fontWithName:@"Helvetica Bold Oblique" size:14];
+                cell.lblMaterial.font = [UIFont fontWithName:@"Helvetica Bold Oblique" size:14];
+
+            } else {
+                cell.lblMaterial.text = _fooddish.materials[row - 1].material;
+                cell.lblAmount.text = _fooddish.materials[row - 1].amount;
+                cell.lblAmount.textAlignment = NSTextAlignmentRight;
+                cell.lblAmount.font = [UIFont fontWithName:@"Helvetica" size:14];
+                cell.lblMaterial.font = [UIFont fontWithName:@"Helvetica" size:14];
+                cell.lblMaterial.textAlignment = NSTextAlignmentLeft;
+            }
+            return cell;
+        }
+        default: {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"DetailDishDescCell"];
+            cell.lblSubTitle.text = _fooddish.material;
+            return cell;
+        }
+    }
     
     return cell;
 }

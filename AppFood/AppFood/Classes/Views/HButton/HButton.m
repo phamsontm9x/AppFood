@@ -235,60 +235,7 @@
     
 }
 
-- (void)setStyleMenuIsSelected {
-    self.layer.cornerRadius = 4.0f;
-    self.clipsToBounds = YES;
-    self.textColor = [UIColor whiteColor];
-    [self setBackgroundColor:MAINCOLOR];
-}
 
-- (void)setStyleMenuNonSelect {
-    self.layer.cornerRadius = 4.0f;
-    self.clipsToBounds = YES;
-    self.textColor = MAINCOLOR ;
-    [self setBackgroundColor:[UIColor whiteColor]];
-}
-
-- (void) setStyleClearSquare{
-    self.layer.cornerRadius = 4.0f;
-    self.clipsToBounds = YES;
-    [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self setBackgroundColor:[UIColor clearColor]];
-}
-
-- (void) setStyleClearSquareBlu {
-    self.layer.cornerRadius = 4.0f;
-    self.clipsToBounds = YES;
-    [self setTitleColor:MAINCOLOR forState:UIControlStateNormal];
-    [self setBackgroundColor:[UIColor clearColor]];
-    
-}
-- (void) setStyleGraySquare {
-    self.layer.cornerRadius = 4.0f;
-    self.clipsToBounds = YES;
-    [self setTitleColor:MAINCOLOR forState:UIControlStateNormal];
-    [self setBackgroundColor:RGBA(0xF2F2F2, 1)];
-    
-}
-
-- (void) setStyleGraySquareWithTitle:(NSString*)title {
-    self.layer.cornerRadius = 4.0f;
-    self.clipsToBounds = YES;
-    [self setTitleColor:MAINCOLOR forState:UIControlStateNormal];
-    [self setTitle:title forState:UIControlStateNormal];
-    [self setBackgroundColor:RGBA(0xF2F2F2, 1)];
-    
-}
-
-- (void) setStyleRoundClear:(UIColor *)color {
-    UIColor *cl = color ? color : MAINCOLOR;
-    self.layer.cornerRadius = 10;
-    self.layer.borderWidth = 1.0;
-    self.layer.borderColor = [cl CGColor];
-    self.clipsToBounds = YES;
-    self.backgroundColor = [UIColor clearColor];
-    self.textColor = cl;
-}
 
 - (void)setStyleButtonCircle:(UIColor *)color{
     UIColor *cl = color ? color : MAINCOLOR;
@@ -300,30 +247,6 @@
     [self layoutIfNeeded];
 }
 
-- (void) setStyleCircalClear:(UIColor *)color {
-    UIColor *cl = color ? color : MAINCOLOR;
-    self.layer.cornerRadius = self.frame.size.width/2;
-    self.clipsToBounds = YES;
-    self.layer.borderWidth = 1.0;
-    self.layer.borderColor = [cl CGColor];
-    self.clipsToBounds = YES;
-    self.backgroundColor = [UIColor clearColor];
-    self.textColor = cl;
-}
-
-
-- (void)setStyleRoundGray:(UIColor *)color {
-    UIColor *cl = color ? color : MAINCOLOR;
-    self.layer.cornerRadius = self.frame.size.width/2;
-    self.clipsToBounds = YES;
-    self.backgroundColor = GRAY_HEADER_COLOR;
-    self.textColor = cl;
-}
-- (void)setStylebackgroudGray:(UIColor *)color {
-    UIColor *cl = color ? color : MAINCOLOR;
-    self.backgroundColor = GRAY_HEADER_COLOR;
-    self.textColor = cl;
-}
 - (void) setStyleRound {
     self.layer.cornerRadius = 5.0;
     self.layer.borderWidth = 0;
@@ -336,66 +259,6 @@
 
 - (UIImage *)image {
     return self.imageView.image;
-}
-
-#pragma mark - Color
-- (UIColor *)textColor {
-    return self.currentTitleColor;
-}
-
-- (void)setTextColor:(UIColor *)textColor {
-    [self setTitleColor:textColor forState:UIControlStateNormal];
-}
-
-- (UIColor *)bgColor {
-    return self.backgroundColor;
-}
-
-- (void)setBgColor:(UIColor *)bgColor {
-    [self setBackgroundColor:bgColor];
-}
-
-#pragma mark - Edit
-- (void) setStyleEdit {
-    self.image = [UIImage imageNamed:@"iconEditBlue"];
-}
-
-#pragma mark - Delete
-- (void) setStyleDelete {
-    self.image = [UIImage imageNamed:@"iconDelete"];
-}
-
-- (void) setStyleDeleteRed {
-    self.image = [UIImage imageNamed:@"iconDeleteRed"];
-}
-
-#pragma mark - Add
-
-- (void) setStyleAddBlue {
-    self.image = [UIImage imageNamed:@"ic-AddItemBlue"];
-}
-
-#pragma mark - Check
-- (void)setIsChecked:(BOOL)isChecked {
-    _isChecked = isChecked;
-    UIImage *img = (_isChecked)?([UIImage imageNamed:@"Setting_Check"]) :([UIImage imageNamed:@"Setting_UnCheck"]);
-    [self setImage:img];
-}
-
-#pragma mark - Selection Style
-- (void)setStyleTickSquare{
-    [self setImage:[UIImage imageNamed:@"ic-squareCheck"] forState:UIControlStateNormal];
-    [self setImage:[UIImage imageNamed:@"ic-squareChecked"] forState:UIControlStateSelected];
-}
-
-- (void)setStyleTickOval{
-    [self setImage:[UIImage imageNamed:@"ic-ovalNonCheck"] forState:UIControlStateNormal];
-    [self setImage:[UIImage imageNamed:@"ic-ovalChecked"] forState:UIControlStateSelected];
-}
-
-- (void)setStyleTickArrow{
-    [self setImage:[UIImage imageNamed:@"ic-arrowDownBlue"] forState:UIControlStateNormal];
-    [self setImage:[UIImage imageNamed:@"ic-arrowUpBlue"] forState:UIControlStateSelected];
 }
 
 
@@ -501,49 +364,6 @@
 //        [self setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
 //
 //    }
-//}
-//
-//#pragma mark - add label noti
-//- (void)setLabelNumber:(NSInteger)number{
-//
-//    if (number == 0) {
-//        if (_lblNoti) {
-//            [_lblNoti removeFromSuperview];
-//            _lblNoti = nil;
-//        }
-//        return;
-//    }
-//
-//    NSString *str = SF(@"%ld", number);
-//    CGFloat width = [NSString widthOfString:str withFont:FONT(10)];
-//    CGFloat height = FONT(12).lineHeight;
-//    if (width < height) {
-//        width = height;
-//    }else{
-//        height = width;
-//    }
-//    CGRect frame = CGRectMake(0, 0, width, height);
-//    CGPoint point = CGPointMake(CGRectGetWidth(self.bounds)-width/4.0, height/4.0);
-//    point = [self convertPoint:point toView:self.superview];
-//
-//    if (!_lblNoti) {
-//        _lblNoti = [[UILabel alloc] initWithFrame:frame];
-//        _lblNoti.adjustsFontSizeToFitWidth = YES;
-//        _lblNoti.minimumScaleFactor = 0.5;
-//        _lblNoti.layer.masksToBounds = YES;
-//        _lblNoti.clipsToBounds = YES;
-//        _lblNoti.textAlignment = NSTextAlignmentCenter;
-//
-//        [_lblNoti setBackgroundColor:RED_COLOR_SUMMARY];
-//        [_lblNoti setTextColor:[UIColor whiteColor]];
-//        [_lblNoti setFont:FONT(12)];
-//
-//        [self.superview insertSubview:_lblNoti aboveSubview:self];
-//    }
-//
-//    [_lblNoti.layer setCornerRadius:height/4.0];
-//    _lblNoti.center = point;
-//    [_lblNoti setText:str];
 //}
 
 @end

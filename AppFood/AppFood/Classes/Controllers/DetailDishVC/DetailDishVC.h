@@ -8,6 +8,8 @@
 
 #import "BaseVC.h"
 #import "MGCollapsingHeaderView.h"
+#import "ListDishDto.h"
+#import "DetailDishDto.h"
 
 @interface DetailDishVC : BaseVC <MGCollapsingHeaderDelegate>
 
@@ -25,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *button5;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
-@property (weak, nonatomic) NSString *txtDishName;
+@property (nonatomic, strong) DetailDishDto *fooddish;
 
 @end
 

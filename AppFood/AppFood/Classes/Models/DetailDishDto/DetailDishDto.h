@@ -8,6 +8,8 @@
 
 #import "BaseDto.h"
 #import "ListDishDto.h"
+#import "ContentDetailDishDto.h"
+#import "MaterialsDetailDishDto.h"
 
 @class DetailDishDto;
 
@@ -16,14 +18,17 @@
 @property (nonatomic, strong) NSString *_id;
 @property (nonatomic, strong) NSString *image;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSDate *created;
+@property (nonatomic, assign) NSInteger favourite;
 @property (nonatomic, strong) NSString *decriptions;
-@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSString *youtube;
 @property (nonatomic, strong) NSString *material;
-@property (nonatomic, strong) NSString *making;
+@property (nonatomic, strong) NSMutableArray<MaterialsDetailDishDto *> *materials;
 @property (nonatomic, strong) NSString *categoryId;
+@property (nonatomic, strong) NSMutableArray<ContentDetailDishDto *> *content;
 
 
-- (id)initWithID:(NSString*)_id Image:(NSString*)strImg Name:(NSString*)name Desc:(NSString*)desc URL:(NSString*)url Material:(NSString*)material andMaking:(NSString*)making;
+- (id)initWithID:(NSString*)_id Image:(NSString*)strImg Name:(NSString*)name Desc:(NSString*)desc URL:(NSString*)youtube Material:(NSString*)material;
 
 @end
 

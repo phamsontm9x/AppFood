@@ -10,19 +10,25 @@
 
 @implementation DetailDishDto
 
-- (id)initWithID:(NSString*)_id Image:(NSString*)strImg Name:(NSString*)name Desc:(NSString*)desc URL:(NSString*)url Material:(NSString*)material andMaking:(NSString*)making {
+- (id)initWithID:(NSString*)_id Image:(NSString*)strImg Name:(NSString*)name Desc:(NSString*)desc URL:(NSString*)youtube Material:(NSString*)material {
     self = [super init];
     
     __id = _id;
     _image = strImg;
     _name = name;
     _decriptions = desc;
-    _url = url;
+    _youtube = youtube;
     _material = material;
-    _making = making;
     
     return self;
     
+}
+
+- (instancetype)init {
+    self = [super init];
+    _content = [[NSMutableArray <ContentDetailDishDto *> alloc] init];
+    _materials = [[NSMutableArray <MaterialsDetailDishDto *> alloc] init];
+    return self;
 }
 
 -(id)initWithData:(NSDictionary *)dic {
@@ -33,10 +39,12 @@
             IO(image);
             IO(name);
             IO(decriptions);
-            IO(url);
+            IO(youtube);
             IO(material);
-            IO(making);
             IO(categoryId);
+            IA(content, ContentDetailDishDto);
+            IA(materials, MaterialsDetailDishDto);
+            IN(favourite);
         }
     }
     return self;
@@ -50,7 +58,7 @@
 
 - (id )getJSONObjectWithMethod:(NSInteger)method{
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-
+    
     return dic;
     
 }
@@ -72,3 +80,4 @@
 }
 
 @end
+
