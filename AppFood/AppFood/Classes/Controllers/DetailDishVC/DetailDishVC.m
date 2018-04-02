@@ -223,6 +223,15 @@ typedef enum : NSUInteger {
           _headerTop.constant,
           _headerHeight.constant,
           _tableViewTop.constant);
+    
+    if (scrollView.contentOffset.y < 0) {
+        float scale = 1 + (ABS(MIN(scrollView.contentOffset.y, 0))/_headerView.bounds.size.height);
+
+        _headerView.transform = CGAffineTransformScale(CGAffineTransformIdentity,scale, scale);
+        CGRect frame = _headerView.frame;
+        [_headerImageView setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height + ABS(scrollView.contentOffset.y))];
+    }
+    
 }
 
 - (IBAction)btnDismisDetail:(id)sender {
