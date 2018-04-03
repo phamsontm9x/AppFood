@@ -1,18 +1,16 @@
 //
-//  HButton.m
-//  Gito
+//  MButton.m
+//  AppFood
 //
-//  Created by hangnguyen on 9/20/16.
-//  Copyright © 2016 Horical. All rights reserved.
+//  Created by hhumorous on 2/20/18.
+//  Copyright © 2018 ThanhSon. All rights reserved.
 //
 
-#import "HButton.h"
-//#import "CodeBrowseDto.h"
+#import "MButton.h"
 #import "AppDelegate.h"
 #import "define.h"
-//#import "NSString+Util.h"
 
-@implementation HButton {
+@implementation MButton {
     UILabel *_lblNoti;
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HButton.h"
+#import "MButton.h"
 
 @class BaseCell;
 
@@ -24,7 +24,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *lblFullName;
 
 @property (nonatomic, weak) IBOutlet UIButton *btnAction;
-@property (nonatomic, weak) IBOutlet HButton *btnAvatar;
+@property (nonatomic, weak) IBOutlet MButton *btnAvatar;
 @property (nonatomic, weak) IBOutlet UIButton *btnLogOut;
 
 @property (nonatomic, weak) IBOutlet UIImageView *imgIcon;

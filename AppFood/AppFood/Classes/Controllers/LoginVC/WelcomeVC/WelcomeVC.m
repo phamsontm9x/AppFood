@@ -29,12 +29,12 @@
 }
 
 
-- (IBAction)onBtnLoginClicked:(HButton*)btn {
+- (IBAction)onBtnLoginClicked:(MButton*)btn {
     SignInVC *vc = VCFromSB(SignInVC, SB_Login);
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (IBAction)onBtnSignUpClicked:(HButton*)btn {
+- (IBAction)onBtnSignUpClicked:(MButton*)btn {
     SignUpVC *vc = VCFromSB(SignUpVC, SB_Login);
     [self.navigationController pushViewController:vc animated:YES];
 }

@@ -14,7 +14,7 @@
 		424AF9E3206A382100EFF1EB /* MaterialsDetailDishDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AF9E2206A382100EFF1EB /* MaterialsDetailDishDto.m */; };
 		4261A3CA20576E85005B71AB /* DishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4261A3C920576E85005B71AB /* DishListCell.m */; };
 		42D16B3A205B4E9500384BC4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D16B39205B4E9500384BC4 /* Login.storyboard */; };
-		42D16B3E205B534300384BC4 /* HButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D16B3D205B534300384BC4 /* HButton.m */; };
+		42D16B3E205B534300384BC4 /* MButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D16B3D205B534300384BC4 /* MButton.m */; };
 		42D16B45205B65EB00384BC4 /* WelcomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D16B44205B65EB00384BC4 /* WelcomeVC.m */; };
 		42D16B48205B660100384BC4 /* SignInVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D16B47205B660100384BC4 /* SignInVC.m */; };
 		42D16B4B205B660E00384BC4 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D16B4A205B660E00384BC4 /* SignUpVC.m */; };
@@ -73,8 +73,8 @@
 		4261A3C820576E85005B71AB /* DishListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DishListCell.h; sourceTree = "<group>"; };
 		4261A3C920576E85005B71AB /* DishListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DishListCell.m; sourceTree = "<group>"; };
 		42D16B39205B4E9500384BC4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		42D16B3C205B534300384BC4 /* HButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HButton.h; sourceTree = "<group>"; };
-		42D16B3D205B534300384BC4 /* HButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HButton.m; sourceTree = "<group>"; };
+		42D16B3C205B534300384BC4 /* MButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MButton.h; sourceTree = "<group>"; };
+		42D16B3D205B534300384BC4 /* MButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MButton.m; sourceTree = "<group>"; };
 		42D16B43205B65EB00384BC4 /* WelcomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WelcomeVC.h; sourceTree = "<group>"; };
 		42D16B44205B65EB00384BC4 /* WelcomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WelcomeVC.m; sourceTree = "<group>"; };
 		42D16B46205B660100384BC4 /* SignInVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInVC.h; sourceTree = "<group>"; };
@@ -218,13 +218,13 @@
 			path = DishListCell;
 			sourceTree = "<group>";
 		};
-		42D16B3B205B534300384BC4 /* HButton */ = {
+		42D16B3B205B534300384BC4 /* MButton */ = {
 			isa = PBXGroup;
 			children = (
-				42D16B3C205B534300384BC4 /* HButton.h */,
-				42D16B3D205B534300384BC4 /* HButton.m */,
+				42D16B3C205B534300384BC4 /* MButton.h */,
+				42D16B3D205B534300384BC4 /* MButton.m */,
 			);
-			path = HButton;
+			path = MButton;
 			sourceTree = "<group>";
 		};
 		42D16B3F205B658500384BC4 /* LoginVC */ = {
@@ -441,7 +441,7 @@
 		CA6F272420511667000D38C7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				42D16B3B205B534300384BC4 /* HButton */,
+				42D16B3B205B534300384BC4 /* MButton */,
 				42D94A322058C5A6008C5202 /* AnimationsSlideNav */,
 				42D94A2C2058C568008C5202 /* SlideNavigationController */,
 				CA7D32BE205264FD00599755 /* MGCollapsingHeader */,
@@ -830,7 +830,7 @@
 				42D16B45205B65EB00384BC4 /* WelcomeVC.m in Sources */,
 				42D94A422058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				CA11035E205A686300905CC4 /* DishListVC.m in Sources */,
-				42D16B3E205B534300384BC4 /* HButton.m in Sources */,
+				42D16B3E205B534300384BC4 /* MButton.m in Sources */,
 				42D94A402058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				CA7D32CF20526AE900599755 /* MenuDto.m in Sources */,
 				CA6F27072051154D000D38C7 /* main.m in Sources */,
@@ -1006,7 +1006,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 52BEENW56Y;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AppFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ThanhsonApp.AppFood;
@@ -1021,7 +1021,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 52BEENW56Y;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AppFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ThanhsonApp.AppFood;

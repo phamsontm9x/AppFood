@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="width" secondItem="vKd-hJ-oir" secondAttribute="height" multiplier="1:1" id="oZl-BV-LnE"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3e0-bo-G52" customClass="HButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3e0-bo-G52" customClass="MButton">
                                 <rect key="frame" x="215" y="567" width="120" height="50"/>
                                 <state key="normal" title="Sign Up"/>
                                 <userDefinedRuntimeAttributes>
@@ -42,7 +42,7 @@
                                     <action selector="onBtnSignUpClicked:" destination="JAd-k7-raW" eventType="touchUpInside" id="P9U-mu-CmP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogF-fy-e2l" customClass="HButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogF-fy-e2l" customClass="MButton">
                                 <rect key="frame" x="40" y="567" width="120" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KUl-0p-KsB"/>
@@ -141,7 +141,7 @@
                                     <constraint firstAttribute="height" constant="130" id="E9o-CU-WV3"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmb-h3-eUz" customClass="HButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmb-h3-eUz" customClass="MButton">
                                 <rect key="frame" x="37" y="508" width="300" height="50"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <state key="normal" title="Login"/>
@@ -153,7 +153,7 @@
                                     <action selector="onBtnLoginClicked:" destination="y8u-2d-ViN" eventType="touchUpInside" id="of8-e1-aaA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWC-Ks-WlL" customClass="HButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWC-Ks-WlL" customClass="MButton">
                                 <rect key="frame" x="5" y="583" width="365" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Cdb-zI-XTf"/>
@@ -266,7 +266,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVw-k3-qcA" customClass="HButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVw-k3-qcA" customClass="MButton">
                                 <rect key="frame" x="37" y="495" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Od5-En-ySC"/>
@@ -281,7 +281,7 @@
                                     <action selector="onbtnSignupPress:" destination="a5q-CH-iOG" eventType="touchUpInside" id="n0h-8h-End"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cuh-kG-t4g" customClass="HButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cuh-kG-t4g" customClass="MButton">
                                 <rect key="frame" x="5" y="580" width="365" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="NBL-Bh-aXG"/>

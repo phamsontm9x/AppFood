@@ -1,23 +1,21 @@
 //
-//  HButton.h
-//  Gito
+//  MButton.h
+//  AppFood
 //
-//  Created by hangnguyen on 9/20/16.
-//  Copyright © 2016 Horical. All rights reserved.
+//  Created by hhumorous on 2/20/18.
+//  Copyright © 2018 ThanhSon. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
 #import "define.h"
-//#import "Utilities.h"
-//#import "UIImage+Gito.h"
 
 //IB_DESIGNABLE
 
 @class CodeBrowseDto;
 
-@interface HButton : UIButton
+@interface MButton : UIButton
 
 @property (copy, nonatomic) IBInspectable NSString *styleName;
 @property (copy, nonatomic) IBInspectable NSString *text;

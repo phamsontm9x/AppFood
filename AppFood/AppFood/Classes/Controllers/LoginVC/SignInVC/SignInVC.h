@@ -7,14 +7,14 @@
 //
 
 #import "BaseVC.h"
-#import "HButton.h"
+#import "MButton.h"
 
 @interface SignInVC : BaseVC
 
 @property (nonatomic, weak) IBOutlet UITextField *tfEmail;
 @property (nonatomic, weak) IBOutlet UITextField *tfPassword;
-@property (nonatomic, weak) IBOutlet HButton *btnLogin;
-@property (nonatomic, weak) IBOutlet HButton *btnRegister;
+@property (nonatomic, weak) IBOutlet MButton *btnLogin;
+@property (nonatomic, weak) IBOutlet MButton *btnRegister;
 
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *password;

@@ -7,11 +7,11 @@
 //
 
 #import "BaseVC.h"
-#import "HButton.h"
+#import "MButton.h"
 
 @interface WelcomeVC : BaseVC
 
-@property (nonatomic, weak) IBOutlet HButton *btnLogin;
-@property (nonatomic, weak) IBOutlet HButton *btnRegister;
+@property (nonatomic, weak) IBOutlet MButton *btnLogin;
+@property (nonatomic, weak) IBOutlet MButton *btnRegister;
 
 @end
