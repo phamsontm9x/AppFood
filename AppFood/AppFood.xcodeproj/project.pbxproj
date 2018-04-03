@@ -29,6 +29,7 @@
 		CA604D462051287000038AA9 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D452051287000038AA9 /* BaseCell.m */; };
 		CA604D4A20512A3100038AA9 /* BaseTBV.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D4920512A3100038AA9 /* BaseTBV.m */; };
 		CA604D5620513AA700038AA9 /* SupportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D5520513AA700038AA9 /* SupportVC.m */; };
+		CA6E016D207317CF00612934 /* SCollapsingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6E016C207317CF00612934 /* SCollapsingHeader.m */; };
 		CA6F26F92051154D000D38C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6F26F82051154D000D38C7 /* AppDelegate.m */; };
 		CA6F26FF2051154D000D38C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6F26FD2051154D000D38C7 /* Main.storyboard */; };
 		CA6F27012051154D000D38C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6F27002051154D000D38C7 /* Assets.xcassets */; };
@@ -110,6 +111,8 @@
 		CA604D5420513AA700038AA9 /* SupportVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupportVC.h; sourceTree = "<group>"; };
 		CA604D5520513AA700038AA9 /* SupportVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupportVC.m; sourceTree = "<group>"; };
 		CA604D5920513D3B00038AA9 /* define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
+		CA6E016B207317CF00612934 /* SCollapsingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCollapsingHeader.h; sourceTree = "<group>"; };
+		CA6E016C207317CF00612934 /* SCollapsingHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCollapsingHeader.m; sourceTree = "<group>"; };
 		CA6F26F42051154D000D38C7 /* AppFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6F26F72051154D000D38C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CA6F26F82051154D000D38C7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -345,6 +348,15 @@
 			path = SupportVC;
 			sourceTree = "<group>";
 		};
+		CA6E016A207317A100612934 /* SCollapsingHeader */ = {
+			isa = PBXGroup;
+			children = (
+				CA6E016B207317CF00612934 /* SCollapsingHeader.h */,
+				CA6E016C207317CF00612934 /* SCollapsingHeader.m */,
+			);
+			path = SCollapsingHeader;
+			sourceTree = "<group>";
+		};
 		CA6F26EB2051154D000D38C7 = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +453,7 @@
 		CA6F272420511667000D38C7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CA6E016A207317A100612934 /* SCollapsingHeader */,
 				42D16B3B205B534300384BC4 /* HButton */,
 				42D94A322058C5A6008C5202 /* AnimationsSlideNav */,
 				42D94A2C2058C568008C5202 /* SlideNavigationController */,
@@ -840,6 +853,7 @@
 				42D16B4B205B660E00384BC4 /* SignUpVC.m in Sources */,
 				CAE60957205BA4B200BB3D86 /* UserDto.m in Sources */,
 				CA604D462051287000038AA9 /* BaseCell.m in Sources */,
+				CA6E016D207317CF00612934 /* SCollapsingHeader.m in Sources */,
 				CA604D5620513AA700038AA9 /* SupportVC.m in Sources */,
 				CA604D4A20512A3100038AA9 /* BaseTBV.m in Sources */,
 				424AF9E3206A382100EFF1EB /* MaterialsDetailDishDto.m in Sources */,
