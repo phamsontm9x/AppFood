@@ -10,6 +10,7 @@
 #import "MenuVC.h"
 #import "WelcomeVC.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "SCollapsingHeader.h"
 
 @interface AppDelegate ()
 
@@ -38,7 +39,7 @@
     [SlideNavigationController sharedInstance].enableShadow = YES;
 
 
-    WelcomeVC *vc = VCFromSB(WelcomeVC, SB_Login);
+    SCollapsingHeader *vc = VCFromSB(SCollapsingHeader, SB_ListFood);
     [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
                                  andCompletion:nil];
 
