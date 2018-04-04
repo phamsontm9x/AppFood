@@ -6,7 +6,6 @@ target 'AppFood' do
     pod 'SDWebImage'
     pod 'Reachability' 
     pod 'CRPageViewController'
-    pod 'ARSegmentPager'
 
   target 'AppFoodUITests' do
     inherit! :search_paths

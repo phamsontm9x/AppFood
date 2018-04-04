@@ -7,12 +7,17 @@
 //
 
 #import "BaseCell.h"
+#import "HBanner.h"
 
 @interface DetailDishCell : BaseCell
 
 @property (nonatomic, weak) IBOutlet UIWebView *wvYoutube;
-@property (nonatomic, weak) IBOutlet UIImageView *imageIcon;
-@property (nonatomic, weak) IBOutlet UILabel *lblMaterial;
-@property (nonatomic, weak) IBOutlet UILabel *lblAmount;
+@property (nonatomic, weak) IBOutlet UIButton *btnFavorite;
+@property (nonatomic, weak) IBOutlet UILabel *lblIngredients;
+@property (nonatomic, weak) IBOutlet UILabel *lblTime;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *csBotRow;
+@property (nonatomic, weak) IBOutlet UIView *lineView;
+@property (nonatomic, strong) HBanner *vBanner;
+@property (nonatomic, weak) IBOutlet UIView *vContent;
 
 @end

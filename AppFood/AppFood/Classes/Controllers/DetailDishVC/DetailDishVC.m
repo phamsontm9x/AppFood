@@ -9,18 +9,20 @@
 #import "DetailDishVC.h"
 #import "DetailDishCell.h"
 
+#define offset_HeaderStop 180
+#define offset_B_LabelHeader 100
+#define distance_W_LabelHeader 20
 
 typedef enum : NSUInteger {
-    Youtube = 0,
-    Desc,
-    Material,
+    Desc = 0,
+    Info,
+    Ingredients,
     Step,
+    Youtube,
+    
 } Section;
 
-@interface DetailDishVC () <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate> {
-    
-    NSArray *arrTitle;
-    NSArray *arrIcon;
+@interface DetailDishVC () <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, UIScrollViewDelegate, HBannerDelegate> {
     
 }
 
@@ -30,94 +32,40 @@ typedef enum : NSUInteger {
 
 - (void)viewDidLoad
 {
-    _label.text = _fooddish.name;
+    [self initUIHeader];
     [super viewDidLoad];
     
-    [self initHeader];
     [self initVar];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+- (void)initUIHeader {
+    [_vHeaderTbv setFrame:CGRectMake(0, 0, SWIDTH, 200)]; // include (200 + size View 60)
+    _tbvContent.tableHeaderView = _vHeaderTbv;
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: _fooddish.image]];
+    _imgHeaderView.image = [UIImage imageWithData: imageData];
+    _vHeaderView.clipsToBounds = YES;
+    [self.navigationController setNavigationBarHidden:YES];
 }
-
 - (void)initVar {
-    arrTitle = @[@"Video", @"Description", @"Material", @"Step"];
-    arrIcon = @[@"youtube", @"description", @"material", @"step"];
     if (!_fooddish) {
         _fooddish = [[DetailDishDto alloc] init];
     }
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
-
-- (void) initHeader {
-    [self.headerView setDelegate:self];
-    [self.headerView setCollapsingConstraint:_headerHeight];
-    
-    dispatch_async(dispatch_get_global_queue(0,0), ^{
-        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: _fooddish.image]];
-        if ( data == nil )
-            return;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // WARNING: is the cell still using the same data by this point??
-            _headerImageView.image = [UIImage imageWithData: data];
-        });
-    });
-    //    [self.headerView setCollapsingConstraint:_headerTop];
-    //    [self.headerView setCollapsingConstraint:_tableViewTop];
-    
-    [self.headerView addFadingSubview:self.button1 fadeBy:0.3];
-    [self.headerView addFadingSubview:self.button2 fadeBy:0.3];
-    [self.headerView addFadingSubview:self.button3 fadeBy:0.3];
-    
-    NSArray *attrs;
-    double r = 16.0;
-    attrs    = @[
-                 [MGTransform transformAttribute:MGAttributeX byValue:-r],
-                 [MGTransform transformAttribute:MGAttributeY byValue:-r],
-                 [MGTransform transformAttribute:MGAttributeWidth byValue:2 * r],
-                 [MGTransform transformAttribute:MGAttributeHeight byValue:2 * r],
-                 [MGTransform transformAttribute:MGAttributeCornerRadius byValue:r],
-                 [MGTransform transformAttribute:MGAttributeFontSize byValue:12.0]
-                 ];
-    [self.headerView addTransformingSubview:self.button4 attributes:attrs];
-    
-    // Push this button closer to the bottom-right corner since the header view's height
-    // is resizing.
-    attrs = @[
-              [MGTransform transformAttribute:MGAttributeX byValue:10.0],
-              [MGTransform transformAttribute:MGAttributeY byValue:13.0],
-              [MGTransform transformAttribute:MGAttributeWidth byValue:-32.0],
-              [MGTransform transformAttribute:MGAttributeHeight byValue:-32.0]
-              ];
-    [self.headerView addTransformingSubview:self.button5 attributes:attrs];
-    
-    attrs = @[
-              [MGTransform transformAttribute:MGAttributeY byValue:-30.0],
-              [MGTransform transformAttribute:MGAttributeWidth byValue:-30.0],
-              [MGTransform transformAttribute:MGAttributeHeight byValue:-20.0],
-              [MGTransform transformAttribute:MGAttributeFontSize byValue:-10.]
-              ];
-    [self.headerView addTransformingSubview:self.label attributes:attrs];
-}
-
 #pragma mark -
 #pragma mark Tableview data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return arrTitle.count;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
+        case Info:
+            return 0;
         case Step:
-            return _fooddish.content.count;
-        case Material:
-            return _fooddish.materials.count;
+            return _fooddish.content.count + 1;
+        case Ingredients:
+            return _fooddish.materials.count + 1;
             break;
         default:
             return 1;
@@ -126,33 +74,29 @@ typedef enum : NSUInteger {
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 40;
+    return VALCond(section == Info, 50, 0);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger section = indexPath.section;
     switch (section) {
+        case Desc:
+            return 110;
         case Youtube:
             return 250;
-            break;
-        case Desc:
-            return 150;
-            break;
-            
+        case Step:
+            return VALCond(indexPath.row == 0, 40, 400);
         default:
-            return UITableViewAutomaticDimension;
-            break;
+            return 40;
     }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    DetailDishCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailDishHeaderCell"];
-    cell.lblTitle.text = arrTitle[section];
-    cell.imageIcon.image = [UIImage imageNamed:arrIcon[section]];
+    DetailDishCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoHeaderCell"];
+    cell.lblIngredients.text = SF(@"%ld",_fooddish.materials.count);
     
     return cell;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -161,8 +105,34 @@ typedef enum : NSUInteger {
     
     DetailDishCell *cell;
     switch (section) {
+        case Desc: {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"DescCell"];
+            cell.lblFullName.text = _fooddish.name;
+            cell.lblSubTitle.text = _fooddish.decriptions;
+            return cell;
+        }
+        case Ingredients: {
+            if (row == 0) {
+                cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientHeaderCell"];
+                [self roundedConners:UIRectCornerTopRight|UIRectCornerTopLeft withRadius:10 for:cell.vBackground];
+                
+            } else {
+                cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientRowCell"];
+                cell.lblTitle.text = _fooddish.materials[row - 1].material;
+                cell.lblSubTitle.text = _fooddish.materials[row - 1].amount;
+                if (_fooddish.materials.count == row) {
+                    cell.csBotRow.constant = 5;
+                    [self roundedConners:UIRectCornerBottomLeft|UIRectCornerBottomRight withRadius:10 for:cell.vBackground];
+                    cell.lineView.hidden = YES;
+                    [cell layoutSubviews];
+                    [cell layoutIfNeeded];
+                }
+            }
+            
+            return cell;
+        }
         case Youtube: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"DetailDishYoutubeCell"];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"YoutubeCell"];
             cell.wvYoutube.allowsInlineMediaPlayback = YES;
             cell.wvYoutube.delegate = self;
             cell.wvYoutube.mediaPlaybackRequiresUserAction = NO;
@@ -172,38 +142,34 @@ typedef enum : NSUInteger {
             NSString *linkUrl = _fooddish.youtube;
             NSString *embemdHTML = SF(@"<iframe width=""%f"" height=""%f"" src=""%@"" frameborder=""0"" allow=""autoplay; encrypted-media"" allowfullscreen></iframe>",cell.wvYoutube.frame.size.width, cell.wvYoutube.frame.size.height, linkUrl);
             [cell.wvYoutube loadHTMLString:embemdHTML baseURL:nil];
-            cell.backgroundColor = [UIColor darkGrayColor];
             
             return cell;
         }
-        case Desc: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"DetailDishDescCell"];
-            cell.lblSubTitle.text = _fooddish.decriptions;
-            return cell;
-        }
-        case Material: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"DetailDishMaterialCell"];
-            
+        case Step: {
             if (row == 0) {
-                cell.lblMaterial.text = @"Material";
-                cell.lblAmount.text = @"Amount";
-                cell.lblMaterial.textAlignment = NSTextAlignmentCenter;
-                cell.lblAmount.textAlignment = NSTextAlignmentCenter;
-                cell.lblAmount.font = [UIFont fontWithName:@"Helvetica Bold Oblique" size:14];
-                cell.lblMaterial.font = [UIFont fontWithName:@"Helvetica Bold Oblique" size:14];
-
+                cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+                cell.lblTitle.text = @"COOK STEPS";
             } else {
-                cell.lblMaterial.text = _fooddish.materials[row - 1].material;
-                cell.lblAmount.text = _fooddish.materials[row - 1].amount;
-                cell.lblAmount.textAlignment = NSTextAlignmentRight;
-                cell.lblAmount.font = [UIFont fontWithName:@"Helvetica" size:14];
-                cell.lblMaterial.font = [UIFont fontWithName:@"Helvetica" size:14];
-                cell.lblMaterial.textAlignment = NSTextAlignmentLeft;
+                cell = [tableView dequeueReusableCellWithIdentifier:@"StepRowCell"];
+                [cell.vBanner setDataDisplay:_fooddish.content[row - 1].arrImage];
+                [cell.vBanner setMaxPageControlNumber:_fooddish.content[row - 1].arrImage.count];
+                cell.vBanner.delegate = self;
+                
+                NSMutableAttributedString *att = [[NSMutableAttributedString alloc] init];
+                
+                NSString *stepNum = SF(@"Step %ld :\t", row);
+                NSString *stepContent = _fooddish.content[row - 1].step;
+                
+                [att appendAttributedString:[[NSAttributedString alloc] initWithString:stepNum attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:13]}]];
+                [att appendAttributedString:[[NSAttributedString alloc] initWithString:stepContent]];
+                
+                cell.lblSubTitle.attributedText = att;
             }
+            
             return cell;
         }
         default: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"DetailDishDescCell"];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientRowCell"];
             cell.lblSubTitle.text = _fooddish.material;
             return cell;
         }
@@ -212,47 +178,58 @@ typedef enum : NSUInteger {
     return cell;
 }
 
-#pragma mark -
-#pragma mark Scroll View Delegate
+#pragma mark - Action
+- (IBAction)onBtnBackClicked:(UIButton *)btn {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    [self.headerView collapseWithScroll:scrollView];
-    
-    NSLog(@"V:|-(%.2f)-header(%.2f)-(%.2f)-|",
-          _headerTop.constant,
-          _headerHeight.constant,
-          _tableViewTop.constant);
-    
+#pragma mark - ScrollDeletage
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView.contentOffset.y < 0) {
-        float scale = 1 + (ABS(MIN(scrollView.contentOffset.y, 0))/_headerView.bounds.size.height);
-
-        _headerView.transform = CGAffineTransformScale(CGAffineTransformIdentity,scale, scale);
+        [self collapHeaderWithContentOffSetPull:scrollView.contentOffset.y];
+    } else {
+        [self collapHeaderWithContentOffSetUpDown:scrollView.contentOffset.y];
     }
     
 }
 
-- (IBAction)btnDismisDetail:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)collapHeaderWithContentOffSetPull :(float)offset {
+    float height = _vHeaderView.bounds.size.height;
+    float scale = -(offset) / height + 1;
+    float headerSizevariation = ((height * scale) - height)/2.0;
+    
+    CATransform3D transform = CATransform3DIdentity;
+    transform = CATransform3DTranslate(transform, 0, headerSizevariation, 0);
+    transform = CATransform3DScale(transform, scale ,scale, 0);
+    _vHeaderView.layer.transform = transform;
 }
 
-#pragma mark -
-#pragma mark Collapsing Header Delegate
+- (void)collapHeaderWithContentOffSetUpDown :(float)offset {
+    //    float height = _vHeaderView.bounds.size.height;
+    //    float scale = -(offset) / height + 1;
+    CATransform3D transform = CATransform3DIdentity;
+    // Header -----------
+    
+    transform = CATransform3DTranslate(transform, 0, MAX(-offset_HeaderStop, -offset),0);
+    
+    _vHeaderView.layer.transform = transform;
+    
+    //  ------------ Label
+    
+    CATransform3D labelTransform = CATransform3DMakeTranslation(0, MAX(-distance_W_LabelHeader, offset_B_LabelHeader - offset), 0);
+    _lblHeader.layer.transform = labelTransform;
+    
+    //ViewHeader eff
+    _vEff.alpha = MIN(1.0, (offset - offset_B_LabelHeader)/distance_W_LabelHeader);
+    
+}
 
-- (void)headerDidCollapseToOffset:(double)offset
-{
-    NSLog(@"collapse %.4f", offset);
+- (void)roundedConners:(UIRectCorner )corners withRadius:(CGFloat )radius for:(UIView *)view {
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(radius, radius)];
+    CAShapeLayer *mask = [[CAShapeLayer alloc] init];
+    mask.path = path.CGPath;
+    view.layer.mask = mask;
 }
-- (void)headerDidFinishCollapsing
-{
-    NSLog(@"collapsed!!!");
-}
-- (void)headerDidExpandToOffset:(double)offset
-{
-    NSLog(@"expand %.4f", offset);
-}
-- (void)headerDidFinishExpanding
-{
-    NSLog(@"expanded!!!");
-}
+
 @end

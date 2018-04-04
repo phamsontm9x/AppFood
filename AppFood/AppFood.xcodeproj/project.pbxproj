@@ -11,6 +11,10 @@
 		2F1A4401D105E3AAD142D9FD /* libPods-AppFoodUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 518106738C9A387123A37EE6 /* libPods-AppFoodUITests.a */; };
 		42150DEF205FAC18004E23FF /* ContentDetailDishDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 42150DEE205FAC18004E23FF /* ContentDetailDishDto.m */; };
 		42276A58206929D600F20ECC /* DetailDishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42276A57206929D600F20ECC /* DetailDishCell.m */; };
+		42350B0C20750CA000FF1B21 /* HBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 42350B0620750CA000FF1B21 /* HBanner.m */; };
+		42350B0D20750CA000FF1B21 /* HBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42350B0720750CA000FF1B21 /* HBanner.xib */; };
+		42350B0E20750CA000FF1B21 /* HBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42350B0A20750CA000FF1B21 /* HBannerCell.m */; };
+		42350B0F20750CA000FF1B21 /* HBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42350B0B20750CA000FF1B21 /* HBannerCell.xib */; };
 		424AF9E3206A382100EFF1EB /* MaterialsDetailDishDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AF9E2206A382100EFF1EB /* MaterialsDetailDishDto.m */; };
 		4261A3CA20576E85005B71AB /* DishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4261A3C920576E85005B71AB /* DishListCell.m */; };
 		42D16B3A205B4E9500384BC4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D16B39205B4E9500384BC4 /* Login.storyboard */; };
@@ -29,7 +33,6 @@
 		CA604D462051287000038AA9 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D452051287000038AA9 /* BaseCell.m */; };
 		CA604D4A20512A3100038AA9 /* BaseTBV.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D4920512A3100038AA9 /* BaseTBV.m */; };
 		CA604D5620513AA700038AA9 /* SupportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D5520513AA700038AA9 /* SupportVC.m */; };
-		CA6E016D207317CF00612934 /* SCollapsingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6E016C207317CF00612934 /* SCollapsingHeader.m */; };
 		CA6F26F92051154D000D38C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6F26F82051154D000D38C7 /* AppDelegate.m */; };
 		CA6F26FF2051154D000D38C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6F26FD2051154D000D38C7 /* Main.storyboard */; };
 		CA6F27012051154D000D38C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6F27002051154D000D38C7 /* Assets.xcassets */; };
@@ -40,7 +43,6 @@
 		CA6F272E2051187D000D38C7 /* MenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6F272D2051187D000D38C7 /* MenuVC.m */; };
 		CA7D32BB20525D2E00599755 /* BaseNV.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32BA20525D2E00599755 /* BaseNV.m */; };
 		CA7D32BD2052629000599755 /* Support.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7D32BC2052629000599755 /* Support.storyboard */; };
-		CA7D32C1205264FE00599755 /* MGCollapsingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32C0205264FD00599755 /* MGCollapsingHeaderView.m */; };
 		CA7D32C32052655200599755 /* ListFood.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7D32C22052655200599755 /* ListFood.storyboard */; };
 		CA7D32CB20526AC600599755 /* BaseDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32CA20526AC600599755 /* BaseDto.m */; };
 		CA7D32CF20526AE900599755 /* MenuDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32CE20526AE900599755 /* MenuDto.m */; };
@@ -69,6 +71,12 @@
 		42150DEE205FAC18004E23FF /* ContentDetailDishDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentDetailDishDto.m; sourceTree = "<group>"; };
 		42276A56206929D600F20ECC /* DetailDishCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailDishCell.h; sourceTree = "<group>"; };
 		42276A57206929D600F20ECC /* DetailDishCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailDishCell.m; sourceTree = "<group>"; };
+		42350B0520750CA000FF1B21 /* HBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBanner.h; sourceTree = "<group>"; };
+		42350B0620750CA000FF1B21 /* HBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBanner.m; sourceTree = "<group>"; };
+		42350B0720750CA000FF1B21 /* HBanner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HBanner.xib; sourceTree = "<group>"; };
+		42350B0920750CA000FF1B21 /* HBannerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBannerCell.h; sourceTree = "<group>"; };
+		42350B0A20750CA000FF1B21 /* HBannerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBannerCell.m; sourceTree = "<group>"; };
+		42350B0B20750CA000FF1B21 /* HBannerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HBannerCell.xib; sourceTree = "<group>"; };
 		424AF9E1206A382100EFF1EB /* MaterialsDetailDishDto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialsDetailDishDto.h; sourceTree = "<group>"; };
 		424AF9E2206A382100EFF1EB /* MaterialsDetailDishDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialsDetailDishDto.m; sourceTree = "<group>"; };
 		4261A3C820576E85005B71AB /* DishListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DishListCell.h; sourceTree = "<group>"; };
@@ -111,8 +119,6 @@
 		CA604D5420513AA700038AA9 /* SupportVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupportVC.h; sourceTree = "<group>"; };
 		CA604D5520513AA700038AA9 /* SupportVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupportVC.m; sourceTree = "<group>"; };
 		CA604D5920513D3B00038AA9 /* define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
-		CA6E016B207317CF00612934 /* SCollapsingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCollapsingHeader.h; sourceTree = "<group>"; };
-		CA6E016C207317CF00612934 /* SCollapsingHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCollapsingHeader.m; sourceTree = "<group>"; };
 		CA6F26F42051154D000D38C7 /* AppFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6F26F72051154D000D38C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CA6F26F82051154D000D38C7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -131,8 +137,6 @@
 		CA7D32B920525D2E00599755 /* BaseNV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNV.h; sourceTree = "<group>"; };
 		CA7D32BA20525D2E00599755 /* BaseNV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNV.m; sourceTree = "<group>"; };
 		CA7D32BC2052629000599755 /* Support.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Support.storyboard; sourceTree = "<group>"; };
-		CA7D32BF205264FD00599755 /* MGCollapsingHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGCollapsingHeaderView.h; sourceTree = "<group>"; };
-		CA7D32C0205264FD00599755 /* MGCollapsingHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGCollapsingHeaderView.m; sourceTree = "<group>"; };
 		CA7D32C22052655200599755 /* ListFood.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListFood.storyboard; sourceTree = "<group>"; };
 		CA7D32C920526AC600599755 /* BaseDto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseDto.h; sourceTree = "<group>"; };
 		CA7D32CA20526AC600599755 /* BaseDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseDto.m; sourceTree = "<group>"; };
@@ -201,6 +205,27 @@
 				42276A57206929D600F20ECC /* DetailDishCell.m */,
 			);
 			path = DetailDishCell;
+			sourceTree = "<group>";
+		};
+		42350B0420750CA000FF1B21 /* HBanner */ = {
+			isa = PBXGroup;
+			children = (
+				42350B0520750CA000FF1B21 /* HBanner.h */,
+				42350B0620750CA000FF1B21 /* HBanner.m */,
+				42350B0720750CA000FF1B21 /* HBanner.xib */,
+				42350B0820750CA000FF1B21 /* HBannerCell */,
+			);
+			path = HBanner;
+			sourceTree = "<group>";
+		};
+		42350B0820750CA000FF1B21 /* HBannerCell */ = {
+			isa = PBXGroup;
+			children = (
+				42350B0920750CA000FF1B21 /* HBannerCell.h */,
+				42350B0A20750CA000FF1B21 /* HBannerCell.m */,
+				42350B0B20750CA000FF1B21 /* HBannerCell.xib */,
+			);
+			path = HBannerCell;
 			sourceTree = "<group>";
 		};
 		424AF9E0206A37CF00EFF1EB /* MaterialsDetailDishDto */ = {
@@ -348,15 +373,6 @@
 			path = SupportVC;
 			sourceTree = "<group>";
 		};
-		CA6E016A207317A100612934 /* SCollapsingHeader */ = {
-			isa = PBXGroup;
-			children = (
-				CA6E016B207317CF00612934 /* SCollapsingHeader.h */,
-				CA6E016C207317CF00612934 /* SCollapsingHeader.m */,
-			);
-			path = SCollapsingHeader;
-			sourceTree = "<group>";
-		};
 		CA6F26EB2051154D000D38C7 = {
 			isa = PBXGroup;
 			children = (
@@ -453,11 +469,10 @@
 		CA6F272420511667000D38C7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CA6E016A207317A100612934 /* SCollapsingHeader */,
-				42D16B3B205B534300384BC4 /* HButton */,
+				42350B0420750CA000FF1B21 /* HBanner */,
+				42D16B3B205B534300384BC4 /* MButton */,
 				42D94A322058C5A6008C5202 /* AnimationsSlideNav */,
 				42D94A2C2058C568008C5202 /* SlideNavigationController */,
-				CA7D32BE205264FD00599755 /* MGCollapsingHeader */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -507,15 +522,6 @@
 				CA7D32BA20525D2E00599755 /* BaseNV.m */,
 			);
 			path = BaseNV;
-			sourceTree = "<group>";
-		};
-		CA7D32BE205264FD00599755 /* MGCollapsingHeader */ = {
-			isa = PBXGroup;
-			children = (
-				CA7D32BF205264FD00599755 /* MGCollapsingHeaderView.h */,
-				CA7D32C0205264FD00599755 /* MGCollapsingHeaderView.m */,
-			);
-			path = MGCollapsingHeader;
 			sourceTree = "<group>";
 		};
 		CA7D32C820526AA600599755 /* MenuDto */ = {
@@ -702,9 +708,11 @@
 			files = (
 				CA6F27042051154D000D38C7 /* LaunchScreen.storyboard in Resources */,
 				CA6F27012051154D000D38C7 /* Assets.xcassets in Resources */,
+				42350B0D20750CA000FF1B21 /* HBanner.xib in Resources */,
 				42D16B3A205B4E9500384BC4 /* Login.storyboard in Resources */,
 				CA7D32C32052655200599755 /* ListFood.storyboard in Resources */,
 				CA7D32BD2052629000599755 /* Support.storyboard in Resources */,
+				42350B0F20750CA000FF1B21 /* HBannerCell.xib in Resources */,
 				CA6F26FF2051154D000D38C7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -853,12 +861,12 @@
 				42D16B4B205B660E00384BC4 /* SignUpVC.m in Sources */,
 				CAE60957205BA4B200BB3D86 /* UserDto.m in Sources */,
 				CA604D462051287000038AA9 /* BaseCell.m in Sources */,
-				CA6E016D207317CF00612934 /* SCollapsingHeader.m in Sources */,
 				CA604D5620513AA700038AA9 /* SupportVC.m in Sources */,
 				CA604D4A20512A3100038AA9 /* BaseTBV.m in Sources */,
 				424AF9E3206A382100EFF1EB /* MaterialsDetailDishDto.m in Sources */,
+				42350B0E20750CA000FF1B21 /* HBannerCell.m in Sources */,
+				42350B0C20750CA000FF1B21 /* HBanner.m in Sources */,
 				CA6F26F92051154D000D38C7 /* AppDelegate.m in Sources */,
-				CA7D32C1205264FE00599755 /* MGCollapsingHeaderView.m in Sources */,
 				42D94A3F2058C5A6008C5202 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				CA6F272E2051187D000D38C7 /* MenuVC.m in Sources */,
 				4261A3CA20576E85005B71AB /* DishListCell.m in Sources */,

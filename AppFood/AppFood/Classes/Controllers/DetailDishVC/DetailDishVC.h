@@ -7,25 +7,26 @@
 //
 
 #import "BaseVC.h"
-#import "MGCollapsingHeaderView.h"
 #import "ListDishDto.h"
 #import "DetailDishDto.h"
 
-@interface DetailDishVC : BaseVC <MGCollapsingHeaderDelegate>
+@interface DetailDishVC : BaseVC
 
-@property (weak, nonatomic) IBOutlet MGCollapsingHeaderView *headerView;
-@property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTop;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerHeight;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerTop;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIView *vHeaderView;
+@property (nonatomic, weak) IBOutlet BaseTBV * tbvContent;
 
-@property (weak, nonatomic) IBOutlet UIButton *button1;
-@property (weak, nonatomic) IBOutlet UIButton *button2;
-@property (weak, nonatomic) IBOutlet UIButton *button3;
-@property (weak, nonatomic) IBOutlet UIButton *button4;
-@property (weak, nonatomic) IBOutlet UIButton *button5;
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (nonatomic, weak) IBOutlet UIView *vNav;
+@property (nonatomic, weak) IBOutlet UIView *vHeaderTbv;
+@property (nonatomic, weak) IBOutlet UIImageView *imgHeaderView;
+
+@property (nonatomic, weak) IBOutlet UIButton *btnBack;
+@property (nonatomic, weak) IBOutlet UIButton *btnReload;
+@property (nonatomic, weak) IBOutlet UIButton *btnShare;
+
+@property (nonatomic, weak) IBOutlet UILabel *lblHeader;
+
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *vEff;
+
 
 @property (nonatomic, strong) DetailDishDto *fooddish;
 
