@@ -28,13 +28,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B7-3X-94T">
-                                <rect key="frame" x="151" y="318.5" width="73" height="30"/>
-                                <state key="normal" title="Detail Test"/>
-                                <connections>
-                                    <action selector="btnDetailTest:" destination="EdJ-46-evQ" eventType="touchUpInside" id="HkZ-Dd-NtY"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vIu-OV-gwg">
                                 <rect key="frame" x="2" y="22" width="371" height="643"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -102,8 +95,6 @@
                             <constraint firstAttribute="bottom" secondItem="vIu-OV-gwg" secondAttribute="bottom" constant="2" id="55v-GF-iZu"/>
                             <constraint firstItem="vIu-OV-gwg" firstAttribute="leading" secondItem="tsz-uD-Cal" secondAttribute="leading" constant="2" id="GEC-1q-ctR"/>
                             <constraint firstItem="vIu-OV-gwg" firstAttribute="top" secondItem="tsz-uD-Cal" secondAttribute="top" constant="2" id="Jip-mC-RVr"/>
-                            <constraint firstItem="1B7-3X-94T" firstAttribute="centerX" secondItem="r2G-wH-Vtq" secondAttribute="centerX" id="KoN-YX-407"/>
-                            <constraint firstItem="1B7-3X-94T" firstAttribute="centerY" secondItem="r2G-wH-Vtq" secondAttribute="centerY" id="XY9-Hq-idc"/>
                             <constraint firstAttribute="trailing" secondItem="vIu-OV-gwg" secondAttribute="trailing" constant="2" id="a9L-e8-Wa3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tsz-uD-Cal"/>
@@ -443,18 +434,28 @@
                                                             <rect key="frame" x="250.5" y="1" width="123.5" height="48"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGR-nW-DmY">
-                                                                    <rect key="frame" x="44" y="5" width="35" height="38"/>
+                                                                    <rect key="frame" x="72.5" y="6.5" width="40" height="35"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="35" id="jPw-H6-kY9"/>
-                                                                        <constraint firstAttribute="height" constant="38" id="oWN-z5-AJE"/>
+                                                                        <constraint firstAttribute="height" constant="35" id="KVB-no-sjS"/>
+                                                                        <constraint firstAttribute="width" constant="40" id="N7a-VK-fmz"/>
                                                                     </constraints>
                                                                     <state key="normal" image="ic_heart"/>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1g-zj-3J5">
+                                                                    <rect key="frame" x="23.5" y="6.5" width="15" height="35"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="15" id="ar5-oc-P8W"/>
+                                                                        <constraint firstAttribute="height" constant="35" id="tJB-zs-E6b"/>
+                                                                    </constraints>
+                                                                    <state key="normal" image="Save"/>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstItem="FGR-nW-DmY" firstAttribute="centerY" secondItem="tJV-WF-1xg" secondAttribute="centerY" id="1Fo-pj-YtA"/>
-                                                                <constraint firstItem="FGR-nW-DmY" firstAttribute="centerX" secondItem="tJV-WF-1xg" secondAttribute="centerX" id="nwX-y9-pt0"/>
+                                                                <constraint firstItem="w1g-zj-3J5" firstAttribute="centerY" secondItem="tJV-WF-1xg" secondAttribute="centerY" id="I6O-5r-OH6"/>
+                                                                <constraint firstItem="FGR-nW-DmY" firstAttribute="centerX" secondItem="tJV-WF-1xg" secondAttribute="centerX" multiplier="3/2" id="Oas-Lm-UJ1"/>
+                                                                <constraint firstItem="w1g-zj-3J5" firstAttribute="centerX" secondItem="tJV-WF-1xg" secondAttribute="centerX" multiplier="1/2" id="aOZ-fK-gOn"/>
+                                                                <constraint firstItem="FGR-nW-DmY" firstAttribute="centerY" secondItem="tJV-WF-1xg" secondAttribute="centerY" id="gjl-In-uXH"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -829,6 +830,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Save" width="49" height="85"/>
         <image name="cookbooklogo.9" width="1000" height="391"/>
         <image name="haisankhac" width="482" height="408"/>
         <image name="ic_back" width="23" height="44"/>
