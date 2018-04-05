@@ -119,14 +119,18 @@ typedef enum : NSUInteger {
         cell.wvYoutube.mediaPlaybackAllowsAirPlay = YES;
         cell.wvYoutube.scrollView.bounces = NO;
         
-        NSString *linkUrl = _fooddish.youtube;
-        NSString *embemdHTML = SF(@"<iframe width=""%f"" height=""%f"" src=""%@"" frameborder=""0"" allow=""autoplay; encrypted-media"" allowfullscreen></iframe>",cell.wvYoutube.frame.size.width, cell.wvYoutube.frame.size.height, linkUrl);
+        
+        NSArray *arrStr = [_fooddish.youtube componentsSeparatedByString:@"/"];
+        NSString *linkUrl = [arrStr lastObject];
+        NSString *embemdHTML = SF(@"<iframe width=""%f"" height=""%f"" src=""https://www.youtube.com/embed/%@"" frameborder=""0"" allow=""autoplay; encrypted-media"" allowfullscreen></iframe>",cell.wvYoutube.frame.size.width, cell.wvYoutube.frame.size.height, linkUrl);
         [cell.wvYoutube loadHTMLString:embemdHTML baseURL:nil];
 
     } else if (row > 0 && row <= materialRow) {
         if (row == 1) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientHeaderCell"];
             [self roundedConners:UIRectCornerTopRight|UIRectCornerTopLeft withRadius:10 for:cell.vBackground];
+            [cell layoutSubviews];
+            [cell layoutIfNeeded];
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientRowCell"];
             cell.lblTitle.text = _fooddish.materials[row - 2].material;
