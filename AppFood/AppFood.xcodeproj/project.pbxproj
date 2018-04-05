@@ -42,6 +42,7 @@
 		CA6F27112051154D000D38C7 /* AppFoodUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6F27102051154D000D38C7 /* AppFoodUITests.m */; };
 		CA6F272B2051186B000D38C7 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6F272A2051186B000D38C7 /* BaseVC.m */; };
 		CA6F272E2051187D000D38C7 /* MenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6F272D2051187D000D38C7 /* MenuVC.m */; };
+		CA70139420762F4F00962831 /* UIView+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = CA70139320762F4F00962831 /* UIView+Util.m */; };
 		CA7D32BB20525D2E00599755 /* BaseNV.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7D32BA20525D2E00599755 /* BaseNV.m */; };
 		CA7D32BD2052629000599755 /* Support.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7D32BC2052629000599755 /* Support.storyboard */; };
 		CA7D32C32052655200599755 /* ListFood.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7D32C22052655200599755 /* ListFood.storyboard */; };
@@ -137,6 +138,8 @@
 		CA6F272A2051186B000D38C7 /* BaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
 		CA6F272C2051187D000D38C7 /* MenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuVC.h; sourceTree = "<group>"; };
 		CA6F272D2051187D000D38C7 /* MenuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuVC.m; sourceTree = "<group>"; };
+		CA70139220762F4F00962831 /* UIView+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Util.h"; sourceTree = "<group>"; };
+		CA70139320762F4F00962831 /* UIView+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Util.m"; sourceTree = "<group>"; };
 		CA7D32B920525D2E00599755 /* BaseNV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNV.h; sourceTree = "<group>"; };
 		CA7D32BA20525D2E00599755 /* BaseNV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNV.m; sourceTree = "<group>"; };
 		CA7D32BC2052629000599755 /* Support.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Support.storyboard; sourceTree = "<group>"; };
@@ -482,6 +485,7 @@
 		CA6F272420511667000D38C7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CA70139120762F4F00962831 /* View */,
 				42350B0420750CA000FF1B21 /* HBanner */,
 				42D16B3B205B534300384BC4 /* MButton */,
 				42D94A322058C5A6008C5202 /* AnimationsSlideNav */,
@@ -526,6 +530,15 @@
 				CA6F272A2051186B000D38C7 /* BaseVC.m */,
 			);
 			path = BaseVC;
+			sourceTree = "<group>";
+		};
+		CA70139120762F4F00962831 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA70139220762F4F00962831 /* UIView+Util.h */,
+				CA70139320762F4F00962831 /* UIView+Util.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CA7D32B820525D0700599755 /* BaseNV */ = {
@@ -856,6 +869,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA4311F1205971DA003A3568 /* API.m in Sources */,
+				CA70139420762F4F00962831 /* UIView+Util.m in Sources */,
 				42D94A3E2058C5A6008C5202 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				42D94A2F2058C582008C5202 /* SlideNavigationController.m in Sources */,
 				CA7F70ED205A132B007F93C0 /* ListDishDto.m in Sources */,

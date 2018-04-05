@@ -51,6 +51,7 @@ typedef enum : NSUInteger {
     if (!_fooddish) {
         _fooddish = [[DetailDishDto alloc] init];
     }
+    [_tbvContent reloadData];
 }
 
 #pragma mark -
@@ -135,9 +136,12 @@ typedef enum : NSUInteger {
             cell.lblSubTitle.text = _fooddish.materials[row - 2].amount;
             if (_fooddish.materials.count == row - 1) {
                 cell.csBotRow.constant = 5;
-                [cell roundCornersOnTopLeft:NO topRight:NO bottomLeft:YES bottomRight:YES radius:10];
                 cell.lineView.hidden = YES;
-                [cell layoutIfNeeded];
+                [cell roundCornersOnTopLeft:NO topRight:NO bottomLeft:YES bottomRight:YES radius:10];
+            } else {
+                cell.csBotRow.constant = 0;
+                cell.lineView.hidden = NO;
+                [cell roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:0];
             }
         }
     } else if (row >= materialRow + 1 && row < total) {
