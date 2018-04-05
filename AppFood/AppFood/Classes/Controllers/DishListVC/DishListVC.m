@@ -8,7 +8,7 @@
 
 #import "DishListVC.h"
 #import "DetailDishDto.h"
-#import "BaseCell.h"
+#import "DishListCell.h"
 #import "DetailDishVC.h"
 #import "API.h"
 
@@ -64,21 +64,21 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 332;
+    return 400;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BaseCell * cell = [_tbvDish dequeueReusableCellWithIdentifier:@"Cell"];
+    DishListCell * cell = [_tbvDish dequeueReusableCellWithIdentifier:@"Cell"];
     
     DetailDishDto *dto = _listData.list[indexPath.row];
     cell.lblTitle.text = dto.name;
     cell.lblSubTitle.text = dto.decriptions;
     
-    if (indexPath.row % 2 == 0) {
-        cell.vBackground.backgroundColor = RGB(0xDEE7BE);
-    } else {
-        cell.vBackground.backgroundColor = RGB(0xAAC9BB);
-    }
+//    if (indexPath.row % 2 == 0) {
+//        cell.vBackground.backgroundColor = RGB(0xDEE7BE);
+//    } else {
+//        cell.vBackground.backgroundColor = RGB(0xAAC9BB);
+//    }
     [cell.imgIcon sd_setImageWithURL:[NSURL URLWithString:dto.image]
                  placeholderImage:[UIImage imageNamed:@"none.9"]];
     

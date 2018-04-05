@@ -1,14 +1,14 @@
 //
-//  DishListCell.h
+//  DishTypeListCell.h
 //  AppFood
 //
-//  Created by HHumorous on 3/13/18.
+//  Created by HHumorous on 4/5/18.
 //  Copyright © 2018 ThanhSon. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface DishListCell : UICollectionViewCell
+@interface DishTypeListCell : UICollectionViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *lblTitle;
 @property (nonatomic, weak) IBOutlet UIImageView *imgFood;

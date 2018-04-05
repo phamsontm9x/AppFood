@@ -8,7 +8,7 @@
 
 #import "DishTypeListVC.h"
 #import "DetailDishVC.h"
-#import "DishListCell.h"
+#import "DishTypeListCell.h"
 #import "ListDishDto.h"
 #import "DishListVC.h"
 #import "UserDto.h"
@@ -86,7 +86,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    DishListCell *cell = [_clvListFood dequeueReusableCellWithReuseIdentifier:@"DishListCell" forIndexPath:indexPath];
+    DishTypeListCell *cell = [_clvListFood dequeueReusableCellWithReuseIdentifier:@"DishTypeListCell" forIndexPath:indexPath];
     DishTypeDto *dto = _arrDishType.list[indexPath.row];
     cell.lblTitle.text = dto.name;
     [cell.imgFood sd_setImageWithURL:[NSURL URLWithString:dto.image]

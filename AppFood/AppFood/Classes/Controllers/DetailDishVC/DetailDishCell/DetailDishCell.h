@@ -20,4 +20,6 @@
 @property (nonatomic, strong) HBanner *vBanner;
 @property (nonatomic, weak) IBOutlet UIView *vContent;
 
+- (void)roundCornersOnTopLeft:(BOOL)tl topRight:(BOOL)tr bottomLeft:(BOOL)bl bottomRight:(BOOL)br radius:(float)radius;
+
 @end

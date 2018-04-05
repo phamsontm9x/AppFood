@@ -16,7 +16,6 @@
 		42350B0E20750CA000FF1B21 /* HBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42350B0A20750CA000FF1B21 /* HBannerCell.m */; };
 		42350B0F20750CA000FF1B21 /* HBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42350B0B20750CA000FF1B21 /* HBannerCell.xib */; };
 		424AF9E3206A382100EFF1EB /* MaterialsDetailDishDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AF9E2206A382100EFF1EB /* MaterialsDetailDishDto.m */; };
-		4261A3CA20576E85005B71AB /* DishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4261A3C920576E85005B71AB /* DishListCell.m */; };
 		42D16B3A205B4E9500384BC4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D16B39205B4E9500384BC4 /* Login.storyboard */; };
 		42D16B3E205B534300384BC4 /* MButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D16B3D205B534300384BC4 /* MButton.m */; };
 		42D16B45205B65EB00384BC4 /* WelcomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D16B44205B65EB00384BC4 /* WelcomeVC.m */; };
@@ -28,7 +27,8 @@
 		42D94A402058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D94A392058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m */; };
 		42D94A412058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D94A3B2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlide.m */; };
 		42D94A422058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D94A3D2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m */; };
-		42EBF3922075E3080086FB77 /* DishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EBF3912075E3080086FB77 /* DishListCell.m */; };
+		42E9DF2A2075FAA20050EE8E /* DishTypeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9DF292075FAA20050EE8E /* DishTypeListCell.m */; };
+		42E9DF2E2075FC730050EE8E /* DishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9DF2D2075FC730050EE8E /* DishListCell.m */; };
 		CA11035E205A686300905CC4 /* DishListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA11035D205A686300905CC4 /* DishListVC.m */; };
 		CA4311F1205971DA003A3568 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4311F0205971DA003A3568 /* API.m */; };
 		CA604D462051287000038AA9 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA604D452051287000038AA9 /* BaseCell.m */; };
@@ -80,8 +80,6 @@
 		42350B0B20750CA000FF1B21 /* HBannerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HBannerCell.xib; sourceTree = "<group>"; };
 		424AF9E1206A382100EFF1EB /* MaterialsDetailDishDto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialsDetailDishDto.h; sourceTree = "<group>"; };
 		424AF9E2206A382100EFF1EB /* MaterialsDetailDishDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialsDetailDishDto.m; sourceTree = "<group>"; };
-		4261A3C820576E85005B71AB /* DishListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DishListCell.h; sourceTree = "<group>"; };
-		4261A3C920576E85005B71AB /* DishListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DishListCell.m; sourceTree = "<group>"; };
 		42D16B39205B4E9500384BC4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		42D16B3C205B534300384BC4 /* MButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MButton.h; sourceTree = "<group>"; };
 		42D16B3D205B534300384BC4 /* MButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MButton.m; sourceTree = "<group>"; };
@@ -104,8 +102,10 @@
 		42D94A3B2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlide.m; sourceTree = "<group>"; };
 		42D94A3C2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlideAndFade.h; sourceTree = "<group>"; };
 		42D94A3D2058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlideAndFade.m; sourceTree = "<group>"; };
-		42EBF3902075E3080086FB77 /* DishListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DishListCell.h; sourceTree = "<group>"; };
-		42EBF3912075E3080086FB77 /* DishListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DishListCell.m; sourceTree = "<group>"; };
+		42E9DF282075FAA20050EE8E /* DishTypeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DishTypeListCell.h; sourceTree = "<group>"; };
+		42E9DF292075FAA20050EE8E /* DishTypeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DishTypeListCell.m; sourceTree = "<group>"; };
+		42E9DF2C2075FC730050EE8E /* DishListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DishListCell.h; sourceTree = "<group>"; };
+		42E9DF2D2075FC730050EE8E /* DishListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DishListCell.m; sourceTree = "<group>"; };
 		518106738C9A387123A37EE6 /* libPods-AppFoodUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppFoodUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD65329CB6666361FD30719 /* libPods-AppFood.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppFood.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93852F45A48A349F33CA59C9 /* Pods-AppFoodUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppFoodUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppFoodUITests/Pods-AppFoodUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -240,15 +240,6 @@
 			path = MaterialsDetailDishDto;
 			sourceTree = "<group>";
 		};
-		4261A3C720576E49005B71AB /* DishListCell */ = {
-			isa = PBXGroup;
-			children = (
-				4261A3C820576E85005B71AB /* DishListCell.h */,
-				4261A3C920576E85005B71AB /* DishListCell.m */,
-			);
-			path = DishListCell;
-			sourceTree = "<group>";
-		};
 		42D16B3B205B534300384BC4 /* MButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,11 +322,20 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		42E9DF272075FA880050EE8E /* DishTypeListCell */ = {
+			isa = PBXGroup;
+			children = (
+				42E9DF282075FAA20050EE8E /* DishTypeListCell.h */,
+				42E9DF292075FAA20050EE8E /* DishTypeListCell.m */,
+			);
+			path = DishTypeListCell;
+			sourceTree = "<group>";
+		};
 		42EBF38F2075E2E80086FB77 /* DishListCell */ = {
 			isa = PBXGroup;
 			children = (
-				42EBF3902075E3080086FB77 /* DishListCell.h */,
-				42EBF3912075E3080086FB77 /* DishListCell.m */,
+				42E9DF2C2075FC730050EE8E /* DishListCell.h */,
+				42E9DF2D2075FC730050EE8E /* DishListCell.m */,
 			);
 			path = DishListCell;
 			sourceTree = "<group>";
@@ -577,7 +577,7 @@
 		CA7D32D82052729100599755 /* DishTypeListVC */ = {
 			isa = PBXGroup;
 			children = (
-				4261A3C720576E49005B71AB /* DishListCell */,
+				42E9DF272075FA880050EE8E /* DishTypeListCell */,
 				CA7D32D92052729E00599755 /* DishTypeListVC.h */,
 				CA7D32DA2052729E00599755 /* DishTypeListVC.m */,
 			);
@@ -868,7 +868,7 @@
 				42D94A402058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				CA7D32CF20526AE900599755 /* MenuDto.m in Sources */,
 				CA6F27072051154D000D38C7 /* main.m in Sources */,
-				42EBF3922075E3080086FB77 /* DishListCell.m in Sources */,
+				42E9DF2E2075FC730050EE8E /* DishListCell.m in Sources */,
 				CA7D32D32052727000599755 /* FavouriteListVC.m in Sources */,
 				42150DEF205FAC18004E23FF /* ContentDetailDishDto.m in Sources */,
 				CA7D32BB20525D2E00599755 /* BaseNV.m in Sources */,
@@ -883,9 +883,9 @@
 				CA6F26F92051154D000D38C7 /* AppDelegate.m in Sources */,
 				42D94A3F2058C5A6008C5202 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				CA6F272E2051187D000D38C7 /* MenuVC.m in Sources */,
-				4261A3CA20576E85005B71AB /* DishListCell.m in Sources */,
 				CAE6095B205BAC5900BB3D86 /* Configure.m in Sources */,
 				CA7F70F0205A133F007F93C0 /* DetailDishDto.m in Sources */,
+				42E9DF2A2075FAA20050EE8E /* DishTypeListCell.m in Sources */,
 				CA7D32D72052728B00599755 /* DetailDishVC.m in Sources */,
 				42276A58206929D600F20ECC /* DetailDishCell.m in Sources */,
 				CA6F272B2051186B000D38C7 /* BaseVC.m in Sources */,

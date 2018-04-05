@@ -78,12 +78,11 @@ typedef enum : NSUInteger {
     
     if (row == 0) {
         return 250;
-    } else if (row > 0 && row <= materialRow) {
+    } else if (row > 0 && row <= materialRow)  {
         if (row == 1 || row == materialRow) {
             return 50;
-        } else {
-            return 40;
         }
+        return 40;
     } else if (row >= materialRow + 1 && row < total){
         if (row == materialRow + 1) {
             return 50;
@@ -92,7 +91,7 @@ typedef enum : NSUInteger {
             return 400;
         }
     } else {
-        return UITableViewAutomaticDimension;
+        return 40;
     }
 }
 
@@ -128,24 +127,16 @@ typedef enum : NSUInteger {
     } else if (row > 0 && row <= materialRow) {
         if (row == 1) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientHeaderCell"];
-            [self roundedConners:UIRectCornerTopRight|UIRectCornerTopLeft withRadius:10 for:cell.vBackground];
-            [cell layoutSubviews];
-            [cell layoutIfNeeded];
+            [cell roundCornersOnTopLeft:YES topRight:YES bottomLeft:NO bottomRight:NO radius:10];
+        
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientRowCell"];
             cell.lblTitle.text = _fooddish.materials[row - 2].material;
             cell.lblSubTitle.text = _fooddish.materials[row - 2].amount;
             if (_fooddish.materials.count == row - 1) {
                 cell.csBotRow.constant = 5;
-                [self roundedConners:UIRectCornerBottomLeft|UIRectCornerBottomRight withRadius:10 for:cell.vBackground];
+                [cell roundCornersOnTopLeft:NO topRight:NO bottomLeft:YES bottomRight:YES radius:10];
                 cell.lineView.hidden = YES;
-                [cell layoutSubviews];
-                [cell layoutIfNeeded];
-            } else {
-                cell.csBotRow.constant = 0;
-                [self roundedConners:UIRectCornerBottomLeft|UIRectCornerBottomRight withRadius:0 for:cell.vBackground];
-                cell.lineView.hidden = NO;
-                [cell layoutSubviews];
                 [cell layoutIfNeeded];
             }
         }
@@ -223,9 +214,10 @@ typedef enum : NSUInteger {
 
 - (void)roundedConners:(UIRectCorner )corners withRadius:(CGFloat )radius for:(UIView *)view {
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(radius, radius)];
-    CAShapeLayer *mask = [[CAShapeLayer alloc] init];
-    mask.path = path.CGPath;
-    view.layer.mask = mask;
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = view.bounds;
+    maskLayer.path = path.CGPath;
+    view.layer.mask = maskLayer;
 }
 
 @end

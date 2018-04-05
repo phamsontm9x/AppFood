@@ -91,4 +91,23 @@
                                                             constant:0]];
 }
 
+- (void)roundCornersOnTopLeft:(BOOL)tl topRight:(BOOL)tr bottomLeft:(BOOL)bl bottomRight:(BOOL)br radius:(float)radius {
+    
+    if (tl || tr || bl || br) {
+        UIRectCorner corner = 0;
+        if (tl) corner = corner | UIRectCornerTopLeft;
+        if (tr) corner = corner | UIRectCornerTopRight;
+        if (bl) corner = corner | UIRectCornerBottomLeft;
+        if (br) corner = corner | UIRectCornerBottomRight;
+        
+        UIView *roundedView = self.vBackground;
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:roundedView.bounds byRoundingCorners:corner cornerRadii:CGSizeMake(radius, radius)];
+        CAShapeLayer *maskLayer = [CAShapeLayer layer];
+        maskLayer.frame = roundedView.bounds;
+        maskLayer.path = maskPath.CGPath;
+        //maskLayer.masksToBounds = YES;
+        roundedView.layer.mask = maskLayer;
+    }
+}
+
 @end
