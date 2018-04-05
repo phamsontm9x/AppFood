@@ -9,13 +9,12 @@
 #import "DetailDishVC.h"
 #import "DetailDishCell.h"
 
-#define offset_HeaderStop 180
-#define offset_B_LabelHeader 100
-#define distance_W_LabelHeader 20
+#define offset_HeaderStop 160
+#define offset_B_LabelHeader 160
+#define distance_W_LabelHeader 50
 
 typedef enum : NSUInteger {
-    Desc = 0,
-    Info,
+    Info = 0,
     Ingredients,
     Step,
     Youtube,
@@ -39,10 +38,12 @@ typedef enum : NSUInteger {
 }
 
 - (void)initUIHeader {
-    [_vHeaderTbv setFrame:CGRectMake(0, 0, SWIDTH, 200)]; // include (200 + size View 60)
+    [_vHeaderTbv setFrame:CGRectMake(0, 0, SWIDTH, 280)]; // include (160 + size View 80)
     _tbvContent.tableHeaderView = _vHeaderTbv;
-    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: _fooddish.image]];
-    _imgHeaderView.image = [UIImage imageWithData: imageData];
+    [_imgHeaderView sd_setImageWithURL:[NSURL URLWithString: _fooddish.image] placeholderImage:[UIImage imageNamed:@"logo"]];
+    _lblDescHeaderTBV.text = _fooddish.decriptions;
+    _lblTitleHeaderTBV.text = _fooddish.name;
+    _lblHeader.text = _fooddish.name;
     _vHeaderView.clipsToBounds = YES;
     [self.navigationController setNavigationBarHidden:YES];
 }
@@ -55,39 +56,43 @@ typedef enum : NSUInteger {
 #pragma mark -
 #pragma mark Tableview data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (section) {
-        case Info:
-            return 0;
-        case Step:
-            return _fooddish.content.count + 1;
-        case Ingredients:
-            return _fooddish.materials.count + 1;
-            break;
-        default:
-            return 1;
-            break;
-    }
+    NSInteger contentRow = _fooddish.content.count + 1;
+    NSInteger materialRow = _fooddish.materials.count + 1;
+    NSInteger total =  contentRow + materialRow + 1;
+    return total;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return VALCond(section == Info, 50, 0);
+    return 50;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger section = indexPath.section;
-    switch (section) {
-        case Desc:
-            return 110;
-        case Youtube:
-            return 250;
-        case Step:
-            return VALCond(indexPath.row == 0, 40, 400);
-        default:
+    NSInteger row = indexPath.row;
+    NSInteger contentRow = _fooddish.content.count + 1;
+    NSInteger materialRow = _fooddish.materials.count + 1;
+    NSInteger total =  contentRow + materialRow + 1;
+    
+    if (row == 0) {
+        return 250;
+    } else if (row > 0 && row <= materialRow) {
+        if (row == 1 || row == materialRow) {
+            return 50;
+        } else {
             return 40;
+        }
+    } else if (row >= materialRow + 1 && row < total){
+        if (row == materialRow + 1) {
+            return 50;
+        }
+        else {
+            return 400;
+        }
+    } else {
+        return UITableViewAutomaticDimension;
     }
 }
 
@@ -98,80 +103,67 @@ typedef enum : NSUInteger {
     return cell;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSInteger section = indexPath.section;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger row = indexPath.row;
     
+    NSInteger contentRow = _fooddish.content.count + 1;
+    NSInteger materialRow = _fooddish.materials.count + 1;
+    NSInteger total =  contentRow + materialRow + 1;
+    
     DetailDishCell *cell;
-    switch (section) {
-        case Desc: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"DescCell"];
-            cell.lblFullName.text = _fooddish.name;
-            cell.lblSubTitle.text = _fooddish.decriptions;
-            return cell;
-        }
-        case Ingredients: {
-            if (row == 0) {
-                cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientHeaderCell"];
-                [self roundedConners:UIRectCornerTopRight|UIRectCornerTopLeft withRadius:10 for:cell.vBackground];
-                
-            } else {
-                cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientRowCell"];
-                cell.lblTitle.text = _fooddish.materials[row - 1].material;
-                cell.lblSubTitle.text = _fooddish.materials[row - 1].amount;
-                if (_fooddish.materials.count == row) {
-                    cell.csBotRow.constant = 5;
-                    [self roundedConners:UIRectCornerBottomLeft|UIRectCornerBottomRight withRadius:10 for:cell.vBackground];
-                    cell.lineView.hidden = YES;
-                    [cell layoutSubviews];
-                    [cell layoutIfNeeded];
-                }
-            }
-            
-            return cell;
-        }
-        case Youtube: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"YoutubeCell"];
-            cell.wvYoutube.allowsInlineMediaPlayback = YES;
-            cell.wvYoutube.delegate = self;
-            cell.wvYoutube.mediaPlaybackRequiresUserAction = NO;
-            cell.wvYoutube.mediaPlaybackAllowsAirPlay = YES;
-            cell.wvYoutube.scrollView.bounces = NO;
-            
-            NSString *linkUrl = _fooddish.youtube;
-            NSString *embemdHTML = SF(@"<iframe width=""%f"" height=""%f"" src=""%@"" frameborder=""0"" allow=""autoplay; encrypted-media"" allowfullscreen></iframe>",cell.wvYoutube.frame.size.width, cell.wvYoutube.frame.size.height, linkUrl);
-            [cell.wvYoutube loadHTMLString:embemdHTML baseURL:nil];
-            
-            return cell;
-        }
-        case Step: {
-            if (row == 0) {
-                cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
-                cell.lblTitle.text = @"COOK STEPS";
-            } else {
-                cell = [tableView dequeueReusableCellWithIdentifier:@"StepRowCell"];
-                [cell.vBanner setDataDisplay:_fooddish.content[row - 1].arrImage];
-                [cell.vBanner setMaxPageControlNumber:_fooddish.content[row - 1].arrImage.count];
-                cell.vBanner.delegate = self;
-                
-                NSMutableAttributedString *att = [[NSMutableAttributedString alloc] init];
-                
-                NSString *stepNum = SF(@"Step %ld :\t", row);
-                NSString *stepContent = _fooddish.content[row - 1].step;
-                
-                [att appendAttributedString:[[NSAttributedString alloc] initWithString:stepNum attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:13]}]];
-                [att appendAttributedString:[[NSAttributedString alloc] initWithString:stepContent]];
-                
-                cell.lblSubTitle.attributedText = att;
-            }
-            
-            return cell;
-        }
-        default: {
+    if (row == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"YoutubeCell"];
+        cell.wvYoutube.allowsInlineMediaPlayback = YES;
+        cell.wvYoutube.delegate = self;
+        cell.wvYoutube.mediaPlaybackRequiresUserAction = NO;
+        cell.wvYoutube.mediaPlaybackAllowsAirPlay = YES;
+        cell.wvYoutube.scrollView.bounces = NO;
+        
+        NSString *linkUrl = _fooddish.youtube;
+        NSString *embemdHTML = SF(@"<iframe width=""%f"" height=""%f"" src=""%@"" frameborder=""0"" allow=""autoplay; encrypted-media"" allowfullscreen></iframe>",cell.wvYoutube.frame.size.width, cell.wvYoutube.frame.size.height, linkUrl);
+        [cell.wvYoutube loadHTMLString:embemdHTML baseURL:nil];
+
+    } else if (row > 0 && row <= materialRow) {
+        if (row == 1) {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientHeaderCell"];
+            [self roundedConners:UIRectCornerTopRight|UIRectCornerTopLeft withRadius:10 for:cell.vBackground];
+        } else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientRowCell"];
-            cell.lblSubTitle.text = _fooddish.material;
-            return cell;
+            cell.lblTitle.text = _fooddish.materials[row - 2].material;
+            cell.lblSubTitle.text = _fooddish.materials[row - 2].amount;
+            if (_fooddish.materials.count == row - 1) {
+                cell.csBotRow.constant = 5;
+                [self roundedConners:UIRectCornerBottomLeft|UIRectCornerBottomRight withRadius:10 for:cell.vBackground];
+                cell.lineView.hidden = YES;
+                [cell layoutSubviews];
+                [cell layoutIfNeeded];
+            } else {
+                cell.csBotRow.constant = 0;
+                [self roundedConners:UIRectCornerBottomLeft|UIRectCornerBottomRight withRadius:0 for:cell.vBackground];
+                cell.lineView.hidden = NO;
+                [cell layoutSubviews];
+                [cell layoutIfNeeded];
+            }
+        }
+    } else if (row >= materialRow + 1 && row < total) {
+        if (row == materialRow + 1) {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+            cell.lblTitle.text = @"COOK STEPS";
+        } else {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"StepRowCell"];
+            [cell.vBanner setDataDisplay:_fooddish.content[row - materialRow - 2].arrImage];
+            [cell.vBanner setMaxPageControlNumber:_fooddish.content[row - materialRow - 2].arrImage.count];
+            cell.vBanner.delegate = self;
+
+            NSMutableAttributedString *att = [[NSMutableAttributedString alloc] init];
+
+            NSString *stepNum = SF(@"Step %ld :\t", row - materialRow - 1);
+            NSString *stepContent = _fooddish.content[row - materialRow - 2].step;
+
+            [att appendAttributedString:[[NSAttributedString alloc] initWithString:stepNum attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:13]}]];
+            [att appendAttributedString:[[NSAttributedString alloc] initWithString:stepContent]];
+
+            cell.lblSubTitle.attributedText = att;
         }
     }
     

@@ -36,14 +36,15 @@
 
 - (void)initialize{
     
-    _vContent.layer.cornerRadius = 8.0;
     _vContent.clipsToBounds = YES;
     
     _vBanner = [[NSBundle mainBundle] loadNibNamed:@"HBanner" owner:self options:nil].lastObject;
     
     [_vContent insertSubview:_vBanner atIndex:0];
     _vBanner.translatesAutoresizingMaskIntoConstraints = NO;
-//    [self addConstraintFourEdge:_vContent andView:_vBanner];
+    if (_vContent) {
+        [self addConstraintFourEdge:_vContent andView:_vBanner];
+    }
     
     [self setNeedsUpdateConstraints];
     [self layoutIfNeeded];

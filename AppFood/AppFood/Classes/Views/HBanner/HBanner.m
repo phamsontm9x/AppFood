@@ -8,7 +8,7 @@
 
 #import "HBanner.h"
 #import "HBannerCell.h"
-//#import "ZoomImageVC.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "AppDelegate.h"
 
 
@@ -103,10 +103,8 @@
     if (_arrBanner.count >0) {
 
         NSString *link = _arrBanner[row].image;
-        
-        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: link]];
-        cell.imgBanner.image = [UIImage imageWithData: imageData];
-        
+        [cell.imgBanner sd_setImageWithURL:[NSURL URLWithString:link]
+                        placeholderImage:[UIImage imageNamed:@"cookbooklogo.9"]];
         cell.vNoImage.hidden = YES;
         
     }else {
