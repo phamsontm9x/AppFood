@@ -128,7 +128,7 @@ static SlideNavigationController *singletonInstance;
 	self.enableShadow = YES;
 	self.enableSwipeGesture = YES;
     
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"banner"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"banner"] forBarMetrics:UIBarMetricsDefault];
 
 	self.delegate = self;
 }

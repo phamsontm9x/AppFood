@@ -30,7 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="rp2-ra-B3t">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vIu-OV-gwg">
                                 <rect key="frame" x="0.0" y="20" width="373" height="645"/>
@@ -168,7 +168,7 @@
                             <constraint firstAttribute="trailing" secondItem="vIu-OV-gwg" secondAttribute="trailing" constant="2" id="a9L-e8-Wa3"/>
                             <constraint firstItem="tsz-uD-Cal" firstAttribute="trailing" secondItem="rp2-ra-B3t" secondAttribute="trailing" id="f0L-A1-Uzn"/>
                             <constraint firstItem="tsz-uD-Cal" firstAttribute="bottom" secondItem="rp2-ra-B3t" secondAttribute="bottom" id="fHG-Lk-h8c"/>
-                            <constraint firstItem="rp2-ra-B3t" firstAttribute="top" secondItem="tsz-uD-Cal" secondAttribute="top" id="iox-4x-kan"/>
+                            <constraint firstItem="rp2-ra-B3t" firstAttribute="top" secondItem="r2G-wH-Vtq" secondAttribute="top" id="gVf-p6-7gv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tsz-uD-Cal"/>
                     </view>
@@ -486,12 +486,22 @@
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ky-gq-7KI">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="123.5" height="48"/>
+                                                                    <connections>
+                                                                        <action selector="onBtnIngredientsClicked:" destination="2ij-z0-9tb" eventType="touchUpInside" id="LsZ-7g-ILp"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
+                                                                <constraint firstItem="8ky-gq-7KI" firstAttribute="top" secondItem="xlA-Es-M4n" secondAttribute="top" id="ATu-kZ-lMd"/>
                                                                 <constraint firstItem="29b-KC-sfu" firstAttribute="centerX" secondItem="xlA-Es-M4n" secondAttribute="centerX" id="LjN-b2-haW"/>
                                                                 <constraint firstItem="29b-KC-sfu" firstAttribute="centerY" secondItem="xlA-Es-M4n" secondAttribute="centerY" multiplier="1/2" id="YVm-pq-Ut2"/>
+                                                                <constraint firstAttribute="trailing" secondItem="8ky-gq-7KI" secondAttribute="trailing" id="dd6-0S-89b"/>
+                                                                <constraint firstItem="8ky-gq-7KI" firstAttribute="leading" secondItem="xlA-Es-M4n" secondAttribute="leading" id="h42-x1-gXo"/>
                                                                 <constraint firstItem="cJt-r8-R28" firstAttribute="centerY" secondItem="xlA-Es-M4n" secondAttribute="centerY" multiplier="3/2" id="sIH-LR-FPz"/>
+                                                                <constraint firstAttribute="bottom" secondItem="8ky-gq-7KI" secondAttribute="bottom" id="xPj-J2-VWv"/>
                                                                 <constraint firstItem="cJt-r8-R28" firstAttribute="centerX" secondItem="xlA-Es-M4n" secondAttribute="centerX" id="ygC-ck-9Vz"/>
                                                             </constraints>
                                                         </view>
@@ -510,12 +520,22 @@
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxY-hi-lcq">
+                                                                    <rect key="frame" x="-0.5" y="0.0" width="124" height="48"/>
+                                                                    <connections>
+                                                                        <action selector="onBtnCookStepsClicked:" destination="2ij-z0-9tb" eventType="touchUpInside" id="f6N-tM-vqG"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstItem="4W4-AU-9Jx" firstAttribute="centerY" secondItem="58c-HN-diz" secondAttribute="centerY" multiplier="1/2" id="6ol-hC-Ijr"/>
                                                                 <constraint firstItem="StL-Lb-8Eh" firstAttribute="centerY" secondItem="58c-HN-diz" secondAttribute="centerY" multiplier="3/2" id="Che-Qb-Tve"/>
+                                                                <constraint firstAttribute="bottom" secondItem="DxY-hi-lcq" secondAttribute="bottom" id="MoV-ne-aBd"/>
                                                                 <constraint firstItem="4W4-AU-9Jx" firstAttribute="centerX" secondItem="58c-HN-diz" secondAttribute="centerX" id="aLD-cs-cyA"/>
+                                                                <constraint firstAttribute="trailing" secondItem="DxY-hi-lcq" secondAttribute="trailing" id="aWX-bh-Lue"/>
+                                                                <constraint firstItem="DxY-hi-lcq" firstAttribute="leading" secondItem="58c-HN-diz" secondAttribute="leading" id="rT4-Pn-4jn"/>
+                                                                <constraint firstItem="DxY-hi-lcq" firstAttribute="top" secondItem="58c-HN-diz" secondAttribute="top" id="rXo-GZ-l1W"/>
                                                                 <constraint firstItem="StL-Lb-8Eh" firstAttribute="centerX" secondItem="58c-HN-diz" secondAttribute="centerX" id="s5V-eu-xSY"/>
                                                             </constraints>
                                                         </view>

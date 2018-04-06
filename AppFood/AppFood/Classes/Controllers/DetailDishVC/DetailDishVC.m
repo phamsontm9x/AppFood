@@ -168,6 +168,16 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)onBtnIngredientsClicked:(UIButton *)btn {
+    NSIndexPath *index = [NSIndexPath indexPathForRow:1 inSection:0] ;
+    [_tbvContent scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
+- (IBAction)onBtnCookStepsClicked:(UIButton *)btn {
+    NSIndexPath *index = [NSIndexPath indexPathForRow:6 inSection:0] ;
+    [_tbvContent scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
 #pragma mark - ScrollDeletage
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

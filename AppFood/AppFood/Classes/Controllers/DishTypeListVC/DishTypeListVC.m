@@ -35,6 +35,11 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    self.navigationController.navigationBar.alpha = 0.3;
+}
+
 
 #pragma mark -GetDataFromServer
 - (void)getDataFromServer {
