@@ -26,7 +26,7 @@
 @property (nonatomic, strong) NSMutableArray<MaterialsDetailDishDto *> *materials;
 @property (nonatomic, strong) NSString *categoryId;
 @property (nonatomic, strong) NSMutableArray<ContentDetailDishDto *> *content;
-
+@property (nonatomic, strong) NSString *time;
 
 - (id)initWithID:(NSString*)_id Image:(NSString*)strImg Name:(NSString*)name Desc:(NSString*)desc URL:(NSString*)youtube Material:(NSString*)material;
 

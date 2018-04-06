@@ -12,5 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *lblTitle;
 @property (nonatomic, weak) IBOutlet UIImageView *imgFood;
+@property (nonatomic, weak) IBOutlet UIView *vImgBackground;
+@property (nonatomic, weak) IBOutlet UIView *vTitleBackground;
 
 @end

@@ -11,6 +11,7 @@
 #import "DishListCell.h"
 #import "DetailDishVC.h"
 #import "API.h"
+#import "UIView+Util.h"
 
 @interface DishListVC () <UITableViewDelegate, UITableViewDataSource> {
     ListDishDetailDto *_listData;
@@ -73,12 +74,9 @@
     DetailDishDto *dto = _listData.list[indexPath.row];
     cell.lblTitle.text = dto.name;
     cell.lblSubTitle.text = dto.decriptions;
+    [cell.imgAvatar roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:cell.imgAvatar.frame.size.height/2];
+    cell.lblTimer.text = dto.time;
     
-//    if (indexPath.row % 2 == 0) {
-//        cell.vBackground.backgroundColor = RGB(0xDEE7BE);
-//    } else {
-//        cell.vBackground.backgroundColor = RGB(0xAAC9BB);
-//    }
     [cell.imgIcon sd_setImageWithURL:[NSURL URLWithString:dto.image]
                  placeholderImage:[UIImage imageNamed:@"none.9"]];
     

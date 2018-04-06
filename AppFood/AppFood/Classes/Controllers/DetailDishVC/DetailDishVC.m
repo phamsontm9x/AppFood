@@ -8,18 +8,11 @@
 
 #import "DetailDishVC.h"
 #import "DetailDishCell.h"
+#import "UIView+Util.h"
 
 #define offset_HeaderStop 160
 #define offset_B_LabelHeader 160
 #define distance_W_LabelHeader 50
-
-typedef enum : NSUInteger {
-    Info = 0,
-    Ingredients,
-    Step,
-    Youtube,
-    
-} Section;
 
 @interface DetailDishVC () <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, UIScrollViewDelegate, HBannerDelegate> {
     
@@ -38,6 +31,7 @@ typedef enum : NSUInteger {
 }
 
 - (void)initUIHeader {
+    [_imgAvatar roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:_imgAvatar.frame.size.height/2];
     [_vHeaderTbv setFrame:CGRectMake(0, 0, SWIDTH, 280)]; // include (160 + size View 80)
     _tbvContent.tableHeaderView = _vHeaderTbv;
     [_imgHeaderView sd_setImageWithURL:[NSURL URLWithString: _fooddish.image] placeholderImage:[UIImage imageNamed:@"logo"]];
@@ -99,6 +93,7 @@ typedef enum : NSUInteger {
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     DetailDishCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoHeaderCell"];
     cell.lblIngredients.text = SF(@"%ld",_fooddish.materials.count);
+    cell.lblTime.text = _fooddish.time;
     
     return cell;
 }
@@ -118,7 +113,6 @@ typedef enum : NSUInteger {
         cell.wvYoutube.mediaPlaybackRequiresUserAction = NO;
         cell.wvYoutube.mediaPlaybackAllowsAirPlay = YES;
         cell.wvYoutube.scrollView.bounces = NO;
-        
         
         NSArray *arrStr = [_fooddish.youtube componentsSeparatedByString:@"/"];
         NSString *linkUrl = [arrStr lastObject];

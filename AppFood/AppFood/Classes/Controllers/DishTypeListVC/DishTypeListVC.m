@@ -12,7 +12,7 @@
 #import "ListDishDto.h"
 #import "DishListVC.h"
 #import "UserDto.h"
-
+#import "UIView+Util.h"
 
 @interface DishTypeListVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
     
@@ -60,8 +60,9 @@
 #pragma mark - CollectionView
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    float size = collectionView.frame.size.width/2 - 4;
-    return CGSizeMake(size, size);
+    float width = collectionView.frame.size.width - 5;
+    float height = collectionView.frame.size.width/3;
+    return CGSizeMake(width, height);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -86,12 +87,24 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    DishTypeListCell *cell = [_clvListFood dequeueReusableCellWithReuseIdentifier:@"DishTypeListCell" forIndexPath:indexPath];
-    DishTypeDto *dto = _arrDishType.list[indexPath.row];
-    cell.lblTitle.text = dto.name;
-    [cell.imgFood sd_setImageWithURL:[NSURL URLWithString:dto.image]
-                      placeholderImage:[UIImage imageNamed:@"none.9"]];
+    DishTypeListCell *cell;
     
+    if (indexPath.row % 2 == 0) {
+        cell = [_clvListFood dequeueReusableCellWithReuseIdentifier:@"DishTypeListRightCell" forIndexPath:indexPath];
+        DishTypeDto *dto = _arrDishType.list[indexPath.row];
+        cell.lblTitle.text = dto.name;
+        [cell.imgFood roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:cell.imgFood.frame.size.height andShadow:NO];
+        [cell.imgFood sd_setImageWithURL:[NSURL URLWithString:dto.image]
+                        placeholderImage:[UIImage imageNamed:@"none.9"]];
+    } else {
+        cell = [_clvListFood dequeueReusableCellWithReuseIdentifier:@"DishTypeListLeftCell" forIndexPath:indexPath];
+        DishTypeDto *dto = _arrDishType.list[indexPath.row];
+        cell.lblTitle.text = dto.name;
+        [cell.imgFood roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:cell.imgFood.frame.size.height andShadow:NO];
+        [cell.imgFood sd_setImageWithURL:[NSURL URLWithString:dto.image]
+                        placeholderImage:[UIImage imageNamed:@"none.9"]];
+    }
+
     return cell;
 }
 

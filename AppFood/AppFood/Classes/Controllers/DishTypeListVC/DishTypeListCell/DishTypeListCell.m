@@ -10,4 +10,12 @@
 
 @implementation DishTypeListCell
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    _vImgBackground.layer.cornerRadius = _vImgBackground.frame.size.height/2;
+    _vTitleBackground.layer.cornerRadius = _vTitleBackground.frame.size.height/2;
+}
+
 @end
+

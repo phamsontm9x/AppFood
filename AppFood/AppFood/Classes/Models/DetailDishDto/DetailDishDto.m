@@ -45,6 +45,7 @@
             IA(content, ContentDetailDishDto);
             IA(materials, MaterialsDetailDishDto);
             IN(favourite);
+            IO(time);
         }
     }
     return self;
