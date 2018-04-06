@@ -12,6 +12,7 @@
 #import "DetailDishVC.h"
 #import "API.h"
 #import "UIView+Util.h"
+#import "NewDetailDishVC.h"
 
 @interface DishListVC () <UITableViewDelegate, UITableViewDataSource> {
     ListDishDetailDto *_listData;
@@ -34,7 +35,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+//    self.navigationController.navigationBar.alpha = 0.3;
+}
+
+- (void)selectedButtonAdd {
+    NewDetailDishVC *vc = VCFromSB(NewDetailDishVC, SB_NewDetail);
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)initUI {
+    UIBarButtonItem *add = [[UIBarButtonItem alloc]
+                            initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                            target:self action:@selector(selectedButtonAdd)];
+    self.navigationItem.rightBarButtonItem = add;
+    
     _listData = [[ListDishDetailDto alloc] init];
     self.navigationItem.title = _typeDto.name;
 }

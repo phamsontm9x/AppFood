@@ -174,7 +174,8 @@
 }
 
 - (IBAction)onBtnCookStepsClicked:(UIButton *)btn {
-    NSIndexPath *index = [NSIndexPath indexPathForRow:6 inSection:0] ;
+    NSInteger materialRow = _fooddish.materials.count + 2;
+    NSIndexPath *index = [NSIndexPath indexPathForRow:materialRow inSection:0] ;
     [_tbvContent scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
