@@ -13,7 +13,7 @@
 
 - (BOOL)checkLogin {
     _defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *dicUser = [_defaults objectForKey:@"UserDto"];
+    NSDictionary *dicUser = [_defaults dictionaryForKey:@"UserDto"];
     _token = [_defaults objectForKey:@"token"];
     UserDto *user = [[UserDto alloc] initWithData:dicUser];
     if (![user._id isEqualToString:@""] && user._id != nil && _token != nil) {
