@@ -8,6 +8,25 @@
 
 #import "InfoDetailDishCell.h"
 
+@interface InfoDetailDishCell() <UITableViewDelegate, UITableViewDataSource>
+
+@end
+
 @implementation InfoDetailDishCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+}
+
+#pragma mark - TableView
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+
+
+
 
 @end

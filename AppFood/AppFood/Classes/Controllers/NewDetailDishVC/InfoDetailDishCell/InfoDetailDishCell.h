@@ -10,4 +10,6 @@
 
 @interface InfoDetailDishCell : BaseColCell
 
+@property (nonatomic, weak) IBOutlet UITableView *tbvInfo;
+
 @end
