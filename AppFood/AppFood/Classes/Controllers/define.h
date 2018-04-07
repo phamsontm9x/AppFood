@@ -211,6 +211,9 @@ UIViewController *vc = (UIViewController*)self;\
 [App.mainVC.contentNV presentViewController:alert animated:YES completion:nil];\
 }\
 
+//Slide
+#define MENU_DEFAULT_SLIDE_OFFSET 60
+#define PORTRANIT_SLIDE_OFFSET 100
 
 //Get Color Function
 #define rgba(R, G, B, A) [UIColor colorWithRed:(R)/255.0 green:(G)/255.0 blue:(B)/255.0 alpha:(A)]
@@ -219,7 +222,7 @@ UIViewController *vc = (UIViewController*)self;\
 
 //Color
 #define GREEN_COLOR RGB(0x69D554)
-#define BLUE_COLOR RGB(0x0962A6)
+#define BLUE_COLOR RGB(0x306B95)
 #define RED_COLOR RGB(0xFC4837)
 #define RED_BOOKING_COLOR RGB(0xD0021B)
 #define GRAY_TAB_COLOR RGB(0xF9F9F9)
@@ -228,7 +231,7 @@ UIViewController *vc = (UIViewController*)self;\
 #define GRAY_DARK_COLOR RGB(0xCFCFCF)
 #define GRAY_COLOR RGB(0xCCCCCC)
 #define ORANGE_COLOR RGB(0xFF724B)
-#define PURPLE_COLOR RGB(0x9885E2)
+#define PURPLE_COLOR RGB(0x574694)
 #define BLUE_BUTTON RGB(0x009DF7)
 #define SHADOW_COLOR RGB(0X4C4C4C)
 #define PASSED_COLOR RGB(0x00C79B)

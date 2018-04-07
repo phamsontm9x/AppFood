@@ -13,6 +13,7 @@
 #import "FavouriteListVC.h"
 #import "UserDto.h"
 #import "WelcomeVC.h"
+#import "UIView+Util.h"
 
 typedef enum : NSUInteger {
     List = 0,
@@ -20,7 +21,6 @@ typedef enum : NSUInteger {
     MoreApp,
     Update,
     Support,
-    User,
 } MenuList;
 
 @interface MenuVC () <UITableViewDelegate, UITableViewDataSource, BaseCellDelegate> {
@@ -35,11 +35,20 @@ typedef enum : NSUInteger {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initMenu];
+    [self initUI];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)initUI {
+    [_imageAvatar roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:_imageAvatar.frame.size.height/2];
+    [_btnLogout roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:_btnLogout.frame.size.height/2];
+    _vUser.layer.cornerRadius = 10;
+    _lblUserName.text = App.configure.userDto.fullName;
+    _csRightView.constant = PORTRANIT_SLIDE_OFFSET + 10;
 }
 
 #pragma mark initListMenu
@@ -68,31 +77,22 @@ typedef enum : NSUInteger {
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return  _listMenu.list.count + 1;
+    return  _listMenu.list.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return VALCond(indexPath.row == User, 100, 60);
+    return 60;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == User) {
-        BaseCell *cell = [_tbvMenu dequeueReusableCellWithIdentifier:@"UserCell"];
-        [cell.btnAvatar setStyleAvatar];
-        cell.lblFullName.text = App.configure.userDto.fullName;
-        cell.userInteractionEnabled = NO;
-        
-        return cell;
-    } else {
-        BaseCell * cell = [_tbvMenu dequeueReusableCellWithIdentifier:@"MenuCell"];
-        
-        MenuDto *menuDto = _listMenu.list[indexPath.row];
-        cell.lblTitle.text = menuDto.title;
-        cell.imgIcon.image = [UIImage imageNamed:menuDto.img];
-        
-        return cell;
-    }
+    BaseCell * cell = [_tbvMenu dequeueReusableCellWithIdentifier:@"MenuCell"];
+    
+    MenuDto *menuDto = _listMenu.list[indexPath.row];
+    cell.lblTitle.text = menuDto.title;
+    cell.imgIcon.image = [UIImage imageNamed:menuDto.img];
+    
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
