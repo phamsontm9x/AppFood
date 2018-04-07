@@ -7,14 +7,15 @@
 //
 
 #import "DishTypeListCell.h"
+#import "UIView+Util.h"
 
 @implementation DishTypeListCell
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    _vImgBackground.layer.cornerRadius = _vImgBackground.frame.size.height/2;
-    _vTitleBackground.layer.cornerRadius = _vTitleBackground.frame.size.height/2;
+    [_vImgBackground roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:_vImgBackground.frame.size.height/2];
+    [_vTitleBackground roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:_vTitleBackground.frame.size.height/2];
 }
 
 @end

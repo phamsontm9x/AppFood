@@ -388,6 +388,7 @@
                                             <outlet property="imgAvatar" destination="JRs-ck-OC2" id="aVf-53-Tch"/>
                                             <outlet property="imgIcon" destination="n4b-lF-Etu" id="uEd-sc-wzO"/>
                                             <outlet property="lblSubTitle" destination="p4k-7D-7rz" id="pwi-fP-cPe"/>
+                                            <outlet property="lblTimer" destination="ccA-xa-NHU" id="XFj-dA-1xy"/>
                                             <outlet property="lblTitle" destination="OQE-QO-loJ" id="w6G-6H-hxl"/>
                                             <outlet property="lblUsername" destination="XsP-pD-QVi" id="5Gu-gQ-I6T"/>
                                             <outlet property="vBackground" destination="LE0-12-6oh" id="Zjg-iX-nMe"/>

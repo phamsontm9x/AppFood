@@ -15,5 +15,10 @@
 @interface MenuVC : BaseVC
 
 @property (nonatomic, weak) IBOutlet BaseTBV *tbvMenu;
+@property (nonatomic, weak) IBOutlet UIImageView *imageAvatar;
+@property (nonatomic, weak) IBOutlet UILabel *lblUserName;
+@property (nonatomic, weak) IBOutlet UIButton *btnLogout;
+@property (nonatomic, weak) IBOutlet UIView *vUser;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *csRightView;
 
 @end

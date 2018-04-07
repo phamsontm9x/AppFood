@@ -11,6 +11,7 @@
 #import "WelcomeVC.h"
 #import "DishTypeListVC.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "define.h"
 
 @interface AppDelegate ()
 
@@ -36,7 +37,7 @@
 
     [SlideNavigationController sharedInstance].leftMenu = leftMenu;
     [SlideNavigationController sharedInstance].menuRevealAnimationDuration = 0.3;
-    [SlideNavigationController sharedInstance].portraitSlideOffset = 100;
+    [SlideNavigationController sharedInstance].portraitSlideOffset = PORTRANIT_SLIDE_OFFSET;
     [SlideNavigationController sharedInstance].enableShadow = YES;
     
     BaseVC *vc;
