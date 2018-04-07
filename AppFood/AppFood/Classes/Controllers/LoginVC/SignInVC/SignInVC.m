@@ -79,9 +79,10 @@
     user.email = _tfEmail.text;
     user.password = _tfPassword.text;
     
-    [API login:user callback:^(BOOL success, id data) {
+    [API login:user callback:^(BOOL success, UserDto *data) {
         [App hideLoading];
         if (success) {
+            [Config updateUser:data];
             DishTypeListVC *vc = VCFromSB(DishTypeListVC, SB_ListFood);
             [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
                                          andCompletion:nil];
@@ -92,46 +93,7 @@
 - (IBAction)onBtnBackClicked:(MButton *)btn {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
-//- (void)saveKeychainRememberLogin:(LoginDto*)dto {
-//
-//    NSError *error;
-//    [Config.keychain setString:dto.email forKey:@"email" error:&error];
-//    if (error) {
-//        NSLog(@"%@", error.localizedDescription);
-//    }
-//    [Config.keychain setString:dto.password forKey:@"password" error:&error];
-//    if (error) {
-//        NSLog(@"%@", error.localizedDescription);
-//    }
-//    [Config.keychain setString:_tfDomain.text forKey:@"domain" error:&error];
-//    if (error) {
-//        NSLog(@"%@", error.localizedDescription);
-//    }
-//    [Config.keychain setString:Config.user.token forKey:@"token" error:&error];
-//    if (error) {
-//        NSLog(@"%@", error.localizedDescription);
-//    }
-//    [Config.keychain setString:Config.user.companyId._id forKey:@"companyId" error:&error];
-//    if (error) {
-//        NSLog(@"%@", error.localizedDescription);
-//    }
-//
-//    [Config.keychain setString:SF(@"%ld",_status) forKey:@"rememberMe" error:&error];
-//    if (error) {
-//        NSLog(@"%@", error.localizedDescription);
-//    }
-//
-//    if (!error) {
-//        Config.keychain.synchronizable = YES;
-//    } else {
-//        [App onReloginApp]; // IF HAVE ERROR SYNC KEYCHAIN
-//    }
-//
-//}
-//
-//- (void)removeKeychainRememberLogin {
-//    [Config.keychain removeAllItems];
-//}
+
 
 - (IBAction)onbtnSignupPress:(UIButton *)sender{
     SignUpVC *vc = VCFromSB(SignUpVC, SB_Login);

@@ -14,6 +14,7 @@
     self = [super init];
     if (dic) {
         if ([dic isKindOfClass:[NSDictionary class]]) {
+            IO(_id);
             IO(email);
             IO(password);
             IO(fullName);
@@ -25,8 +26,11 @@
 
 - (NSMutableDictionary *)getJSONObject {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    JO(_id);
     JO(email);
     JO(password);
+    JO(fullName);
+    JO(created);
     return dic;
 }
 
@@ -39,6 +43,12 @@
         JO(email);
         JO(password);
         JO(fullName);
+    } else {
+        JO(_id);
+        JO(email);
+        JO(password);
+        JO(fullName);
+        JO(created);
     }
     return dic;
 }

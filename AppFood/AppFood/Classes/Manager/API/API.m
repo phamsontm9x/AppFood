@@ -127,13 +127,10 @@
             if ([respondData isKindOfClass:[NSDictionary class]]) {
                 NSString *token = [respondData objectForKey:@"token"];
                 if (![token isEqualToString:@""]) {
-                    NSString *fullName = [respondData objectForKey:@"fullName"];
                     App.configure.token = token;
-                    App.configure.userDto = body;
-                    App.configure.userDto.fullName = fullName;
-                    cb(YES, data);
+                    cb(YES, successClass ? [[successClass alloc] initWithData:respondData] : nil);
                 } else {
-                    cb (YES,data);
+                    cb (YES, successClass ? [[successClass alloc] initWithData:respondData] : nil);
                 }
             } else {
                 if(cb) {
