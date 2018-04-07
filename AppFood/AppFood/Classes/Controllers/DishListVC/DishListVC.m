@@ -14,6 +14,7 @@
 #import "UIView+Util.h"
 #import "NewDetailDishVC.h"
 
+
 @interface DishListVC () <UITableViewDelegate, UITableViewDataSource> {
     ListDishDetailDto *_listData;
 }

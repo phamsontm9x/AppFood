@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B17EC6EF021BDB73AE8EE165522AD10A'
+               BlueprintIdentifier = '2246A001C80CCC6D7351AAE36F76CBE5'
                BlueprintName = 'CRPageViewController'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libCRPageViewController.a'>
+               BuildableName = 'CRPageViewController.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

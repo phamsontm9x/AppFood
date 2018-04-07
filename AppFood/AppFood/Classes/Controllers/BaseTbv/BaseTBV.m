@@ -7,8 +7,11 @@
 //
 
 #import "BaseTBV.h"
+#import <PullToMakeSoup/PullToMakeSoup-Swift.h>
 
-@implementation BaseTBV
+@implementation BaseTBV {
+    PullToMakeSoup * refresh;
+}
 
 - (void)addPullRefreshAtVC:(id)vc toReloadAction:(SEL)action{
     
@@ -50,6 +53,10 @@
 
 - (BOOL)isRefreshing{
     return [_refreshCtrl isRefreshing];
+}
+
+- (void)addPull {
+//    [self addPullToRefresh:refresh action:nil];
 }
 
 @end

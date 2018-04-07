@@ -7,6 +7,7 @@ target 'AppFood' do
     pod 'Reachability' 
     pod 'CRPageViewController'
     pod 'PullToMakeSoup', '~> 2.0'
+    use_frameworks!
 
   target 'AppFoodUITests' do
     inherit! :search_paths

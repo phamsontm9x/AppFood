@@ -17,6 +17,7 @@
 @interface DishTypeListVC () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
     
     ListDishTypeDto * _arrDishType;
+    
 }
 
 @end
