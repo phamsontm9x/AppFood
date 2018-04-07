@@ -6,6 +6,7 @@ target 'AppFood' do
     pod 'SDWebImage'
     pod 'Reachability' 
     pod 'CRPageViewController'
+    pod 'PullToMakeSoup', '~> 2.0'
 
   target 'AppFoodUITests' do
     inherit! :search_paths
