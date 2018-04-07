@@ -66,6 +66,8 @@ typedef enum : NSUInteger {
 #pragma mark Action
 - (IBAction)btnLogout:(id)sender {
     App.configure.userDto = nil;
+    [Config.defaults removeObjectForKey:@"UserDto"];
+    [Config.defaults removeObjectForKey:@"token"];
     WelcomeVC *vc = VCFromSB(WelcomeVC, SB_Login);
     [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
                                  andCompletion:nil];

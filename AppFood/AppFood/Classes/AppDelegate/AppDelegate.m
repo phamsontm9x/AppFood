@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MenuVC.h"
 #import "WelcomeVC.h"
+#import "DishTypeListVC.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "define.h"
 
@@ -23,6 +24,7 @@
     
     //
     _configure = [[Configure alloc] init];
+    BOOL isLogin = [_configure checkLogin];
     
     //Init SlideNav
 
@@ -37,14 +39,15 @@
     [SlideNavigationController sharedInstance].menuRevealAnimationDuration = 0.3;
     [SlideNavigationController sharedInstance].portraitSlideOffset = PORTRANIT_SLIDE_OFFSET;
     [SlideNavigationController sharedInstance].enableShadow = YES;
-
-
-    WelcomeVC *vc = VCFromSB(WelcomeVC, SB_Login);
-    [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
+    
+    BaseVC *vc;
+    if (isLogin) {
+         vc = VCFromSB(DishTypeListVC, SB_ListFood);
+    } else {
+         vc = VCFromSB(WelcomeVC, SB_Login);
+    }
+    [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:NO
                                  andCompletion:nil];
-
-    
-    
     return YES;
 }
 

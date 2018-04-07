@@ -48,7 +48,7 @@
 // ImagePicker
 #define IMAGE_PICKER     [ImagePicker shared]
 
-#define Config  App.config
+#define Config  App.configure
 #define Socket  App.socket
 
 #define ProjectRole Config.projectDetailDto.roleProject

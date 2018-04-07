@@ -13,5 +13,9 @@
 
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) UserDto *userDto;
+@property (nonatomic, strong) NSUserDefaults* defaults;
+
+- (BOOL) checkLogin;
+- (void)updateUser:(UserDto *)userDto;
 
 @end
