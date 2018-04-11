@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4209EEC3207871B700371F9B /* NDInfoDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4209EEC2207871B700371F9B /* NDInfoDetailCell.m */; };
+		4209EEC3207871B700371F9B /* NewDetailDishTbvCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4209EEC2207871B700371F9B /* NewDetailDishTbvCell.m */; };
 		42150DEF205FAC18004E23FF /* ContentDetailDishDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 42150DEE205FAC18004E23FF /* ContentDetailDishDto.m */; };
 		42276A58206929D600F20ECC /* DetailDishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42276A57206929D600F20ECC /* DetailDishCell.m */; };
 		42350B0C20750CA000FF1B21 /* HBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 42350B0620750CA000FF1B21 /* HBanner.m */; };
@@ -77,8 +77,8 @@
 
 /* Begin PBXFileReference section */
 		0C4D3CE434AF4D4085BB6BF3 /* Pods-AppFoodUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppFoodUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppFoodUITests/Pods-AppFoodUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		4209EEC1207871B700371F9B /* NDInfoDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NDInfoDetailCell.h; sourceTree = "<group>"; };
-		4209EEC2207871B700371F9B /* NDInfoDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NDInfoDetailCell.m; sourceTree = "<group>"; };
+		4209EEC1207871B700371F9B /* NewDetailDishTbvCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewDetailDishTbvCell.h; sourceTree = "<group>"; };
+		4209EEC2207871B700371F9B /* NewDetailDishTbvCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewDetailDishTbvCell.m; sourceTree = "<group>"; };
 		42150DED205FAC18004E23FF /* ContentDetailDishDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentDetailDishDto.h; sourceTree = "<group>"; };
 		42150DEE205FAC18004E23FF /* ContentDetailDishDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentDetailDishDto.m; sourceTree = "<group>"; };
 		42276A56206929D600F20ECC /* DetailDishCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailDishCell.h; sourceTree = "<group>"; };
@@ -219,13 +219,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		4209EEC02078718D00371F9B /* NDInfoDetailCell */ = {
+		4209EEC02078718D00371F9B /* NewDetailDishTbvCell */ = {
 			isa = PBXGroup;
 			children = (
-				4209EEC1207871B700371F9B /* NDInfoDetailCell.h */,
-				4209EEC2207871B700371F9B /* NDInfoDetailCell.m */,
+				4209EEC1207871B700371F9B /* NewDetailDishTbvCell.h */,
+				4209EEC2207871B700371F9B /* NewDetailDishTbvCell.m */,
 			);
-			path = NDInfoDetailCell;
+			path = NewDetailDishTbvCell;
 			sourceTree = "<group>";
 		};
 		42150DEC205FAC18004E23FF /* ContentDetailDishDto */ = {
@@ -500,8 +500,8 @@
 		CA6F272320511650000D38C7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CA86EFF72077CE7200115699 /* NewDetailDishVC */,
 				CA604D5920513D3B00038AA9 /* define.h */,
+				CA86EFF72077CE7200115699 /* NewDetailDishVC */,
 				42D16B3F205B658500384BC4 /* LoginVC */,
 				CA7D32B820525D0700599755 /* BaseNV */,
 				CA604D4720512A1E00038AA9 /* BaseTbv */,
@@ -657,6 +657,7 @@
 		CA86EFF72077CE7200115699 /* NewDetailDishVC */ = {
 			isa = PBXGroup;
 			children = (
+				4209EEC02078718D00371F9B /* NewDetailDishTbvCell */,
 				CA86F0112077D44200115699 /* TypeDetailDishCell */,
 				CA86F00D2077D42C00115699 /* StepsDetailDishCell */,
 				CA86F0062077D3E800115699 /* IngredientDetailDishCell */,
@@ -670,7 +671,6 @@
 		CA86EFFE2077D38D00115699 /* InfoDetailDishCell */ = {
 			isa = PBXGroup;
 			children = (
-				4209EEC02078718D00371F9B /* NDInfoDetailCell */,
 				CA86F0032077D3E400115699 /* InfoDetailDishCell.h */,
 				CA86F0042077D3E400115699 /* InfoDetailDishCell.m */,
 			);
@@ -1000,7 +1000,7 @@
 				42150DEF205FAC18004E23FF /* ContentDetailDishDto.m in Sources */,
 				CA7D32BB20525D2E00599755 /* BaseNV.m in Sources */,
 				42D16B4B205B660E00384BC4 /* SignUpVC.m in Sources */,
-				4209EEC3207871B700371F9B /* NDInfoDetailCell.m in Sources */,
+				4209EEC3207871B700371F9B /* NewDetailDishTbvCell.m in Sources */,
 				CAE60957205BA4B200BB3D86 /* UserDto.m in Sources */,
 				CA604D462051287000038AA9 /* BaseCell.m in Sources */,
 				CA604D5620513AA700038AA9 /* SupportVC.m in Sources */,
@@ -1178,10 +1178,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2UKZEPM7R9;
 				INFOPLIST_FILE = AppFood/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = phamson;
+				PRODUCT_BUNDLE_IDENTIFIER = hhumorous.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1195,10 +1196,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2UKZEPM7R9;
 				INFOPLIST_FILE = AppFood/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = phamson;
+				PRODUCT_BUNDLE_IDENTIFIER = hhumorous.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -6,9 +6,9 @@
 //  Copyright © 2018 ThanhSon. All rights reserved.
 //
 
-#import "NDInfoDetailCell.h"
+#import "NewDetailDishTbvCell.h"
 
-@implementation NDInfoDetailCell
+@implementation NewDetailDishTbvCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -19,6 +19,12 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)onBtnChoseDishAvatar:(UIButton *)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(newDetailDishTbvCell:btnChoseDishAvatar:)]) {
+        [_delegate newDetailDishTbvCell:self btnChoseDishAvatar:sender];
+    }
 }
 
 @end

@@ -11,11 +11,11 @@
 
 @class BaseCell;
 
-@protocol BaseCellDelegate <NSObject>
-
-@optional
-- (void)baseTableCellSelected:(BaseCell*)cell;
-@end
+//@protocol BaseCellDelegate <NSObject>
+//
+//@optional
+//- (void)baseTableCellSelected:(BaseCell*)cell;
+//@end
 
 @interface BaseCell : UITableViewCell
 
@@ -31,6 +31,6 @@
 
 @property (nonatomic, weak) IBOutlet UIView *vBackground;
 
-@property (nonatomic, weak) id<BaseCellDelegate> delegate;
+//@property (nonatomic, weak) id<BaseCellDelegate> delegate;
 
 @end

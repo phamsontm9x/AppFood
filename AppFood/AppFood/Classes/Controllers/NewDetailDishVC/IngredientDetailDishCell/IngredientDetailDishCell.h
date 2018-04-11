@@ -10,4 +10,6 @@
 
 @interface IngredientDetailDishCell : BaseColCell
 
+@property (nonatomic, weak) IBOutlet UITableView *tbvIngredient;
+
 @end

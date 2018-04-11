@@ -10,4 +10,6 @@
 
 @interface StepsDetailDishCell : BaseColCell
 
+@property (nonatomic, weak) IBOutlet UITableView *tbvStep;
+
 @end

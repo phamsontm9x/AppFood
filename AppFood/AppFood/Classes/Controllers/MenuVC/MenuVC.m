@@ -23,7 +23,7 @@ typedef enum : NSUInteger {
     Support,
 } MenuList;
 
-@interface MenuVC () <UITableViewDelegate, UITableViewDataSource, BaseCellDelegate> {
+@interface MenuVC () <UITableViewDelegate, UITableViewDataSource> {
     MenuListDto *_listMenu;
 }
 

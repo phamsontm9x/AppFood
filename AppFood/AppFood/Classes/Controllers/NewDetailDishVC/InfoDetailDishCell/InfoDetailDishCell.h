@@ -7,9 +7,11 @@
 //
 
 #import "BaseColCell.h"
+#import "NewDetailDishVC.h"
 
 @interface InfoDetailDishCell : BaseColCell
 
 @property (nonatomic, weak) IBOutlet UITableView *tbvInfo;
+@property (nonatomic, strong) NewDetailDishVC *parentVC;
 
 @end

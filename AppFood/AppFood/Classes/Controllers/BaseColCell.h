@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseVC.h"
 
 @interface BaseColCell : UICollectionViewCell
+
+@property (nonatomic, strong) BaseVC *rootVC;
 
 @end

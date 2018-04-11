@@ -20,10 +20,10 @@
 
 }
 
-- (IBAction)btnAction:(UIButton*)btn {
-    if (_delegate && [_delegate respondsToSelector:@selector(baseTableCellSelected:)]) {
-        [_delegate baseTableCellSelected:self];
-    }
-}
+//- (IBAction)btnAction:(UIButton*)btn {
+//    if (_delegate && [_delegate respondsToSelector:@selector(baseTableCellSelected:)]) {
+//        [_delegate baseTableCellSelected:self];
+//    }
+//}
 
 @end
