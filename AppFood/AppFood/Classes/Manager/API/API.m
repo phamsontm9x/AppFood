@@ -124,22 +124,30 @@
             // Print Track Log
             NSString *strLog = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"[API] [%@] [%@] SERVER RESPONSE: \n==>\n %@ \n\n<==\n\n", method, route, strLog);
-            if ([respondData isKindOfClass:[NSDictionary class]]) {
-                NSString *token = [respondData objectForKey:@"token"];
-                if (![token isEqualToString:@""]) {
-                    App.configure.token = token;
-                    cb(YES, successClass ? [[successClass alloc] initWithData:respondData] : nil);
-                } else {
-                    cb (YES, successClass ? [[successClass alloc] initWithData:respondData] : nil);
-                }
-            } else {
-                if(cb) {
-                    cb(YES, successClass ? [[successClass alloc] initWithData:respondData] : nil);
-                    cb = NULL;
-                    return;
+            BOOL serviceSuccess = [[respondData objectForKey:@"success"] boolValue];
+            if (serviceSuccess) {
+                NSMutableDictionary *content = [respondData objectForKey:@"results"];
+                if (content) {
+                    if ([content isKindOfClass:[NSDictionary class]]) {
+                        if (content.count > 1) {
+                            if ([content isKindOfClass:[NSDictionary class]]) {
+                                NSString *token = [content objectForKey:@"token"];
+                                if (![token isEqualToString:@""]) {
+                                    App.configure.token = token;
+                                    cb(YES, successClass ? [[successClass alloc] initWithData:content] : nil);
+                                } else {
+                                    cb (YES, successClass ? [[successClass alloc] initWithData:content] : nil);
+                                }
+                            }
+                        }
+                    }
+                    if(cb) {
+                        cb(YES, successClass ? [[successClass alloc] initWithData:content] : nil);
+                        cb = NULL;
+                        return;
+                    }
                 }
             }
-            
         }
     };
     
