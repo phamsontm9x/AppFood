@@ -14,6 +14,6 @@
 #import "AppDelegate.h"
 #import "BaseTBV.h"
 
-@interface BaseVC : UIViewController
+@interface BaseVC : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @end

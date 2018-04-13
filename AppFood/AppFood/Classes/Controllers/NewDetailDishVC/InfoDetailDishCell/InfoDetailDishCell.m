@@ -9,7 +9,10 @@
 #import "InfoDetailDishCell.h"
 #import "NewDetailDishTbvCell.h"
 
-@interface InfoDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate>
+@interface InfoDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate, UIImagePickerControllerDelegate> {
+    
+    UIImage *imgAvatar;
+}
 
 @end
 
@@ -18,7 +21,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self initVar];
-    
+    [self updateUI];
 }
 
 - (void)layoutSubviews {
@@ -30,14 +33,12 @@
 #pragma mark - InitUI
 
 - (void)initVar {
-    if (!_parentVC) {
-        _parentVC = [[NewDetailDishVC alloc] init];
-    }
     
-    if (!self.rootVC) {
-        self.rootVC = [[NewDetailDishVC alloc] init];
-    }
-    
+    imgAvatar = [UIImage imageNamed:@"banner"];
+}
+
+- (void)updateUI {
+    [_tbvInfo reloadData];
 }
 
 #pragma mark - TableView
@@ -82,6 +83,7 @@
         case 1: {
             cell = [tableView dequeueReusableCellWithIdentifier:@"NDInfoDesCell"];
             cell.delegate = self;
+            cell.imgAvatar.image = imgAvatar;
             break;
         }
         case 2: {
@@ -113,19 +115,17 @@
 
 - (void)newDetailDishTbvCell:(NewDetailDishTbvCell *)cell btnChoseDishAvatar:(UIButton *)btn {
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"App Food" message:@"Choose your dish's avatar" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"App Food" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *actionCamera = [UIAlertAction actionWithTitle:@"Camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //
+        [self openCameraAction];
     }];
     
     UIAlertAction *actionLibrary = [UIAlertAction actionWithTitle:@"Photo Library" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //
+        [self openPhotoAction];
     }];
     
-    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        //
-    }];
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     
     [alert addAction:actionCamera];
     [alert addAction:actionLibrary];
@@ -136,6 +136,44 @@
 
 #pragma mark - Action
 
+- (void)openCameraAction {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *_picker = [[UIImagePickerController alloc] init];
+        _picker.allowsEditing = YES;
+        _picker.delegate = self.rootVC;
+        _picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self.rootVC presentViewController:_picker animated:YES completion:nil];
+    }else {
+        NSLog(@"You are working on simulator");
+    }
+}
 
+- (void)openPhotoAction {
+    UIImagePickerController *_picker = [[UIImagePickerController alloc] init];
+    _picker.allowsEditing = YES;
+    _picker.delegate = self.rootVC;
+    [_picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self.rootVC presentViewController:_picker animated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [self setImageAvatarFood:image];
+    }];
+}
+
+#pragma mark - Other
+
+- (void)setImageAvatarFood:(UIImage *)image {
+    imgAvatar = image;
+}
 
 @end

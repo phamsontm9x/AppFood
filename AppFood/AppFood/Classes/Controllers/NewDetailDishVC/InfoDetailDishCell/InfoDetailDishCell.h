@@ -12,6 +12,5 @@
 @interface InfoDetailDishCell : BaseColCell
 
 @property (nonatomic, weak) IBOutlet UITableView *tbvInfo;
-@property (nonatomic, strong) NewDetailDishVC *parentVC;
 
 @end

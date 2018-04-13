@@ -64,7 +64,8 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     BaseColCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_arrCell[indexPath.row] forIndexPath:indexPath];
-    cell.backgroundColor = indexPath.row % 2 == 0 ? [UIColor greenColor] : [UIColor yellowColor];
+    
+    cell.rootVC = self;
     
     return cell;
 }
