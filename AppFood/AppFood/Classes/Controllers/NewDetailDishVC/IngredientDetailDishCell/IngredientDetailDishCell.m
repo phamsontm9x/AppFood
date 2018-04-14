@@ -130,4 +130,21 @@
     }
 }
 
+
+#pragma mark - Action
+
+- (IBAction)btnNextPressed:(UIButton *)btn {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(indexCell:selectBtnNext:orBtnBack:)]) {
+        
+        [self.delegate indexCell:1 selectBtnNext:YES orBtnBack:NO];
+    }
+}
+
+- (IBAction)btnBackPressed:(UIButton *)btn {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(indexCell:selectBtnNext:orBtnBack:)]) {
+        
+        [self.delegate indexCell:1 selectBtnNext:NO orBtnBack:YES];
+    }
+}
+
 @end

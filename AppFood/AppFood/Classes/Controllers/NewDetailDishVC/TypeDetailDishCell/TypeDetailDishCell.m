@@ -10,4 +10,13 @@
 
 @implementation TypeDetailDishCell
 
+#pragma mark - Action
+
+- (IBAction)btnBackPressed:(UIButton *)btn {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(indexCell:selectBtnNext:orBtnBack:)]) {
+        
+        [self.delegate indexCell:3 selectBtnNext:NO orBtnBack:YES];
+    }
+}
+
 @end

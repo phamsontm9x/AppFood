@@ -22,8 +22,14 @@
 }
 
 - (IBAction)onBtnChoseDishAvatar:(UIButton *)sender {
-    if (_delegate && [_delegate respondsToSelector:@selector(newDetailDishTbvCell:btnChoseDishAvatar:)]) {
-        [_delegate newDetailDishTbvCell:self btnChoseDishAvatar:sender];
+    if (_delegate && [_delegate respondsToSelector:@selector(newDetailDishTbvCell:onBtnPressed:)]) {
+        [_delegate newDetailDishTbvCell:self onBtnPressed:sender];
+    }
+}
+
+- (IBAction)onBtnDeleteCell:(UIButton *)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(newDetailDishTbvCell:onBtnPressed:)]) {
+        [_delegate newDetailDishTbvCell:self onBtnPressed:sender];
     }
 }
 

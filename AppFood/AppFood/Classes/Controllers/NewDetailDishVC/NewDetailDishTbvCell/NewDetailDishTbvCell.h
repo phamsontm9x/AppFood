@@ -11,7 +11,7 @@
 
 @protocol NewDetailDishTbvCellDelegate <NSObject>
 
-- (void)newDetailDishTbvCell:(NewDetailDishTbvCell *)cell btnChoseDishAvatar:(UIButton *)btn;
+- (void)newDetailDishTbvCell:(NewDetailDishTbvCell *)cell onBtnPressed:(UIButton *)btn;
 
 
 @optional
@@ -30,6 +30,6 @@
 
 @property (nonatomic, weak) IBOutlet UIView *vStep;
 
-@property (nonatomic, weak) id <NewDetailDishTbvCellDelegate> delegate;
+@property (nonatomic, strong) id <NewDetailDishTbvCellDelegate> delegate;
 
 @end

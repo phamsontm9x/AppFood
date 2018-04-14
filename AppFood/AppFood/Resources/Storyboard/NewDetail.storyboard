@@ -251,6 +251,9 @@
                                                             <state key="normal" title="Next">
                                                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="btnNextPressed:" destination="m30-LB-8cO" eventType="touchUpInside" id="uME-yX-2BS"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -293,12 +296,18 @@
                                                             <state key="normal" title="Next">
                                                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="btnNextPressed:" destination="82i-eD-euu" eventType="touchUpInside" id="mnB-vZ-hcf"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odH-dn-FJg">
                                                             <rect key="frame" x="0.0" y="0.0" width="183" height="30"/>
                                                             <state key="normal" title="Back">
                                                                 <color key="titleColor" red="0.020997906100000002" green="0.62093096969999995" blue="0.97014409300000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="btnBackPressed:" destination="82i-eD-euu" eventType="touchUpInside" id="Pzr-gH-xUm"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -437,12 +446,18 @@
                                                             <state key="normal" title="Next">
                                                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="btnNextPressed:" destination="l9i-0S-hfW" eventType="touchUpInside" id="ZTB-hH-MBz"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0o-CE-JvK">
                                                             <rect key="frame" x="0.0" y="0.0" width="183" height="30"/>
                                                             <state key="normal" title="Back">
                                                                 <color key="titleColor" red="0.020997906100000002" green="0.62093096969999995" blue="0.97014409300000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="btnBackPressed:" destination="l9i-0S-hfW" eventType="touchUpInside" id="C1N-EV-DNz"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -555,6 +570,9 @@
                                                                             <constraint firstAttribute="width" constant="25" id="t5k-Eh-mEX"/>
                                                                         </constraints>
                                                                         <state key="normal" image="trash"/>
+                                                                        <connections>
+                                                                            <action selector="onBtnDeleteCell:" destination="cwU-03-XPH" eventType="touchUpInside" id="mAb-r7-j3j"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ODq-yc-Gug">
                                                                         <rect key="frame" x="30" y="92" width="60" height="60"/>
@@ -579,6 +597,7 @@
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <connections>
+                                                                <outlet property="btnDelete" destination="B48-Ht-HpH" id="gxD-9d-UIr"/>
                                                                 <outlet property="lblTitle" destination="tvI-PB-y0c" id="Ptw-UU-Eyk"/>
                                                                 <outlet property="tviewDesc" destination="Kav-q3-8DK" id="g2l-7k-xvq"/>
                                                                 <outlet property="vStep" destination="RSZ-gV-QhU" id="Kma-jO-DPF"/>
@@ -621,6 +640,9 @@
                                                             <state key="normal" title="Back">
                                                                 <color key="titleColor" red="0.020997906100000002" green="0.62093096969999995" blue="0.97014409300000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="btnBackPressed:" destination="XXb-IR-0Xq" eventType="touchUpInside" id="HVs-tJ-miC"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

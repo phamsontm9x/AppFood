@@ -9,7 +9,7 @@
 #import "InfoDetailDishCell.h"
 #import "NewDetailDishTbvCell.h"
 
-@interface InfoDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate, UIImagePickerControllerDelegate> {
+@interface InfoDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate, UIImagePickerControllerDelegate, BaseColCellDelegate> {
     
     UIImage *imgAvatar;
 }
@@ -113,7 +113,7 @@
 
 #pragma mark - NewDetailDishCellDelegate
 
-- (void)newDetailDishTbvCell:(NewDetailDishTbvCell *)cell btnChoseDishAvatar:(UIButton *)btn {
+- (void)newDetailDishTbvCell:(NewDetailDishTbvCell *)cell onBtnPressed:(UIButton *)btn {
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"App Food" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
@@ -176,4 +176,11 @@
     imgAvatar = image;
 }
 
+#pragma mark - BaseCollCellDelegate
+- (IBAction)btnNextPressed:(UIButton *)btn {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(indexCell:selectBtnNext:orBtnBack:)]) {
+        
+        [self.delegate indexCell:0 selectBtnNext:YES orBtnBack:NO];
+    }
+}
 @end

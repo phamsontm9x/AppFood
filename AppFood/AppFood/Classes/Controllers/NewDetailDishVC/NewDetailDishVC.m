@@ -9,7 +9,7 @@
 #import "NewDetailDishVC.h"
 #import "BaseColCell.h"
 
-@interface NewDetailDishVC () <UICollectionViewDelegate, UICollectionViewDataSource> {
+@interface NewDetailDishVC () <UICollectionViewDelegate, UICollectionViewDataSource, BaseColCellDelegate> {
     NSArray *_arrCell;
 }
 
@@ -66,23 +66,33 @@
     BaseColCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_arrCell[indexPath.row] forIndexPath:indexPath];
     
     cell.rootVC = self;
+    cell.delegate = self;
     
     return cell;
 }
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSInteger index = (_clvContent.contentOffset.x / _clvContent.frame.size.width);
+    //NSInteger index = (_clvContent.contentOffset.x / _clvContent.frame.size.width);
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSInteger index = (_clvContent.contentOffset.x / _clvContent.frame.size.width);
+    //NSInteger index = (_clvContent.contentOffset.x / _clvContent.frame.size.width);
 }
 
 
 #pragma mark - MenuScrollDelegate
--(void)scrollMenuDidSelectedIndex:(NSIndexPath *)index {
-    [_clvContent setContentOffset:CGPointMake(index.row * _clvContent.frame.size.width, 0) animated:YES];
+-(void)scrollMenuDidSelectedIndex:(NSInteger )index {
+    [_clvContent setContentOffset:CGPointMake(index * _clvContent.frame.size.width, 0) animated:YES];
+}
+
+#pragma mark - BaseColDelagate
+- (void)indexCell:(NSInteger)index selectBtnNext:(BOOL)btnNext orBtnBack:(BOOL)btnBack {
+    if (btnNext) {
+        [self scrollMenuDidSelectedIndex:index+1];
+    } else {
+        [self scrollMenuDidSelectedIndex:index-1];
+    }
 }
 
 @end

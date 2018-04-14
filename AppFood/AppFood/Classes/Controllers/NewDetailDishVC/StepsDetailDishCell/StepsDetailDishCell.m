@@ -11,7 +11,7 @@
 #import "DetailDishDto.h"
 #import "UIView+Util.h"
 
-@interface StepsDetailDishCell() <UITableViewDelegate, UITableViewDataSource> {
+@interface StepsDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate> {
     NSMutableArray *_arrRowData;
     BOOL isEditing;
 }
@@ -20,14 +20,14 @@
 
 @implementation StepsDetailDishCell
 
--(void)awakeFromNib {
+- (void)awakeFromNib {
     [super awakeFromNib];
     [self initVar];
     
     [_tbvStep setEditing:YES animated:YES];
 }
 
--(void)layoutSubviews {
+- (void)layoutSubviews {
     [super layoutSubviews];
     
     [self layoutIfNeeded];
@@ -64,7 +64,7 @@
     }
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger row = indexPath.row;
     NSInteger totalRow = 2 + _arrRowData.count;
     NewDetailDishTbvCell *cell;
@@ -79,11 +79,13 @@
         [cell.vStep roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:cell.vStep.frame.size.width/2];
         [cell.tviewDesc roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:6];
         cell.lblTitle.text = SF(@"%ld", row);
+        cell.btnDelete.tag = row;
+        cell.delegate = self;
     }
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSInteger row = indexPath.row;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -95,7 +97,7 @@
     }
 }
 
--(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger row = indexPath.row;
     NSInteger totalRow = 2 + _arrRowData.count;
     
@@ -105,7 +107,7 @@
     return NO;
 }
 
--(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSInteger row = indexPath.row;
     NSInteger totalRow = 2 + _arrRowData.count;
@@ -116,7 +118,7 @@
     return UITableViewCellEditingStyleNone;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger row = indexPath.row;
     NSInteger totalRow = 1 + _arrRowData.count;
     
@@ -124,6 +126,34 @@
     
     if (row >= totalRow) {
         [self tableView:tableView commitEditingStyle:UITableViewCellEditingStyleInsert forRowAtIndexPath:indexPath];
+    }
+}
+
+#pragma mark - NewDetailDishTbvCellDelegate
+
+- (void)newDetailDishTbvCell:(NewDetailDishTbvCell *)cell onBtnPressed:(UIButton *)btn {
+    [_tbvStep performBatchUpdates:^{
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:btn.tag inSection:0];
+        [_tbvStep deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [_arrRowData removeObjectAtIndex:btn.tag -1];
+    } completion:^(BOOL finished) {
+         [_tbvStep reloadData];
+    }];
+}
+
+#pragma mark - Action
+
+- (IBAction)btnNextPressed:(UIButton *)btn {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(indexCell:selectBtnNext:orBtnBack:)]) {
+        
+        [self.delegate indexCell:2 selectBtnNext:YES orBtnBack:NO];
+    }
+}
+
+- (IBAction)btnBackPressed:(UIButton *)btn {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(indexCell:selectBtnNext:orBtnBack:)]) {
+        
+        [self.delegate indexCell:2 selectBtnNext:NO orBtnBack:YES];
     }
 }
 

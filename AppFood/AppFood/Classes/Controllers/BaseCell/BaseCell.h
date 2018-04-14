@@ -31,6 +31,8 @@
 
 @property (nonatomic, weak) IBOutlet UIView *vBackground;
 
+@property (nonatomic, weak) IBOutlet UIButton *btnDelete;
+
 //@property (nonatomic, weak) id<BaseCellDelegate> delegate;
 
 @end
