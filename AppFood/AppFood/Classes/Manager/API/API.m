@@ -132,12 +132,10 @@
                         if (content.count > 1) {
                             if ([content isKindOfClass:[NSDictionary class]]) {
                                 NSString *token = [content objectForKey:@"token"];
-                                if (![token isEqualToString:@""]) {
+                                if (![token isEqualToString:@""] && token != nil) {
                                     App.configure.token = token;
-                                    cb(YES, successClass ? [[successClass alloc] initWithData:content] : nil);
-                                } else {
-                                    cb (YES, successClass ? [[successClass alloc] initWithData:content] : nil);
                                 }
+                                 cb(YES, successClass ? [[successClass alloc] initWithData:content] : nil);
                             }
                         }
                     }
