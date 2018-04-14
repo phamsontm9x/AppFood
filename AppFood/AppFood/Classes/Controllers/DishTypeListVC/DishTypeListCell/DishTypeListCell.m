@@ -14,8 +14,9 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    [_vImgBackground roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:_vImgBackground.frame.size.height/2];
-    [_vTitleBackground roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:_vTitleBackground.frame.size.height/2];
+    [_vImgBackground roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:_vImgBackground.bounds.size.height/2];
+    [_vTitleBackground roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:_vTitleBackground.bounds.size.height/2];
+    [self layoutIfNeeded];
 }
 
 @end
