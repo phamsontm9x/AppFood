@@ -27,7 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initUI];
-    [self updateData];
+    
     [_tbvDishFavorite addPullRefreshAtVC:self toReloadAction:@selector(updateData)];
 }
 
@@ -38,6 +38,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    [self updateData];
     //    self.navigationController.navigationBar.alpha = 0.3;
 }
 
@@ -46,10 +47,6 @@
 }
 
 - (void)updateData {
-    if (![_tbvDishFavorite.refreshCtrl isRefreshing]) {
-        [App showLoading];
-    }
-    [App hideLoading];
     _listData = [FileHelper getListFavorite];
     [self.tbvDishFavorite reloadData];
     

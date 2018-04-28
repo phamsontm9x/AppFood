@@ -63,6 +63,8 @@
 		CA86F0142077D45200115699 /* TypeDetailDishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA86F0132077D45200115699 /* TypeDetailDishCell.m */; };
 		CAE60957205BA4B200BB3D86 /* UserDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE60956205BA4B200BB3D86 /* UserDto.m */; };
 		CAE6095B205BAC5900BB3D86 /* Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE6095A205BAC5900BB3D86 /* Configure.m */; };
+		CB51A5742094BC9500DC46B2 /* UserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51A5732094BC9500DC46B2 /* UserVC.m */; };
+		CB51A5782094BF5500DC46B2 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51A5772094BF5500DC46B2 /* UserCell.m */; };
 		F54F4B32B4B708801E871879 /* Pods_AppFood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27F32BDAA9DC9224D7508EA /* Pods_AppFood.framework */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +189,10 @@
 		CAE60956205BA4B200BB3D86 /* UserDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDto.m; sourceTree = "<group>"; };
 		CAE60959205BAC5900BB3D86 /* Configure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
 		CAE6095A205BAC5900BB3D86 /* Configure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Configure.m; sourceTree = "<group>"; };
+		CB51A5722094BC9500DC46B2 /* UserVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserVC.h; sourceTree = "<group>"; };
+		CB51A5732094BC9500DC46B2 /* UserVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserVC.m; sourceTree = "<group>"; };
+		CB51A5762094BF5500DC46B2 /* UserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		CB51A5772094BF5500DC46B2 /* UserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 		E27F32BDAA9DC9224D7508EA /* Pods_AppFood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppFood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E643992F60F00CE5A24DAE /* Pods_AppFoodUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppFoodUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -514,6 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				CA604D5920513D3B00038AA9 /* define.h */,
+				CB51A5712094BC7B00DC46B2 /* UserVC */,
 				CA86EFF72077CE7200115699 /* NewDetailDishVC */,
 				42D16B3F205B658500384BC4 /* LoginVC */,
 				CA7D32B820525D0700599755 /* BaseNV */,
@@ -742,6 +749,25 @@
 				CAE6095A205BAC5900BB3D86 /* Configure.m */,
 			);
 			path = Configure;
+			sourceTree = "<group>";
+		};
+		CB51A5712094BC7B00DC46B2 /* UserVC */ = {
+			isa = PBXGroup;
+			children = (
+				CB51A5752094BF3E00DC46B2 /* UserCell */,
+				CB51A5722094BC9500DC46B2 /* UserVC.h */,
+				CB51A5732094BC9500DC46B2 /* UserVC.m */,
+			);
+			path = UserVC;
+			sourceTree = "<group>";
+		};
+		CB51A5752094BF3E00DC46B2 /* UserCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB51A5762094BF5500DC46B2 /* UserCell.h */,
+				CB51A5772094BF5500DC46B2 /* UserCell.m */,
+			);
+			path = UserCell;
 			sourceTree = "<group>";
 		};
 		E98553B3EDCE16409FE48F32 /* Frameworks */ = {
@@ -1002,6 +1028,7 @@
 				42D16B45205B65EB00384BC4 /* WelcomeVC.m in Sources */,
 				42D94A422058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				CA11035E205A686300905CC4 /* DishListVC.m in Sources */,
+				CB51A5742094BC9500DC46B2 /* UserVC.m in Sources */,
 				42D16B3E205B534300384BC4 /* MButton.m in Sources */,
 				CA86F0142077D45200115699 /* TypeDetailDishCell.m in Sources */,
 				42D94A402058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
@@ -1024,6 +1051,7 @@
 				42350B0C20750CA000FF1B21 /* HBanner.m in Sources */,
 				CA86EFFB2077CFDE00115699 /* NewDetailDishVC.m in Sources */,
 				CA6F26F92051154D000D38C7 /* AppDelegate.m in Sources */,
+				CB51A5782094BF5500DC46B2 /* UserCell.m in Sources */,
 				42D94A3F2058C5A6008C5202 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				CA6F272E2051187D000D38C7 /* MenuVC.m in Sources */,
 				3B041D59209412AD00B672F1 /* FileHelper.m in Sources */,

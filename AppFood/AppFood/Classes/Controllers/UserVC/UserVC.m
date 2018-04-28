@@ -1,18 +1,18 @@
 //
-//  SupportVC.m
+//  UserVC.m
 //  AppFood
 //
-//  Created by ThanhSon on 3/8/18.
+//  Created by Nguyen on 4/28/18.
 //  Copyright © 2018 ThanhSon. All rights reserved.
 //
 
-#import "SupportVC.h"
+#import "UserVC.h"
 
-@interface SupportVC ()
+@interface UserVC ()
 
 @end
 
-@implementation SupportVC
+@implementation UserVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,7 +24,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - SlideNavigationController Methods -
+#pragma mark - SlideNavigationController
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {

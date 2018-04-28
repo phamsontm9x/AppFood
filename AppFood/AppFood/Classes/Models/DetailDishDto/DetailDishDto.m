@@ -46,7 +46,7 @@
             IO(categoryId);
             IA(content, ContentDetailDishDto);
             IA(materials, MaterialsDetailDishDto);
-            IN(favourite);
+            IO(favourite);
             IO(time);
         }
     }
@@ -65,7 +65,7 @@
     JO(categoryId);
     JA(content);
     JA(materials);
-    JN(favourite);
+    JO(favourite);
     JO(time);
     
     return dic;
@@ -73,6 +73,10 @@
 
 - (id )getJSONObjectWithMethod:(NSInteger)method{
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    
+    if (method == METHOD_POST_2) {
+        JO(favourite);
+    }
     
     return dic;
     

@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSString *image;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSDate *created;
-@property (nonatomic, assign) NSInteger favourite;
+@property (nonatomic, strong) NSMutableArray *favourite;
 @property (nonatomic, strong) NSString *decriptions;
 @property (nonatomic, strong) NSString *youtube;
 @property (nonatomic, strong) NSString *material;

@@ -44,6 +44,7 @@ typedef void (^APICallback)(BOOL success, id data);
 - (void)getListDishDetail:(DishTypeDto*)dto callback:(APICallback)callback;
 - (void)createTypeDish:(DishTypeDto *)dto callback:(APICallback)callback;
 - (void)getDishDetail:(NSString *)foodId callback:(APICallback)callback;
+- (void)updateFavoriteFoodDetail:(DetailDishDto *)foodId callback:(APICallback)callback;
 
 #pragma mark - Login
 - (void)login:(UserDto*)user callback:(APICallback)callback;

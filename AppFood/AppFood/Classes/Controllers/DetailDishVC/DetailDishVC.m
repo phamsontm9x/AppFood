@@ -11,6 +11,7 @@
 #import "UIView+Util.h"
 #import "FileHelper.h"
 #import "API.h"
+#import "AppDelegate.h"
 
 #define offset_HeaderStop 160
 #define offset_B_LabelHeader 160
@@ -42,9 +43,22 @@
     _vHeaderView.clipsToBounds = YES;
     [self.navigationController setNavigationBarHidden:YES];
 }
+
 - (void)initVar {
     [App showLoading];
     [API getDishDetail:_foodId callback:^(BOOL success, id data) {
+        [App hideLoading];
+        [_tbvContent hideIndicator];
+        if (success) {
+            _fooddish = data;
+            [_tbvContent reloadData];
+        }
+    }];
+}
+
+- (void)updateFood {
+    [App showLoading];
+    [API updateFavoriteFoodDetail:_fooddish callback:^(BOOL success, id data) {
         [App hideLoading];
         [_tbvContent hideIndicator];
         if (success) {
@@ -104,6 +118,15 @@
         [cell.btnSave setImage:[UIImage imageNamed:@"SaveFill"] forState:UIControlStateNormal];
     } else {
         [cell.btnSave setImage:[UIImage imageNamed:@"Save"] forState:UIControlStateNormal];
+    }
+    
+    for (int i = 0; i < [_fooddish.favourite count]; i++) {
+        if ([_fooddish.favourite[i] isEqualToString:Config.userDto._id]) {
+            [cell.btnFavorite setImage:[UIImage imageNamed:@"heartFill"] forState:UIControlStateNormal];
+            break;
+        } else {
+            [cell.btnFavorite setImage:[UIImage imageNamed:@"heart-1"] forState:UIControlStateNormal];
+        }
     }
     
     cell.delegate = self;
@@ -255,8 +278,17 @@
     }
 }
 
+- (void)checkId:(NSString *)str {
+    if (![_fooddish.favourite containsObject:str]) {
+        [_fooddish.favourite addObject:str];
+    } else {
+        [_fooddish.favourite removeObject:str];
+    }
+}
+
 - (void)detailDishCell:(DetailDishCell *)cell didSelectedFavorite:(UIButton *)btn {
-    
+    [self checkId:Config.userDto._id];
+    [self updateFood];
 }
 
 #pragma mark - Action

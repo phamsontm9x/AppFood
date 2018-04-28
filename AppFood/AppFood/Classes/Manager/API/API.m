@@ -255,5 +255,14 @@
             callback:callback];
 }
 
+- (void)updateFavoriteFoodDetail:(DetailDishDto *)dto callback:(APICallback)callback {
+    [self processAPI:SF(@"food/%@/update",dto._id)
+              method:METHOD_POST_2
+              header:nil
+                body:dto
+        successClass:[DetailDishDto class]
+            callback:callback];
+}
+
 @end
 
