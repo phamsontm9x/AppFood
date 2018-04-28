@@ -29,7 +29,8 @@
 
 - (NSMutableDictionary *)getJSONObject {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    
+    JO(step);
+    JA(arrImage);
     return dic;
 }
 
@@ -60,7 +61,8 @@
 
 - (NSMutableDictionary *)getJSONObject {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    
+    JO(image);
+
     return dic;
 }
 

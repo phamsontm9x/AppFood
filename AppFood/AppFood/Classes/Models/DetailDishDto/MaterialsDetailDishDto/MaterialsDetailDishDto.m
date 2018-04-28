@@ -28,7 +28,8 @@
 
 - (NSMutableDictionary *)getJSONObject {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    
+    JO(material);
+    JO(amount);
     return dic;
 }
 
