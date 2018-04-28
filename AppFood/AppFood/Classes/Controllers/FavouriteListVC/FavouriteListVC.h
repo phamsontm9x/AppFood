@@ -7,7 +7,11 @@
 //
 
 #import "BaseVC.h"
+#import "ListDishDto.h"
 
 @interface FavouriteListVC : BaseVC <SlideNavigationControllerDelegate>
+
+@property (nonatomic, strong) DishTypeDto *typeDto;
+@property (nonatomic, weak) IBOutlet BaseTBV *tbvDishFavorite;
 
 @end
