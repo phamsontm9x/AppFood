@@ -43,7 +43,7 @@ typedef void (^APICallback)(BOOL success, id data);
 - (void)getListTypeDish:(APICallback)callback;
 - (void)getListDishDetail:(DishTypeDto*)dto callback:(APICallback)callback;
 - (void)createTypeDish:(DishTypeDto *)dto callback:(APICallback)callback;
-- (void)getDiskDetail:(DetailDishDto *)dto callback:(APICallback)callback;
+- (void)getDishDetail:(NSString *)foodId callback:(APICallback)callback;
 
 #pragma mark - Login
 - (void)login:(UserDto*)user callback:(APICallback)callback;

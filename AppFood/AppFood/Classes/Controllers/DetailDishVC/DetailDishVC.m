@@ -9,12 +9,14 @@
 #import "DetailDishVC.h"
 #import "DetailDishCell.h"
 #import "UIView+Util.h"
+#import "FileHelper.h"
+#import "API.h"
 
 #define offset_HeaderStop 160
 #define offset_B_LabelHeader 160
 #define distance_W_LabelHeader 50
 
-@interface DetailDishVC () <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, UIScrollViewDelegate, HBannerDelegate> {
+@interface DetailDishVC () <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, UIScrollViewDelegate, HBannerDelegate, DetailDishCellDelegate> {
     
 }
 
@@ -24,28 +26,32 @@
 
 - (void)viewDidLoad
 {
+    [self initVar];
     [self initUIHeader];
     [super viewDidLoad];
-    
-    [self initVar];
 }
 
 - (void)initUIHeader {
     [_imgAvatar roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:_imgAvatar.frame.size.height/2];
     [_vHeaderTbv setFrame:CGRectMake(0, 0, SWIDTH, 280)]; // include (160 + size View 80)
     _tbvContent.tableHeaderView = _vHeaderTbv;
-    [_imgHeaderView sd_setImageWithURL:[NSURL URLWithString: _fooddish.image] placeholderImage:[UIImage imageNamed:@"logo"]];
-    _lblDescHeaderTBV.text = _fooddish.decriptions;
-    _lblTitleHeaderTBV.text = _fooddish.name;
-    _lblHeader.text = _fooddish.name;
+    [_imgHeaderView sd_setImageWithURL:[NSURL URLWithString: _image] placeholderImage:[UIImage imageNamed:@"logo"]];
+    _lblDescHeaderTBV.text = _des;
+    _lblTitleHeaderTBV.text = _name;
+    _lblHeader.text = _name;
     _vHeaderView.clipsToBounds = YES;
     [self.navigationController setNavigationBarHidden:YES];
 }
 - (void)initVar {
-    if (!_fooddish) {
-        _fooddish = [[DetailDishDto alloc] init];
-    }
-    [_tbvContent reloadData];
+    [App showLoading];
+    [API getDishDetail:_foodId callback:^(BOOL success, id data) {
+        [App hideLoading];
+        [_tbvContent hideIndicator];
+        if (success) {
+            _fooddish = data;
+            [_tbvContent reloadData];
+        }
+    }];
 }
 
 #pragma mark -
@@ -94,6 +100,13 @@
     DetailDishCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoHeaderCell"];
     cell.lblIngredients.text = SF(@"%ld",_fooddish.materials.count);
     cell.lblTime.text = _fooddish.time;
+    if (_fooddish.hasSave) {
+        [cell.btnSave setImage:[UIImage imageNamed:@"SaveFill"] forState:UIControlStateNormal];
+    } else {
+        [cell.btnSave setImage:[UIImage imageNamed:@"Save"] forState:UIControlStateNormal];
+    }
+    
+    cell.delegate = self;
     
     return cell;
 }
@@ -227,6 +240,29 @@
     maskLayer.frame = view.bounds;
     maskLayer.path = path.CGPath;
     view.layer.mask = maskLayer;
+}
+
+#pragma mark - DetailDishCellDelegate
+
+- (void)detailDishCell:(DetailDishCell *)cell didSelectedSave:(UIButton *)btn {
+    
+    if (!_fooddish.hasSave) {
+        [FileHelper saveFoodToFavorate:_fooddish];
+        [self initVar];
+    }else {
+        [FileHelper removeFavorite:_fooddish];
+        [self initVar];
+    }
+}
+
+- (void)detailDishCell:(DetailDishCell *)cell didSelectedFavorite:(UIButton *)btn {
+    
+}
+
+#pragma mark - Action
+
+- (IBAction)onBtnReloadPressed:(UIButton *)sender {
+    [self initVar];
 }
 
 @end

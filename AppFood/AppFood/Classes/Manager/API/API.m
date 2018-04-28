@@ -246,8 +246,8 @@
             callback:callback];
 }
 
-- (void)getDiskDetail:(DetailDishDto *)dto callback:(APICallback)callback {
-    [self processAPI:SF(@"food/%@/detail",dto._id)
+- (void)getDishDetail:(NSString *)foodId callback:(APICallback)callback {
+    [self processAPI:SF(@"food/%@/detail",foodId)
               method:METHOD_GET
               header:nil
                 body:nil

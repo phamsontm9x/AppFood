@@ -98,4 +98,21 @@
     });
 }
 
+- (IBAction)onbtnClickSave:(UIButton*)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(detailDishCell:didSelectedSave:)]) {
+        [_delegate detailDishCell:self didSelectedSave:sender];
+    }else {
+        NSLog(@"Please set DELEGATE for class: %@",[self class]);
+    }
+}
+
+
+- (IBAction)onbtnClickFavorite:(UIButton*)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(detailDishCell:didSelectedFavorite:)]) {
+        [_delegate detailDishCell:self didSelectedFavorite:sender];
+    }else {
+        NSLog(@"Please set DELEGATE for class: %@",[self class]);
+    }
+}
+
 @end

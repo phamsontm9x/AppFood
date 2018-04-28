@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13524"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+            <string>Helvetica-Bold</string>
+            <string>Helvetica-BoldOblique</string>
+        </array>
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Dish Type ListVC-->
         <scene sceneID="tbT-qb-kx5">
@@ -241,7 +251,7 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9D-va-k7s">
                                                                             <rect key="frame" x="10" y="45" width="28" height="17"/>
                                                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
@@ -267,7 +277,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0q-9j-GHl">
                                                             <rect key="frame" x="70" y="267" width="285" height="78"/>
                                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4w-We-387">
@@ -282,7 +292,7 @@
                                                                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
                                                                             <state key="normal" title="Save" image="Save">
-                                                                                <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
                                                                             <connections>
                                                                                 <action selector="onbtnClickSave:" destination="bco-ht-iaQ" eventType="touchUpInside" id="rPy-6r-agC"/>
@@ -606,6 +616,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="btnSave" destination="BaW-du-1xV" id="jcM-oe-jrw"/>
                                             <outlet property="imgAvatar" destination="JRs-ck-OC2" id="aVf-53-Tch"/>
                                             <outlet property="imgIcon" destination="n4b-lF-Etu" id="uEd-sc-wzO"/>
                                             <outlet property="lblSubTitle" destination="p4k-7D-7rz" id="pwi-fP-cPe"/>
@@ -771,6 +782,9 @@
                                                                         <constraint firstAttribute="width" constant="40" id="N7a-VK-fmz"/>
                                                                     </constraints>
                                                                     <state key="normal" image="ic_heart"/>
+                                                                    <connections>
+                                                                        <action selector="onbtnClickFavorite:" destination="jHY-CR-GNf" eventType="touchUpInside" id="ylA-cv-uYS"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1g-zj-3J5">
                                                                     <rect key="frame" x="13.5" y="6.5" width="35" height="35"/>
@@ -779,6 +793,9 @@
                                                                         <constraint firstAttribute="height" constant="35" id="tJB-zs-E6b"/>
                                                                     </constraints>
                                                                     <state key="normal" image="Save"/>
+                                                                    <connections>
+                                                                        <action selector="onbtnClickSave:" destination="jHY-CR-GNf" eventType="touchUpInside" id="LMx-4M-e3y"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -818,6 +835,7 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="btnFavorite" destination="FGR-nW-DmY" id="WoS-3Y-eHb"/>
+                                            <outlet property="btnSave" destination="w1g-zj-3J5" id="7Zu-3n-g6G"/>
                                             <outlet property="lblIngredients" destination="29b-KC-sfu" id="XFI-Gk-6f4"/>
                                             <outlet property="lblTime" destination="4W4-AU-9Jx" id="TW2-Hw-wpY"/>
                                         </connections>
@@ -1057,6 +1075,9 @@
                                             <constraint firstAttribute="height" constant="20" id="Q6T-Ez-dDs"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="ic_reset"/>
+                                        <connections>
+                                            <action selector="onBtnReloadPressed:" destination="2ij-z0-9tb" eventType="touchUpInside" id="jci-o6-gKY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

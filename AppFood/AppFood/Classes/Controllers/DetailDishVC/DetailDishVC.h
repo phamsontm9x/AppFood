@@ -33,6 +33,10 @@
 
 
 @property (nonatomic, strong) DetailDishDto *fooddish;
+@property (nonatomic, strong) NSString *foodId;
+@property (nonatomic, strong) NSString *image;
+@property (nonatomic, strong) NSString *des;
+@property (nonatomic, strong) NSString *name;
 
 @end
 

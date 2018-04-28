@@ -29,7 +29,6 @@
     // Do any additional setup after loading the view.
     [self initUI];
     [_tbvDish addPullRefreshAtVC:self toReloadAction:@selector(getDataFromServer)];
-    [self getDataFromServer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +39,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
 //    self.navigationController.navigationBar.alpha = 0.3;
+    [self getDataFromServer];
 }
 
 - (void)selectedButtonAdd {
@@ -98,6 +98,14 @@
     [cell.imgIcon sd_setImageWithURL:[NSURL URLWithString:dto.image]
                  placeholderImage:[UIImage imageNamed:@"none.9"]];
     
+    if (dto.hasSave) {
+        [cell.btnSave setImage:[UIImage imageNamed:@"SaveFill"] forState:UIControlStateNormal];
+        [cell.btnSave setTitle:@"Saved" forState:UIControlStateNormal];
+    } else {
+        [cell.btnSave setImage:[UIImage imageNamed:@"Save"] forState:UIControlStateNormal];
+        [cell.btnSave setTitle:@"Save" forState:UIControlStateNormal];
+    }
+    
     cell.delegate = self;
     
     return cell;
@@ -105,7 +113,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailDishVC * vc = VCFromSB(DetailDishVC,SB_ListFood);
-    vc.fooddish = _listData.list[indexPath.row];
+    DetailDishDto *dto = _listData.list[indexPath.row];
+    vc.foodId = dto._id;
+    vc.name = dto.name;
+    vc.image = dto.image;
+    vc.des = dto.decriptions;
     [self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -117,8 +129,10 @@
     DetailDishDto *dto = _listData.list[row];
     if (!dto.hasSave) {
         [FileHelper saveFoodToFavorate:dto];
+        [self getDataFromServer];
     }else {
         [FileHelper removeFavorite:dto];
+        [self getDataFromServer];
     }
 }
 

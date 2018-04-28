@@ -28,6 +28,7 @@
     // Do any additional setup after loading the view.
     [self initUI];
     [self updateData];
+    [_tbvDishFavorite addPullRefreshAtVC:self toReloadAction:@selector(updateData)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,9 +46,13 @@
 }
 
 - (void)updateData {
+    if (![_tbvDishFavorite.refreshCtrl isRefreshing]) {
+        [App showLoading];
+    }
+    [App hideLoading];
     _listData = [FileHelper getListFavorite];
     [self.tbvDishFavorite reloadData];
-
+    
 }
 
 #pragma mark UITableView
@@ -75,6 +80,14 @@
     [cell.imgIcon sd_setImageWithURL:[NSURL URLWithString:dto.image]
                     placeholderImage:[UIImage imageNamed:@"none.9"]];
     
+    if (dto.hasSave) {
+        [cell.btnSave setImage:[UIImage imageNamed:@"SaveFill"] forState:UIControlStateNormal];
+        [cell.btnSave setTitle:@"Saved" forState:UIControlStateNormal];
+    } else {
+        [cell.btnSave setImage:[UIImage imageNamed:@"Save"] forState:UIControlStateNormal];
+        [cell.btnSave setTitle:@"Save" forState:UIControlStateNormal];
+    }
+    
     cell.delegate = self;
     
     return cell;
@@ -94,6 +107,7 @@
     DetailDishDto *dto = _listData.list[row];
     if (!dto.hasSave) {
         [FileHelper saveFoodToFavorate:dto];
+        [self updateData];
     }else {
         [FileHelper removeFavorite:dto];
         [_listData.list removeObject:dto];
