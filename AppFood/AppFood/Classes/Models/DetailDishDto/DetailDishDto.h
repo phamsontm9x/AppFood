@@ -28,6 +28,9 @@
 @property (nonatomic, strong) NSMutableArray<ContentDetailDishDto *> *content;
 @property (nonatomic, strong) NSString *time;
 
+@property (nonatomic, assign) BOOL hasSave;
+
+
 - (id)initWithID:(NSString*)_id Image:(NSString*)strImg Name:(NSString*)name Desc:(NSString*)desc URL:(NSString*)youtube Material:(NSString*)material;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "DetailDishDto.h"
+#import "FileHelper.h"
+#import "DetailDishDto.h"
 
 @implementation DetailDishDto
 
@@ -54,6 +56,18 @@
 - (NSMutableDictionary *)getJSONObject {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     
+    JO(_id);
+    JO(image);
+    JO(name);
+    JO(decriptions);
+    JO(youtube);
+    JO(material);
+    JO(categoryId);
+    JA(content);
+    JA(materials);
+    JN(favourite);
+    JO(time);
+    
     return dic;
 }
 
@@ -63,6 +77,21 @@
     return dic;
     
 }
+
+- (BOOL)hasSave {
+    BOOL save = NO;
+    ListDishDetailDto *list = [FileHelper getListFavorite];
+    for (DetailDishDto *item in list.list) {
+        if ([item._id isEqualToString:__id]) {
+            save = YES;
+            break;
+        }
+    }
+    
+    return save;
+}
+
+
 
 @end
 
@@ -76,8 +105,18 @@
 
 - (id)initWithData:(NSDictionary *)dic {
     self = [super init];
-    IAObj(list, dic, DetailDishDto);
+    if ([dic isKindOfClass:[NSArray class]]) {
+        IAObj(list, dic, DetailDishDto);
+    }else if ([dic isKindOfClass:[NSDictionary class]]) {
+        IAObj(list, dic[@"list"], DetailDishDto);
+    }
     return self;
+}
+
+- (NSMutableDictionary *)getJSONObject {
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+    JA(list);
+    return dic;
 }
 
 @end

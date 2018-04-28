@@ -13,9 +13,10 @@
 #import "API.h"
 #import "UIView+Util.h"
 #import "NewDetailDishVC.h"
+#import "FileHelper.h"
 
 
-@interface DishListVC () <UITableViewDelegate, UITableViewDataSource> {
+@interface DishListVC () <UITableViewDelegate, UITableViewDataSource,DishListCellDelegate> {
     ListDishDetailDto *_listData;
 }
 
@@ -97,6 +98,8 @@
     [cell.imgIcon sd_setImageWithURL:[NSURL URLWithString:dto.image]
                  placeholderImage:[UIImage imageNamed:@"none.9"]];
     
+    cell.delegate = self;
+    
     return cell;
 }
 
@@ -104,6 +107,23 @@
     DetailDishVC * vc = VCFromSB(DetailDishVC,SB_ListFood);
     vc.fooddish = _listData.list[indexPath.row];
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+#pragma mark - DishListCellDelegate
+- (void)dishListCell:(DishListCell *)cell didSelectedSave:(UIButton *)btn {
+    NSIndexPath *indexPath = [self.tbvDish indexPathForCell:cell];
+    NSInteger row = indexPath.row;
+    
+    DetailDishDto *dto = _listData.list[row];
+    if (!dto.hasSave) {
+        [FileHelper saveFoodToFavorate:dto];
+    }else {
+        [FileHelper removeFavorite:dto];
+    }
+}
+
+- (void)dishListCell:(DishListCell *)cell didSelectedShare:(UIButton *)btn  {
+    
 }
 
 @end
