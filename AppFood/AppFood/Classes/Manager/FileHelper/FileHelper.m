@@ -39,7 +39,11 @@
         }
     }
     
-    [FileHelper witeDataToPath:[arrData getJSONObject] filePath:[FileHelper getFilePath:SF(@"%@_ListFavorite",Config.userDto._id)]];
+    if (arrData.list.count >0) {
+        [FileHelper witeDataToPath:[arrData getJSONObject] filePath:[FileHelper getFilePath:SF(@"%@_ListFavorite",Config.userDto._id)]];
+    }else {
+        [self removeAllFavorite];
+    }
 }
 
 + (void)removeAllFavorite {

@@ -96,7 +96,8 @@
         [FileHelper saveFoodToFavorate:dto];
     }else {
         [FileHelper removeFavorite:dto];
-        [self updateData];
+        [_listData.list removeObject:dto];
+        [_tbvDishFavorite reloadData];
     }
 }
 
