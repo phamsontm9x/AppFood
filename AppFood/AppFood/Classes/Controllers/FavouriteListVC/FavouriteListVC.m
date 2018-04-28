@@ -95,7 +95,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailDishVC * vc = VCFromSB(DetailDishVC,SB_ListFood);
-    vc.fooddish = _listData.list[indexPath.row];
+    DetailDishDto *dto = _listData.list[indexPath.row];
+    vc.foodId = dto._id;
+    vc.name = dto.name;
+    vc.image = dto.image;
+    vc.des = dto.decriptions;
     [self presentViewController:vc animated:YES completion:nil];
 }
 
