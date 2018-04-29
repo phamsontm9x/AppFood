@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="06B-e9-bNn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="06B-e9-bNn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13524"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -120,16 +120,26 @@
                                             <action selector="btnLogout:" destination="dF4-kb-640" eventType="touchUpInside" id="6kD-Qp-qRT"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bC-ut-YGr">
+                                        <rect key="frame" x="10" y="15" width="90" height="90"/>
+                                        <connections>
+                                            <action selector="btnProfilePressed:" destination="dF4-kb-640" eventType="touchUpInside" id="dVy-KB-aNB"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="0Oa-RK-eU9"/>
                                     <constraint firstItem="0zm-vd-VR8" firstAttribute="bottom" secondItem="z9e-h2-9rr" secondAttribute="bottom" id="86I-yY-xCs"/>
                                     <constraint firstItem="z9e-h2-9rr" firstAttribute="leading" secondItem="uWh-LX-gJ7" secondAttribute="leading" constant="10" id="Bcq-iU-iMu"/>
+                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="centerX" secondItem="z9e-h2-9rr" secondAttribute="centerX" id="EVz-Gr-GeG"/>
                                     <constraint firstItem="82H-cC-yMn" firstAttribute="leading" secondItem="z9e-h2-9rr" secondAttribute="trailing" constant="15" id="UZ3-8y-q3Y"/>
                                     <constraint firstItem="0zm-vd-VR8" firstAttribute="leading" secondItem="z9e-h2-9rr" secondAttribute="trailing" constant="10" id="aRi-ND-ka5"/>
+                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="height" secondItem="z9e-h2-9rr" secondAttribute="height" id="f6i-m3-Bbb"/>
                                     <constraint firstItem="82H-cC-yMn" firstAttribute="top" secondItem="z9e-h2-9rr" secondAttribute="top" id="g4g-Fl-zKn"/>
                                     <constraint firstItem="z9e-h2-9rr" firstAttribute="centerY" secondItem="uWh-LX-gJ7" secondAttribute="centerY" id="nel-hj-rLh"/>
+                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="width" secondItem="z9e-h2-9rr" secondAttribute="width" id="w0O-jV-Rsc"/>
+                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="centerY" secondItem="z9e-h2-9rr" secondAttribute="centerY" id="yj5-8i-VTd"/>
                                 </constraints>
                             </view>
                         </subviews>
