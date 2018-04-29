@@ -217,6 +217,15 @@
             callback:callback];
 }
 
+- (void)updateInfoUser:(UserDto *)dto callback:(APICallback)callback {
+    [self processAPI:SF(@"users/%@/update",dto._id)
+              method:METHOD_POST_2
+              header:nil
+                body:dto
+        successClass:[UserDto class]
+            callback:callback];
+}
+
 #pragma mark - Category Food
 
 - (void)getListTypeDish:(APICallback)callback {

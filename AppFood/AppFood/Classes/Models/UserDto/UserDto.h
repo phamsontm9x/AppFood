@@ -14,6 +14,10 @@
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *password;
 @property (nonatomic, strong) NSString *fullName;
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *phone;
+@property (assign, nonatomic) BOOL gender;
+@property (nonatomic, strong) NSString *birthday;
 @property (nonatomic, strong) NSString *created;
 
 @end

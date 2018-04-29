@@ -19,6 +19,10 @@
             IO(password);
             IO(fullName);
             IO(created);
+            IO(address);
+            IO(phone);
+            IO(birthday);
+            IB(gender);
         }
     }
     return self;
@@ -31,6 +35,10 @@
     JO(password);
     JO(fullName);
     JO(created);
+    JO(phone);
+    JO(address);
+    JO(birthday);
+    JB(gender);
     return dic;
 }
 
@@ -43,6 +51,10 @@
         JO(email);
         JO(password);
         JO(fullName);
+        JO(address);
+        JO(phone);
+        JO(birthday);
+        JB(gender);
     } else {
         JO(_id);
         JO(email);

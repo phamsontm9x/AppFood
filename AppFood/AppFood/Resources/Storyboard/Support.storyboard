@@ -222,6 +222,39 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserButtonCell" id="8q6-vb-4rS" customClass="UserCell">
+                                        <rect key="frame" x="0.0" y="223" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8q6-vb-4rS" id="dzB-1n-exa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAT-2k-BZw">
+                                                    <rect key="frame" x="87" y="5" width="200" height="34"/>
+                                                    <color key="backgroundColor" red="0.2125411869850159" green="0.52789140948555557" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="OGH-hb-0O5"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Update">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onBtnChooseAvatar:" destination="8q6-vb-4rS" eventType="touchUpInside" id="2Ab-Ld-f72"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KAT-2k-BZw" firstAttribute="centerY" secondItem="dzB-1n-exa" secondAttribute="centerY" id="6qD-JL-qyt"/>
+                                                <constraint firstItem="KAT-2k-BZw" firstAttribute="top" secondItem="dzB-1n-exa" secondAttribute="top" constant="5" id="K2e-pz-FzQ"/>
+                                                <constraint firstItem="KAT-2k-BZw" firstAttribute="centerX" secondItem="dzB-1n-exa" secondAttribute="centerX" id="nPW-Py-9g1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="btnAction" destination="KAT-2k-BZw" id="eZo-vM-cL1"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="a3A-e2-RZI" id="l6w-5o-NKo"/>

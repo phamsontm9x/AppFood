@@ -15,13 +15,14 @@
 #import "WelcomeVC.h"
 #import "UIView+Util.h"
 #import "UserVC.h"
+#import "NewDetailDishVC.h"
 
 typedef enum : NSUInteger {
     List = 0,
     Favourite,
     MoreApp,
-    Update,
-    Support,
+    AboutUs,
+    Logout,
 } MenuList;
 
 @interface MenuVC () <UITableViewDelegate, UITableViewDataSource> {
@@ -36,6 +37,11 @@ typedef enum : NSUInteger {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initMenu];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     [self initUI];
 }
 
@@ -46,9 +52,8 @@ typedef enum : NSUInteger {
 
 - (void)initUI {
     [_imageAvatar roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:_imageAvatar.frame.size.height/2];
-    [_btnLogout roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:_btnLogout.frame.size.height/2];
     _vUser.layer.cornerRadius = 10;
-    _lblUserName.text = App.configure.userDto.fullName;
+    _lblUserName.text = Config.userDto.fullName;
     _csRightView.constant = PORTRANIT_SLIDE_OFFSET + 10;
 }
 
@@ -61,14 +66,13 @@ typedef enum : NSUInteger {
     [_listMenu.list addObject:[[MenuDto alloc] initWithTitle:@"Saved Food" andImage:@"favourite"]];
     [_listMenu.list addObject:[[MenuDto alloc] initWithTitle:@"Apps" andImage:@"ungdung"]];
     [_listMenu.list addObject:[[MenuDto alloc] initWithTitle:@"About us" andImage:@"info"]];
+    [_listMenu.list addObject:[[MenuDto alloc] initWithTitle:@"Logout" andImage:@"logout"]];
 }
 
 #pragma mark Action
-- (IBAction)btnLogout:(id)sender {
-    App.configure.userDto = nil;
-    [Config.defaults removeObjectForKey:@"UserDto"];
-    [Config.defaults removeObjectForKey:@"token"];
-    WelcomeVC *vc = VCFromSB(WelcomeVC, SB_Login);
+
+- (IBAction)btnCreatePressed:(id)sender {
+    NewDetailDishVC *vc = VCFromSB(NewDetailDishVC, SB_NewDetail);
     [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
                                  andCompletion:nil];
 }
@@ -109,17 +113,23 @@ typedef enum : NSUInteger {
     
     if (indexPath.row == List) {
         vc = VCFromSB(DishTypeListVC,SB_ListFood);
+        [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
+                                     andCompletion:nil];
     } else if (indexPath.row == Favourite) {
         vc = VCFromSB(FavouriteListVC, SB_ListFood);
-    } else {
-        vc = VCFromSB(SupportVC, SB_Support);
-    }
-    
-    if(vc) {
+        [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
+                                     andCompletion:nil];
+    } else if (indexPath.row == Logout){
+        App.configure.userDto = nil;
+        [Config.defaults removeObjectForKey:@"UserDto"];
+        [Config.defaults removeObjectForKey:@"token"];
+        WelcomeVC *vc = VCFromSB(WelcomeVC, SB_Login);
         [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
                                      andCompletion:nil];
     } else {
-
+        vc = VCFromSB(SupportVC, SB_Support);
+        [AppNav popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES
+                                     andCompletion:nil];
     }
 }
 
