@@ -10,9 +10,11 @@
 #import "NewDetailDishTbvCell.h"
 #import "DetailDishDto.h"
 #import "UIView+Util.h"
+#import "ContentDetailDishDto.h"
 
-@interface StepsDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate> {
+@interface StepsDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate,UIImagePickerControllerDelegate> {
     NSMutableArray *_arrRowData;
+    NSMutableArray *arrData;
     BOOL isEditing;
 }
 
@@ -81,6 +83,7 @@
         cell.lblTitle.text = SF(@"%ld", row);
         cell.btnDelete.tag = row;
         cell.delegate = self;
+        cell.btnAction.tag = row - 1;
     }
     return cell;
 }
@@ -156,5 +159,61 @@
         [self.delegate indexCell:2 selectBtnNext:NO orBtnBack:YES];
     }
 }
+- (IBAction)addImage:(id)sender {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"App Food" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *actionCamera = [UIAlertAction actionWithTitle:@"Camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self openCameraAction];
+    }];
+    
+    UIAlertAction *actionLibrary = [UIAlertAction actionWithTitle:@"Photo Library" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self openPhotoAction];
+    }];
+    
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:actionCamera];
+    [alert addAction:actionLibrary];
+    [alert addAction:actionCancel];
+    
+    [self.rootVC presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)openCameraAction {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *_picker = [[UIImagePickerController alloc] init];
+        _picker.allowsEditing = YES;
+        _picker.delegate = self.rootVC;
+        _picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self.rootVC presentViewController:_picker animated:YES completion:nil];
+    }else {
+        NSLog(@"You are working on simulator");
+    }
+}
+
+- (void)openPhotoAction {
+    UIImagePickerController *_picker = [[UIImagePickerController alloc] init];
+    _picker.allowsEditing = YES;
+    _picker.delegate = self;
+    [_picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self.rootVC presentViewController:_picker animated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+        //[self setImageAvatarFood:image];
+    }];
+}
+
+
 
 @end

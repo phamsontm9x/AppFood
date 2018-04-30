@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -574,29 +575,40 @@
                                                                             <action selector="onBtnDeleteCell:" destination="cwU-03-XPH" eventType="touchUpInside" id="mAb-r7-j3j"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ODq-yc-Gug">
-                                                                        <rect key="frame" x="30" y="92" width="60" height="60"/>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qM2-kz-1S1">
+                                                                        <rect key="frame" x="30" y="107" width="30" height="30"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="60" id="E5e-4B-Dgv"/>
-                                                                            <constraint firstAttribute="width" constant="60" id="Kyb-Zw-UEh"/>
+                                                                            <constraint firstAttribute="width" constant="30" id="WLl-rc-61i"/>
                                                                         </constraints>
-                                                                    </imageView>
+                                                                        <state key="normal" title="Add"/>
+                                                                        <connections>
+                                                                            <action selector="addImage:" destination="l9i-0S-hfW" eventType="touchUpInside" id="luB-W6-bdk"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rg-kZ-mER">
+                                                                        <rect key="frame" x="70" y="97" width="286" height="63"/>
+                                                                    </scrollView>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstItem="ODq-yc-Gug" firstAttribute="top" secondItem="LqR-ht-XkY" secondAttribute="bottom" constant="5" id="3LU-af-qDy"/>
+                                                                    <constraint firstItem="B48-Ht-HpH" firstAttribute="top" secondItem="7rg-kZ-mER" secondAttribute="bottom" constant="10" id="2Ns-h7-hxW"/>
                                                                     <constraint firstItem="LqR-ht-XkY" firstAttribute="top" secondItem="Kav-q3-8DK" secondAttribute="bottom" constant="8" id="7wn-97-KLd"/>
                                                                     <constraint firstAttribute="bottom" secondItem="B48-Ht-HpH" secondAttribute="bottom" constant="5" id="APm-YX-QzT"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Kav-q3-8DK" secondAttribute="trailing" constant="5" id="E7Z-Rz-8dS"/>
-                                                                    <constraint firstItem="ODq-yc-Gug" firstAttribute="leading" secondItem="Kav-q3-8DK" secondAttribute="leading" id="FbG-OG-3Wc"/>
                                                                     <constraint firstItem="LqR-ht-XkY" firstAttribute="leading" secondItem="Kav-q3-8DK" secondAttribute="leading" id="Kwh-Ix-Izt"/>
+                                                                    <constraint firstItem="qM2-kz-1S1" firstAttribute="top" secondItem="LqR-ht-XkY" secondAttribute="bottom" constant="20" id="N8P-KN-1aZ"/>
                                                                     <constraint firstItem="Kav-q3-8DK" firstAttribute="top" secondItem="RSZ-gV-QhU" secondAttribute="top" id="R9a-VM-Dlj"/>
+                                                                    <constraint firstItem="7rg-kZ-mER" firstAttribute="top" secondItem="LqR-ht-XkY" secondAttribute="bottom" constant="10" id="Rap-M4-X58"/>
                                                                     <constraint firstItem="RSZ-gV-QhU" firstAttribute="top" secondItem="hfS-yc-6by" secondAttribute="top" constant="5" id="Xx9-Ty-uan"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="7rg-kZ-mER" secondAttribute="trailing" constant="10" id="goE-Or-5My"/>
+                                                                    <constraint firstItem="7rg-kZ-mER" firstAttribute="leading" secondItem="qM2-kz-1S1" secondAttribute="trailing" constant="10" id="kwf-H1-EOn"/>
                                                                     <constraint firstItem="RSZ-gV-QhU" firstAttribute="leading" secondItem="hfS-yc-6by" secondAttribute="leading" constant="5" id="rMU-Eo-ftS"/>
                                                                     <constraint firstItem="B48-Ht-HpH" firstAttribute="centerX" secondItem="hfS-yc-6by" secondAttribute="centerX" id="rbs-ok-S0v"/>
                                                                     <constraint firstItem="Kav-q3-8DK" firstAttribute="leading" secondItem="RSZ-gV-QhU" secondAttribute="trailing" constant="5" id="y6M-Dm-16T"/>
+                                                                    <constraint firstItem="qM2-kz-1S1" firstAttribute="leading" secondItem="hfS-yc-6by" secondAttribute="leadingMargin" constant="15" id="yPk-LS-gLt"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <connections>
+                                                                <outlet property="btnAction" destination="qM2-kz-1S1" id="MpE-DE-uLN"/>
                                                                 <outlet property="btnDelete" destination="B48-Ht-HpH" id="gxD-9d-UIr"/>
                                                                 <outlet property="lblTitle" destination="tvI-PB-y0c" id="Ptw-UU-Eyk"/>
                                                                 <outlet property="tviewDesc" destination="Kav-q3-8DK" id="g2l-7k-xvq"/>

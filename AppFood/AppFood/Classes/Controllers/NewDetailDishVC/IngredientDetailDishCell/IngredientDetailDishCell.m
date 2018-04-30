@@ -11,7 +11,7 @@
 #import "DetailDishDto.h"
 #import "MaterialsDetailDishDto.h"
 
-@interface IngredientDetailDishCell() <UITableViewDelegate, UITableViewDataSource> {
+@interface IngredientDetailDishCell() <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate> {
     NSMutableArray *_arrRowData;
     BOOL isEditing;
     NSMutableArray *listData;
@@ -79,7 +79,14 @@
     } else if (row == totalRow - 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"NDIngredientAddCell"];
     } else {
+        MaterialsDetailDishDto *data = listData[row -1];
         cell = [tableView dequeueReusableCellWithIdentifier:@"NDIngredientDetailCell"];
+        cell.tfAmout.text = data.amount;
+        cell.tfName.text = data.material;
+        cell.tfAmout.delegate = self;
+        cell.tfName.delegate = self;
+        cell.tfAmout.tag = row;
+        cell.tfName.tag = row ;
     }
     return cell;
 }
@@ -89,8 +96,11 @@
     NSInteger row = indexPath.row;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [_arrRowData removeObjectAtIndex:row - 1];
+        [listData removeObjectAtIndex:(row -1)];
         [_tbvIngredient deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        MaterialsDetailDishDto *dto = [[MaterialsDetailDishDto alloc] init];
+        [listData addObject:dto];
         [_arrRowData addObject:@""];
         [_tbvIngredient insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
@@ -133,19 +143,21 @@
     }
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSIndexPath *index = [NSIndexPath indexPathForRow:textField.tag inSection:0];
+    NewDetailDishTbvCell *cell = [_tbvIngredient cellForRowAtIndexPath:index];
+    MaterialsDetailDishDto *data = listData[textField.tag - 1];
+    if (textField == cell.tfName) {
+        data.material = cell.tfName.text;
+    } else {
+        data.amount = cell.tfAmout.text;
+    }
+}
 
 #pragma mark - Action
 
 - (IBAction)btnNextPressed:(UIButton *)btn {
     
-    for (NewDetailDishTbvCell *cell in _tbvIngredient.visibleCells) {
-        MaterialsDetailDishDto *data = [[MaterialsDetailDishDto alloc] init];
-        data.material = cell.tfName.text;
-        data.amount = cell.tfAmout.text;
-        if (![data.material isEqualToString:@""] && ![data.amount isEqualToString:@""] && data.material != nil && data.amount != nil) {
-            [listData addObject:data];
-        }
-    }
     self.dataDto.materials = listData;
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(indexCell:selectBtnNext:orBtnBack:)]) {
