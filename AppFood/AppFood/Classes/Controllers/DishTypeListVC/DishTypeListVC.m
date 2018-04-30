@@ -109,6 +109,9 @@
         [cell.imgFood roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:cell.imgFood.frame.size.height andShadow:NO];
         [cell.imgFood sd_setImageWithURL:[NSURL URLWithString:dto.image]
                         placeholderImage:[UIImage imageNamed:@"none.9"]];
+//        [cell.imgFood sd_setImageWithURL:[NSURL URLWithString:@"https://cookbook-server.herokuapp.com/uploads/file-1524896401110.jpg"]
+//                        placeholderImage:[UIImage imageNamed:@"none.9"]];
+        
     }
 
     return cell;

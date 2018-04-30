@@ -7,6 +7,7 @@
 //
 
 #import "BaseDto.h"
+#import <UIKit/UIKit.h>
 
 @class ContentDetailDishDto;
 @class ImageContentDetailDishDto;
@@ -21,5 +22,6 @@
 @interface ImageContentDetailDishDto : BaseDto
 
 @property (nonatomic, strong) NSString *image;
+@property (nonatomic, strong) UIImage *img;
 
 @end

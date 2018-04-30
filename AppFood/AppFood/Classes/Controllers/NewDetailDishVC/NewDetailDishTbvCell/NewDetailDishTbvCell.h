@@ -36,6 +36,8 @@
 
 @property (nonatomic, weak) IBOutlet UIView *vStep;
 
+@property (nonatomic, weak) IBOutlet UIScrollView *scrImage;
+
 @property (nonatomic, strong) id <NewDetailDishTbvCellDelegate> delegate;
 
 @end

@@ -76,6 +76,17 @@
     
     if (method == METHOD_POST_2) {
         JO(favourite);
+    } else if (method == METHOD_POST) {
+        JO(image);
+        JO(name);
+        JO(decriptions);
+        JO(youtube);
+        JO(material);
+        JO(categoryId);
+        JA(content);
+        JA(materials);
+        JO(favourite);
+        JO(time);
     }
     
     return dic;

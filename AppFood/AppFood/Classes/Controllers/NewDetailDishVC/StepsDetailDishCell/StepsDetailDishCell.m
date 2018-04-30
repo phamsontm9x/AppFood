@@ -12,10 +12,11 @@
 #import "UIView+Util.h"
 #import "ContentDetailDishDto.h"
 
-@interface StepsDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate,UIImagePickerControllerDelegate> {
+@interface StepsDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate,UIImagePickerControllerDelegate, UITextViewDelegate> {
     NSMutableArray *_arrRowData;
     NSMutableArray *arrData;
     BOOL isEditing;
+    NSInteger index;
 }
 
 @end
@@ -39,6 +40,7 @@
 
 - (void)initVar {
     _arrRowData = [[NSMutableArray alloc] init];
+    arrData = [[NSMutableArray alloc] init];
     _tbvStep.allowsSelectionDuringEditing = YES;
     isEditing = YES;
 }
@@ -77,13 +79,24 @@
     } else if (row == totalRow - 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"NDStepAddCell"];
     } else {
+        ContentDetailDishDto *dto = arrData[row -1];
         cell = [tableView dequeueReusableCellWithIdentifier:@"NDStepDetailCell"];
         [cell.vStep roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:cell.vStep.frame.size.width/2];
         [cell.tviewDesc roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:6];
-        cell.lblTitle.text = SF(@"%ld", row);
+        cell.lblTitle.text = SF(@"%ld",row - 1);
+        cell.tviewDesc.text = dto.step;
+        cell.tviewDesc.delegate = self;
+        cell.tviewDesc.tag = row;
         cell.btnDelete.tag = row;
         cell.delegate = self;
-        cell.btnAction.tag = row - 1;
+        cell.btnAction.tag = row;
+        [cell.scrImage setContentSize:CGSizeMake(dto.arrImage.count*65, 60)];
+        for (int i = 0 ; i < dto.arrImage.count ; i++) {
+            ImageContentDetailDishDto *listImg  = dto.arrImage[i];
+            UIImageView *imv = [[UIImageView alloc] initWithFrame:CGRectMake(65*i, 0, 60, 60)];
+            imv.image = listImg.img;
+            [cell.scrImage addSubview:imv];
+        }
     }
     return cell;
 }
@@ -92,9 +105,12 @@
     
     NSInteger row = indexPath.row;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [arrData removeObjectAtIndex:row -1];
         [_arrRowData removeObjectAtIndex:row - 1];
         [_tbvStep deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        ContentDetailDishDto *dto = [[ContentDetailDishDto alloc] init];
+        [arrData addObject:dto];
         [_arrRowData addObject:@""];
         [_tbvStep insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
@@ -147,6 +163,7 @@
 #pragma mark - Action
 
 - (IBAction)btnNextPressed:(UIButton *)btn {
+    self.dataDto.content = arrData;
     if (self.delegate && [self.delegate respondsToSelector:@selector(indexCell:selectBtnNext:orBtnBack:)]) {
         
         [self.delegate indexCell:2 selectBtnNext:YES orBtnBack:NO];
@@ -159,7 +176,9 @@
         [self.delegate indexCell:2 selectBtnNext:NO orBtnBack:YES];
     }
 }
-- (IBAction)addImage:(id)sender {
+- (IBAction)addImage:(UIButton *)sender {
+    
+    index = sender.tag -1;
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"App Food" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
@@ -210,10 +229,24 @@
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     [picker dismissViewControllerAnimated:YES completion:^{
-        //[self setImageAvatarFood:image];
+        [self addImageData:image];
     }];
 }
 
+- (void)addImageData:(UIImage *)img {
+    ContentDetailDishDto *data = arrData[index];
+    ImageContentDetailDishDto *dto = [[ImageContentDetailDishDto alloc] init];
+    dto.img = img;
+    [data.arrImage addObject:dto];
+    [_tbvStep reloadData];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    NSIndexPath *index = [NSIndexPath indexPathForRow:textView.tag-1 inSection:0];
+    NewDetailDishTbvCell *cell = [_tbvStep cellForRowAtIndexPath:index];
+    ContentDetailDishDto *data = arrData[textView.tag-1];
+    data.step = cell.tviewDesc.text;
+}
 
 
 @end

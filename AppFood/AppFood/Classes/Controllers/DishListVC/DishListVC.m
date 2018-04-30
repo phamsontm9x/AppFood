@@ -44,6 +44,7 @@
 
 - (void)selectedButtonAdd {
     NewDetailDishVC *vc = VCFromSB(NewDetailDishVC, SB_NewDetail);
+    vc.categoryId = _typeDto._id;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

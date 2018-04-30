@@ -559,7 +559,7 @@
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                     </textView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload image of step (maximum 6 pics)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqR-ht-XkY">
-                                                                        <rect key="frame" x="30" y="73" width="211.5" height="14"/>
+                                                                        <rect key="frame" x="30" y="73" width="211.5" height="17"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="12"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -576,7 +576,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qM2-kz-1S1">
-                                                                        <rect key="frame" x="30" y="107" width="30" height="30"/>
+                                                                        <rect key="frame" x="30" y="110" width="30" height="30"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="30" id="WLl-rc-61i"/>
                                                                         </constraints>
@@ -586,7 +586,14 @@
                                                                         </connections>
                                                                     </button>
                                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rg-kZ-mER">
-                                                                        <rect key="frame" x="70" y="97" width="286" height="63"/>
+                                                                        <rect key="frame" x="70" y="100" width="260" height="60"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="60" id="2NY-IZ-Koz"/>
+                                                                            <constraint firstAttribute="width" constant="260" id="WxF-Uz-57V"/>
+                                                                        </constraints>
+                                                                        <connections>
+                                                                            <outlet property="delegate" destination="l9i-0S-hfW" id="gVP-YZ-WKh"/>
+                                                                        </connections>
                                                                     </scrollView>
                                                                 </subviews>
                                                                 <constraints>
@@ -599,7 +606,6 @@
                                                                     <constraint firstItem="Kav-q3-8DK" firstAttribute="top" secondItem="RSZ-gV-QhU" secondAttribute="top" id="R9a-VM-Dlj"/>
                                                                     <constraint firstItem="7rg-kZ-mER" firstAttribute="top" secondItem="LqR-ht-XkY" secondAttribute="bottom" constant="10" id="Rap-M4-X58"/>
                                                                     <constraint firstItem="RSZ-gV-QhU" firstAttribute="top" secondItem="hfS-yc-6by" secondAttribute="top" constant="5" id="Xx9-Ty-uan"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="7rg-kZ-mER" secondAttribute="trailing" constant="10" id="goE-Or-5My"/>
                                                                     <constraint firstItem="7rg-kZ-mER" firstAttribute="leading" secondItem="qM2-kz-1S1" secondAttribute="trailing" constant="10" id="kwf-H1-EOn"/>
                                                                     <constraint firstItem="RSZ-gV-QhU" firstAttribute="leading" secondItem="hfS-yc-6by" secondAttribute="leading" constant="5" id="rMU-Eo-ftS"/>
                                                                     <constraint firstItem="B48-Ht-HpH" firstAttribute="centerX" secondItem="hfS-yc-6by" secondAttribute="centerX" id="rbs-ok-S0v"/>
@@ -611,6 +617,7 @@
                                                                 <outlet property="btnAction" destination="qM2-kz-1S1" id="MpE-DE-uLN"/>
                                                                 <outlet property="btnDelete" destination="B48-Ht-HpH" id="gxD-9d-UIr"/>
                                                                 <outlet property="lblTitle" destination="tvI-PB-y0c" id="Ptw-UU-Eyk"/>
+                                                                <outlet property="scrImage" destination="7rg-kZ-mER" id="VCC-cd-XdX"/>
                                                                 <outlet property="tviewDesc" destination="Kav-q3-8DK" id="g2l-7k-xvq"/>
                                                                 <outlet property="vStep" destination="RSZ-gV-QhU" id="Kma-jO-DPF"/>
                                                             </connections>

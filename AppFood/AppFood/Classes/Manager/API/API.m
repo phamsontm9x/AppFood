@@ -12,6 +12,7 @@
 #import "DetailDishDto.h"
 #import "Configure.h"
 #import "AppDelegate.h"
+#import "AvatarDto.h"
 
 @interface _API ()
 @property (nonatomic, assign) NSInteger _countRequest;
@@ -270,6 +271,27 @@
               header:nil
                 body:dto
         successClass:[DetailDishDto class]
+            callback:callback];
+}
+
+- (void)createDetailDish:(DetailDishDto *)dto callback:(APICallback)callback {
+    [self processAPI:SF(@"food/%@/create",dto.categoryId)
+              method:METHOD_POST
+              header:nil
+                body:dto
+        successClass:[BaseDto class]
+            callback:callback];
+}
+
+// CreateImage
+- (void)createAvatarFile:(AvatarDto*)avatar callback:(APICallback)callback {
+    
+    [self processAPI:@"image"
+           serverURL:@"https://cookbook-server.herokuapp.com"
+              method:METHOD_POST
+              header:@{@"Content-Type": SF(@"multipart/form-data; boundary=%@", avatar._boundary)}
+                body:avatar
+        successClass:[AvatarDto class]
             callback:callback];
 }
 

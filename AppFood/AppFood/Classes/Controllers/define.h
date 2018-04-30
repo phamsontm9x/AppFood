@@ -513,4 +513,42 @@ for (NSInteger i = 0; i< _##Key.count; i++) { \
 #define DDF(A) ((A) ? [[NSDateFormatter displayDateFormatter] stringFromDate:A] : @"")
 
 
+// Form-Data Formmater
+#define StartForm() NSMutableData *data = [[NSMutableData alloc] init];
+#define EndForm() [data appendData:[SF(@"--%@--\r\n", __boundary) dataUsingEncoding:NSUTF8StringEncoding]]
+
+#define FormKV(Obj) FormKVKey(Obj, @#Obj, __boundary)
+#define FormKVKey(Value, Key, Boundary) \
+[data appendData:[[NSString stringWithFormat:@"--%@\r\n", Boundary] dataUsingEncoding:NSUTF8StringEncoding]]; \
+[data appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", Key] dataUsingEncoding:NSUTF8StringEncoding]]; \
+[data appendData:[[NSString stringWithFormat:@"%@\r\n", _##Value] dataUsingEncoding:NSUTF8StringEncoding]];
+
+#define FormKVI(Obj) FormKVIKey(Obj, @#Obj, __boundary)
+#define FormKVIKey(Value, Key, Boundary) \
+[data appendData:[[NSString stringWithFormat:@"--%@\r\n", Boundary] dataUsingEncoding:NSUTF8StringEncoding]]; \
+[data appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", Key] dataUsingEncoding:NSUTF8StringEncoding]]; \
+[data appendData:[[NSString stringWithFormat:@"%ld\r\n", _##Value] dataUsingEncoding:NSUTF8StringEncoding]];
+
+#define FormKVB(Obj) FormKVBKey(Obj, @#Obj, __boundary)
+#define FormKVBKey(Value, Key, Boundary) \
+[data appendData:[[NSString stringWithFormat:@"--%@\r\n", Boundary] dataUsingEncoding:NSUTF8StringEncoding]]; \
+[data appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", Key] dataUsingEncoding:NSUTF8StringEncoding]]; \
+[data appendData:[[NSString stringWithFormat:@"%d\r\n", _##Value] dataUsingEncoding:NSUTF8StringEncoding]];
+
+
+#define FormFile(FileName, MineType, FileContent) \
+[data appendData:[[NSString stringWithFormat:@"--%@\r\n", __boundary] dataUsingEncoding:NSUTF8StringEncoding]]; \
+[data appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", @"file", _##FileName] dataUsingEncoding:NSUTF8StringEncoding]]; \
+[data appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n\r\n", MineType] dataUsingEncoding:NSUTF8StringEncoding]]; \
+[data appendData:_##FileContent]; \
+[data appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+
+#define DATE_DEFAULT_START [[NSDateFormatter companyDateFormatter] dateFromString:@"01/01/2000"]
+#define DATE_DEFAULT_END [[NSDateFormatter companyDateFormatter] dateFromString:@"01/01/2100"]
+
+#define RootFrame(ViewA) [App.window.rootViewController.view convertRect:ViewA.frame fromView:ViewA]
+
+#define TimeAnimation 0.3
+
+
 

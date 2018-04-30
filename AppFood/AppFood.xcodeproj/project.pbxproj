@@ -61,6 +61,7 @@
 		CA86F00C2077D41C00115699 /* IngredientDetailDishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA86F00B2077D41C00115699 /* IngredientDetailDishCell.m */; };
 		CA86F0102077D43E00115699 /* StepsDetailDishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA86F00F2077D43E00115699 /* StepsDetailDishCell.m */; };
 		CA86F0142077D45200115699 /* TypeDetailDishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA86F0132077D45200115699 /* TypeDetailDishCell.m */; };
+		CA96414F2096AD62003FAFC8 /* AvatarDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA96414E2096AD62003FAFC8 /* AvatarDto.m */; };
 		CAE60957205BA4B200BB3D86 /* UserDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE60956205BA4B200BB3D86 /* UserDto.m */; };
 		CAE6095B205BAC5900BB3D86 /* Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE6095A205BAC5900BB3D86 /* Configure.m */; };
 		CB51A5742094BC9500DC46B2 /* UserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51A5732094BC9500DC46B2 /* UserVC.m */; };
@@ -185,6 +186,8 @@
 		CA86F00F2077D43E00115699 /* StepsDetailDishCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StepsDetailDishCell.m; sourceTree = "<group>"; };
 		CA86F0122077D45200115699 /* TypeDetailDishCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeDetailDishCell.h; sourceTree = "<group>"; };
 		CA86F0132077D45200115699 /* TypeDetailDishCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TypeDetailDishCell.m; sourceTree = "<group>"; };
+		CA96414D2096AD62003FAFC8 /* AvatarDto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvatarDto.h; sourceTree = "<group>"; };
+		CA96414E2096AD62003FAFC8 /* AvatarDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AvatarDto.m; sourceTree = "<group>"; };
 		CAE60955205BA4B200BB3D86 /* UserDto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDto.h; sourceTree = "<group>"; };
 		CAE60956205BA4B200BB3D86 /* UserDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDto.m; sourceTree = "<group>"; };
 		CAE60959205BAC5900BB3D86 /* Configure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
@@ -507,6 +510,7 @@
 		CA6F272020511625000D38C7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CA96414C2096AD4C003FAFC8 /* AvatarDto */,
 				CAE60954205BA4A100BB3D86 /* UserDto */,
 				CA7F70E6205A12E2007F93C0 /* DetailDishDto */,
 				CA7F70E5205A12CC007F93C0 /* ListDishDto */,
@@ -731,6 +735,15 @@
 				CA86F0132077D45200115699 /* TypeDetailDishCell.m */,
 			);
 			path = TypeDetailDishCell;
+			sourceTree = "<group>";
+		};
+		CA96414C2096AD4C003FAFC8 /* AvatarDto */ = {
+			isa = PBXGroup;
+			children = (
+				CA96414D2096AD62003FAFC8 /* AvatarDto.h */,
+				CA96414E2096AD62003FAFC8 /* AvatarDto.m */,
+			);
+			path = AvatarDto;
 			sourceTree = "<group>";
 		};
 		CAE60954205BA4A100BB3D86 /* UserDto */ = {
@@ -1045,6 +1058,7 @@
 				CA604D462051287000038AA9 /* BaseCell.m in Sources */,
 				CA604D5620513AA700038AA9 /* SupportVC.m in Sources */,
 				CA86F0012077D3BF00115699 /* BaseColCell.m in Sources */,
+				CA96414F2096AD62003FAFC8 /* AvatarDto.m in Sources */,
 				CA604D4A20512A3100038AA9 /* BaseTBV.m in Sources */,
 				424AF9E3206A382100EFF1EB /* MaterialsDetailDishDto.m in Sources */,
 				42350B0E20750CA000FF1B21 /* HBannerCell.m in Sources */,

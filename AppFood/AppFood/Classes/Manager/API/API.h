@@ -13,6 +13,7 @@
 
 #define API [_API shared]
 
+@class AvatarDto;
 @class UserDto;
 @class DetailDishDto;
 @class ListDishDto;
@@ -45,10 +46,14 @@ typedef void (^APICallback)(BOOL success, id data);
 - (void)createTypeDish:(DishTypeDto *)dto callback:(APICallback)callback;
 - (void)getDishDetail:(NSString *)foodId callback:(APICallback)callback;
 - (void)updateFavoriteFoodDetail:(DetailDishDto *)foodId callback:(APICallback)callback;
+- (void)createDetailDish:(DetailDishDto *)dto callback:(APICallback)callback;
 
 #pragma mark - Login
 - (void)login:(UserDto*)user callback:(APICallback)callback;
 - (void)registerAccount:(UserDto*)user callback:(APICallback)callback;
 - (void)updateInfoUser:(UserDto *)dto callback:(APICallback)callback;
+
+#pragma mark - Image
+- (void)createAvatarFile:(AvatarDto*)avatar callback:(APICallback)callback;
 
 @end

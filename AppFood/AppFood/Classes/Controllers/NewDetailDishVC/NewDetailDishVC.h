@@ -14,5 +14,6 @@
 @property (nonatomic, weak) IBOutlet UICollectionView *clvContent;
 @property (weak, nonatomic) IBOutlet UIPageControl *pgIndicator;
 @property (nonatomic, strong) DetailDishDto *dataDto;
+@property (nonatomic, strong) NSString *categoryId;
 
 @end
