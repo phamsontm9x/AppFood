@@ -10,6 +10,7 @@
 #import "ListDishDto.h"
 #import "ContentDetailDishDto.h"
 #import "MaterialsDetailDishDto.h"
+#import <UIKit/UIKit.h>
 
 @class DetailDishDto;
 
@@ -27,6 +28,8 @@
 @property (nonatomic, strong) NSString *categoryId;
 @property (nonatomic, strong) NSMutableArray<ContentDetailDishDto *> *content;
 @property (nonatomic, strong) NSString *time;
+@property (strong, nonatomic) UIImage *imgAvatar;
+
 
 @property (nonatomic, assign) BOOL hasSave;
 

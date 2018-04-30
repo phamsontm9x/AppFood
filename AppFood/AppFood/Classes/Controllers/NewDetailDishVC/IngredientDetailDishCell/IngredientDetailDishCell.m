@@ -9,10 +9,12 @@
 #import "IngredientDetailDishCell.h"
 #import "NewDetailDishTbvCell.h"
 #import "DetailDishDto.h"
+#import "MaterialsDetailDishDto.h"
 
 @interface IngredientDetailDishCell() <UITableViewDelegate, UITableViewDataSource> {
     NSMutableArray *_arrRowData;
     BOOL isEditing;
+    NSMutableArray *listData;
 }
 
 @end
@@ -35,6 +37,7 @@
 #pragma mark - InitUI
 
 - (void)initVar {
+    listData = [[NSMutableArray alloc] init];
     _arrRowData = [[NSMutableArray alloc] init];
     _tbvIngredient.allowsSelectionDuringEditing = YES;
     isEditing = YES;
@@ -134,6 +137,17 @@
 #pragma mark - Action
 
 - (IBAction)btnNextPressed:(UIButton *)btn {
+    
+    for (NewDetailDishTbvCell *cell in _tbvIngredient.visibleCells) {
+        MaterialsDetailDishDto *data = [[MaterialsDetailDishDto alloc] init];
+        data.material = cell.tfName.text;
+        data.amount = cell.tfAmout.text;
+        if (![data.material isEqualToString:@""] && ![data.amount isEqualToString:@""] && data.material != nil && data.amount != nil) {
+            [listData addObject:data];
+        }
+    }
+    self.dataDto.materials = listData;
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(indexCell:selectBtnNext:orBtnBack:)]) {
         
         [self.delegate indexCell:1 selectBtnNext:YES orBtnBack:NO];

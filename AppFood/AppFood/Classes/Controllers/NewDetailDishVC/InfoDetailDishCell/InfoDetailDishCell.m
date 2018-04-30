@@ -9,9 +9,11 @@
 #import "InfoDetailDishCell.h"
 #import "NewDetailDishTbvCell.h"
 
-@interface InfoDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate, UIImagePickerControllerDelegate, BaseColCellDelegate> {
+@interface InfoDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate, UIImagePickerControllerDelegate, BaseColCellDelegate, UITextFieldDelegate> {
     
     UIImage *imgAvatar;
+    NSString *nameDish;
+    NSString *linkDish;
 }
 
 @end
@@ -83,6 +85,8 @@
         case 1: {
             cell = [tableView dequeueReusableCellWithIdentifier:@"NDInfoDesCell"];
             cell.delegate = self;
+            cell.tfLink.delegate = self;
+            cell.tfLink.tag = 0;
             cell.imgAvatar.image = imgAvatar;
             break;
         }
@@ -93,6 +97,8 @@
         }
         case 3: {
             cell = [tableView dequeueReusableCellWithIdentifier:@"NDInfoYoutubeCell"];
+            cell.tfLink.delegate = self;
+            cell.tfLink.tag = 1;
             break;
         }
         case 4: {
@@ -151,7 +157,7 @@
 - (void)openPhotoAction {
     UIImagePickerController *_picker = [[UIImagePickerController alloc] init];
     _picker.allowsEditing = YES;
-    _picker.delegate = self.rootVC;
+    _picker.delegate = self;
     [_picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [self.rootVC presentViewController:_picker animated:YES completion:nil];
 }
@@ -174,13 +180,25 @@
 
 - (void)setImageAvatarFood:(UIImage *)image {
     imgAvatar = image;
+    [_tbvInfo reloadData];
 }
 
 #pragma mark - BaseCollCellDelegate
 - (IBAction)btnNextPressed:(UIButton *)btn {
+    self.dataDto.imgAvatar = imgAvatar;
+    self.dataDto.name = nameDish;
+    self.dataDto.youtube = linkDish;
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(indexCell:selectBtnNext:orBtnBack:)]) {
-        
         [self.delegate indexCell:0 selectBtnNext:YES orBtnBack:NO];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (textField.tag == 0) {
+        nameDish = textField.text;
+    } else {
+        linkDish = textField.text;
     }
 }
 @end

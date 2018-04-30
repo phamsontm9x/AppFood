@@ -13,4 +13,5 @@
 @property (nonatomic, strong) NSString *material;
 @property (nonatomic, strong) NSString *amount;
 
+
 @end

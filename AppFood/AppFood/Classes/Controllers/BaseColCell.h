@@ -12,6 +12,7 @@
 @class IngredientDetailDishCell;
 @class StepsDetailDishCell;
 @class TypeDetailDishCell;
+@class NewDetailDishVC;
 
 @protocol BaseColCellDelegate <NSObject>
 @optional
@@ -22,7 +23,9 @@
 
 @interface BaseColCell : UICollectionViewCell
 
-@property (nonatomic, strong) BaseVC *rootVC;
+@property (nonatomic, strong) DetailDishDto *dataDto;
+@property (nonatomic, strong) NewDetailDishVC *rootVC;
+
 @property (nonatomic, strong) id<BaseColCellDelegate> delegate;
 
 @end

@@ -7,6 +7,9 @@
 //
 
 #import "BaseCell.h"
+#import "DetailDishDto.h"
+#import "NewDetailDishVC.h"
+
 @class NewDetailDishTbvCell;
 
 @protocol NewDetailDishTbvCellDelegate <NSObject>
@@ -19,6 +22,9 @@
 @end
 
 @interface NewDetailDishTbvCell : BaseCell
+
+
+
 
 @property (nonatomic, weak) IBOutlet UILabel *lblDuration;
 @property (nonatomic, weak) IBOutlet UITextView *tviewDesc;

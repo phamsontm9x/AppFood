@@ -7,10 +7,12 @@
 //
 
 #import "BaseVC.h"
+#import "DetailDishDto.h"
 
 @interface NewDetailDishVC : BaseVC
 
 @property (nonatomic, weak) IBOutlet UICollectionView *clvContent;
 @property (weak, nonatomic) IBOutlet UIPageControl *pgIndicator;
+@property (nonatomic, strong) DetailDishDto *dataDto;
 
 @end

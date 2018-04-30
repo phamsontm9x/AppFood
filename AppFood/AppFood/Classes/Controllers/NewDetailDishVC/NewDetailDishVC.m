@@ -34,6 +34,7 @@
                  @"IngredientDetailDishCell",
                  @"StepsDetailDishCell",
                  @"TypeDetailDishCell"];
+    _dataDto = [[DetailDishDto alloc] init];
     [_clvContent reloadData];
 }
 
@@ -65,6 +66,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     BaseColCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_arrCell[indexPath.row] forIndexPath:indexPath];
     
+    cell.dataDto = self.dataDto;
     cell.rootVC = self;
     cell.delegate = self;
     
