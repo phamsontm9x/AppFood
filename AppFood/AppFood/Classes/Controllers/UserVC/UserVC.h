@@ -10,4 +10,6 @@
 
 @interface UserVC : BaseVC <SlideNavigationControllerDelegate>
 
+@property (nonatomic, weak) IBOutlet UITableView *tbvUser;
+
 @end

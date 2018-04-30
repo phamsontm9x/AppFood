@@ -7,6 +7,7 @@
 //
 
 #import "UserCell.h"
+#import "UIView+Util.h"
 
 @implementation UserCell
 
@@ -19,6 +20,14 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)onBtnChooseAvatar:(UIButton*)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(userCell:didChooseAvatar:)]) {
+        [_delegate userCell:self didChooseAvatar:sender];
+    }else {
+        NSLog(@"Please set DELEGATE for class: %@",[self class]);
+    }
 }
 
 @end

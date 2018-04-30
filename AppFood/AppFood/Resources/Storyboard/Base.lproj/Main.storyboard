@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="06B-e9-bNn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="06B-e9-bNn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Helvetica.ttc">
-            <string>Helvetica</string>
+            <string>Helvetica-Bold</string>
         </array>
     </customFonts>
     <scenes>
@@ -46,7 +47,7 @@
                                 <rect key="frame" x="0.0" y="155" width="375" height="512"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" rowHeight="60" id="duA-6W-FMZ" customClass="BaseCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MenuCell" rowHeight="60" id="duA-6W-FMZ" customClass="BaseCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="duA-6W-FMZ" id="xIY-jD-DKJ">
@@ -54,17 +55,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d5M-CO-dyZ">
-                                                    <rect key="frame" x="10" y="10" width="40" height="40"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <rect key="frame" x="10" y="15" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="1oW-tc-HLM"/>
-                                                        <constraint firstAttribute="width" constant="40" id="BZe-cb-4PK"/>
+                                                        <constraint firstAttribute="height" constant="30" id="1oW-tc-HLM"/>
+                                                        <constraint firstAttribute="width" constant="30" id="BZe-cb-4PK"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7Q-TP-O2J">
-                                                    <rect key="frame" x="65" y="22.5" width="300" height="16.5"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="55" y="21.5" width="310" height="18.5"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -100,24 +101,30 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82H-cC-yMn">
-                                        <rect key="frame" x="115" y="15" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="115" y="15" width="44.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zm-vd-VR8">
-                                        <rect key="frame" x="110" y="75" width="100" height="30"/>
-                                        <color key="backgroundColor" red="0.38937616348266602" green="0.22871363162994385" blue="0.5015028715133667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zm-vd-VR8">
+                                        <rect key="frame" x="151" y="75" width="30" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="UYF-bT-1j2"/>
-                                            <constraint firstAttribute="width" constant="100" id="tGL-T4-Pfo"/>
+                                            <constraint firstAttribute="width" constant="30" id="tGL-T4-Pfo"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <state key="normal" title="Log out">
+                                        <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                        <state key="normal" image="create">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnLogout:" destination="dF4-kb-640" eventType="touchUpInside" id="6kD-Qp-qRT"/>
+                                            <action selector="btnCreatePressed:" destination="dF4-kb-640" eventType="touchUpInside" id="3DD-a8-zIV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bC-ut-YGr">
+                                        <rect key="frame" x="10" y="15" width="90" height="90"/>
+                                        <connections>
+                                            <action selector="btnProfilePressed:" destination="dF4-kb-640" eventType="touchUpInside" id="dVy-KB-aNB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -126,10 +133,14 @@
                                     <constraint firstAttribute="height" constant="120" id="0Oa-RK-eU9"/>
                                     <constraint firstItem="0zm-vd-VR8" firstAttribute="bottom" secondItem="z9e-h2-9rr" secondAttribute="bottom" id="86I-yY-xCs"/>
                                     <constraint firstItem="z9e-h2-9rr" firstAttribute="leading" secondItem="uWh-LX-gJ7" secondAttribute="leading" constant="10" id="Bcq-iU-iMu"/>
+                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="centerX" secondItem="z9e-h2-9rr" secondAttribute="centerX" id="EVz-Gr-GeG"/>
                                     <constraint firstItem="82H-cC-yMn" firstAttribute="leading" secondItem="z9e-h2-9rr" secondAttribute="trailing" constant="15" id="UZ3-8y-q3Y"/>
-                                    <constraint firstItem="0zm-vd-VR8" firstAttribute="leading" secondItem="z9e-h2-9rr" secondAttribute="trailing" constant="10" id="aRi-ND-ka5"/>
+                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="height" secondItem="z9e-h2-9rr" secondAttribute="height" id="f6i-m3-Bbb"/>
                                     <constraint firstItem="82H-cC-yMn" firstAttribute="top" secondItem="z9e-h2-9rr" secondAttribute="top" id="g4g-Fl-zKn"/>
+                                    <constraint firstItem="0zm-vd-VR8" firstAttribute="centerX" secondItem="uWh-LX-gJ7" secondAttribute="centerX" multiplier="1.3" id="kp4-Zg-boR"/>
                                     <constraint firstItem="z9e-h2-9rr" firstAttribute="centerY" secondItem="uWh-LX-gJ7" secondAttribute="centerY" id="nel-hj-rLh"/>
+                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="width" secondItem="z9e-h2-9rr" secondAttribute="width" id="w0O-jV-Rsc"/>
+                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="centerY" secondItem="z9e-h2-9rr" secondAttribute="centerY" id="yj5-8i-VTd"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -150,7 +161,6 @@
                         <viewLayoutGuide key="safeArea" id="wfq-XT-YjO"/>
                     </view>
                     <connections>
-                        <outlet property="btnLogout" destination="0zm-vd-VR8" id="gIa-0P-BN1"/>
                         <outlet property="csRightView" destination="Uvc-pC-JKq" id="BBa-lG-R0b"/>
                         <outlet property="imageAvatar" destination="z9e-h2-9rr" id="RHI-40-Tci"/>
                         <outlet property="lblUserName" destination="82H-cC-yMn" id="iXG-Ur-7fh"/>
@@ -164,6 +174,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="create" width="52" height="52"/>
         <image name="menubackground" width="315" height="851"/>
         <image name="thitga" width="257" height="196"/>
     </resources>

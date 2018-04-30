@@ -49,5 +49,6 @@ typedef void (^APICallback)(BOOL success, id data);
 #pragma mark - Login
 - (void)login:(UserDto*)user callback:(APICallback)callback;
 - (void)registerAccount:(UserDto*)user callback:(APICallback)callback;
+- (void)updateInfoUser:(UserDto *)dto callback:(APICallback)callback;
 
 @end
