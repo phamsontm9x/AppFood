@@ -18,13 +18,15 @@
 - (IBAction)btnBackPressed:(UIButton *)btn {
     
     AvatarDto *avatar = [[AvatarDto  alloc] init];
-    avatar.name = @"AvatarFood";
+    avatar.name = @"AvatarFood123.jpg";
     avatar.fileContent = UIImageJPEGRepresentation(self.dataDto.imgAvatar, 1);
+    [App showLoading];
     [API createAvatarFile:avatar callback:^(BOOL success, AvatarDto *data) {
+        
         if (success) {
             self.dataDto.image = SF(@"https://cookbook-server.herokuapp.com/%@",data.path);
             [API createDetailDish:self.dataDto callback:^(BOOL success, id data) {
-                
+                [App hideLoading];
             }];
         }
     }];
