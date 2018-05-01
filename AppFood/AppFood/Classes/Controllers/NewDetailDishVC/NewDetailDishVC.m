@@ -32,8 +32,7 @@
 - (void)initUI {
     _arrCell = @[@"InfoDetailDishCell",
                  @"IngredientDetailDishCell",
-                 @"StepsDetailDishCell",
-                 @"TypeDetailDishCell"];
+                 @"StepsDetailDishCell"];
     _dataDto = [[DetailDishDto alloc] init];
     _dataDto.categoryId = _categoryId;
     [_clvContent reloadData];

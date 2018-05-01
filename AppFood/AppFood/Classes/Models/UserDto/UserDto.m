@@ -56,11 +56,13 @@
         JO(birthday);
         JB(gender);
     } else {
-        JO(_id);
         JO(email);
         JO(password);
         JO(fullName);
-        JO(created);
+        JO(address);
+        JO(phone);
+        JO(birthday);
+        JB(gender);
     }
     return dic;
 }

@@ -18,6 +18,6 @@
 @property (nonatomic, strong) NSString *phone;
 @property (assign, nonatomic) BOOL gender;
 @property (nonatomic, strong) NSString *birthday;
-@property (nonatomic, strong) NSString *created;
+@property (nonatomic, strong) NSString *created;	
 
 @end

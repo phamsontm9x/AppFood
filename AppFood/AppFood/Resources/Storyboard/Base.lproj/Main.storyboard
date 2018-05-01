@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="06B-e9-bNn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="06B-e9-bNn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13524"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -101,28 +100,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82H-cC-yMn">
-                                        <rect key="frame" x="115" y="15" width="44.5" height="21"/>
+                                        <rect key="frame" x="115" y="49.5" width="44.5" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zm-vd-VR8">
-                                        <rect key="frame" x="151" y="75" width="30" height="30"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="UYF-bT-1j2"/>
-                                            <constraint firstAttribute="width" constant="30" id="tGL-T4-Pfo"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="7"/>
-                                        <state key="normal" image="create">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnCreatePressed:" destination="dF4-kb-640" eventType="touchUpInside" id="3DD-a8-zIV"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bC-ut-YGr">
-                                        <rect key="frame" x="10" y="15" width="90" height="90"/>
+                                        <rect key="frame" x="10" y="15" width="235" height="90"/>
                                         <connections>
                                             <action selector="btnProfilePressed:" destination="dF4-kb-640" eventType="touchUpInside" id="dVy-KB-aNB"/>
                                         </connections>
@@ -131,16 +115,14 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="0Oa-RK-eU9"/>
-                                    <constraint firstItem="0zm-vd-VR8" firstAttribute="bottom" secondItem="z9e-h2-9rr" secondAttribute="bottom" id="86I-yY-xCs"/>
+                                    <constraint firstItem="82H-cC-yMn" firstAttribute="centerY" secondItem="z9e-h2-9rr" secondAttribute="centerY" id="1op-BC-yLY"/>
+                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="top" secondItem="uWh-LX-gJ7" secondAttribute="top" constant="15" id="BSs-gs-3RK"/>
                                     <constraint firstItem="z9e-h2-9rr" firstAttribute="leading" secondItem="uWh-LX-gJ7" secondAttribute="leading" constant="10" id="Bcq-iU-iMu"/>
-                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="centerX" secondItem="z9e-h2-9rr" secondAttribute="centerX" id="EVz-Gr-GeG"/>
+                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="leading" secondItem="uWh-LX-gJ7" secondAttribute="leading" constant="10" id="J3A-c8-0kr"/>
+                                    <constraint firstAttribute="bottom" secondItem="6bC-ut-YGr" secondAttribute="bottom" constant="15" id="LRv-rV-LTc"/>
+                                    <constraint firstAttribute="trailing" secondItem="6bC-ut-YGr" secondAttribute="trailing" constant="10" id="PWN-nO-V3F"/>
                                     <constraint firstItem="82H-cC-yMn" firstAttribute="leading" secondItem="z9e-h2-9rr" secondAttribute="trailing" constant="15" id="UZ3-8y-q3Y"/>
-                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="height" secondItem="z9e-h2-9rr" secondAttribute="height" id="f6i-m3-Bbb"/>
-                                    <constraint firstItem="82H-cC-yMn" firstAttribute="top" secondItem="z9e-h2-9rr" secondAttribute="top" id="g4g-Fl-zKn"/>
-                                    <constraint firstItem="0zm-vd-VR8" firstAttribute="centerX" secondItem="uWh-LX-gJ7" secondAttribute="centerX" multiplier="1.3" id="kp4-Zg-boR"/>
                                     <constraint firstItem="z9e-h2-9rr" firstAttribute="centerY" secondItem="uWh-LX-gJ7" secondAttribute="centerY" id="nel-hj-rLh"/>
-                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="width" secondItem="z9e-h2-9rr" secondAttribute="width" id="w0O-jV-Rsc"/>
-                                    <constraint firstItem="6bC-ut-YGr" firstAttribute="centerY" secondItem="z9e-h2-9rr" secondAttribute="centerY" id="yj5-8i-VTd"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -174,7 +156,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="create" width="52" height="52"/>
         <image name="menubackground" width="315" height="851"/>
         <image name="thitga" width="257" height="196"/>
     </resources>

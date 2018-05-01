@@ -1,4 +1,4 @@
-//
+			//
 //  UserVC.m
 //  AppFood
 //
@@ -37,8 +37,7 @@
     _gender = _userDto.gender == YES ? @"Male" : @"Female";
     
     _arrTitle = @[@"Full Name", @"Birthday", @"Gender", @"Email", @"Phone", @"Address"];
-//    _arrInfo = @[_userDto.fullName, _userDto.birthday, _gender, _userDto.email, _userDto.phone, _userDto.address];
-    _arrInfo = @[_userDto.fullName, _userDto.fullName, _userDto.fullName, _userDto.email, _userDto.fullName, _userDto.fullName];
+    _arrInfo = @[_userDto.fullName, _userDto.birthday, _gender, _userDto.email, _userDto.phone, _userDto.address];
 }
 
 #pragma mark - UITableView
@@ -119,16 +118,11 @@
 - (void)updateInfoUser {
     [App showLoading];
     
-    _userDto.fullName = @"Nhat Anh";
-    _userDto.phone = @"0989888888";
-    _userDto.gender = YES;
-    _userDto.birthday = @"12/12/1996";
-    
     [API updateInfoUser:_userDto callback:^(BOOL success, id data) {
         [App hideLoading];
         if (success) {
             _userDto = data;
-            Config.userDto = data;
+            [Config updateUser:data];
             [_tbvUser reloadData];
         }
     }];

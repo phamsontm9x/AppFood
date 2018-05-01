@@ -11,8 +11,11 @@
 #import "DetailDishDto.h"
 #import "UIView+Util.h"
 #import "ContentDetailDishDto.h"
+#import "AvatarDto.h"
+#import "API.h"
+#import "DetailDishDto.h"
 
-@interface StepsDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate,UIImagePickerControllerDelegate, UITextViewDelegate> {
+@interface StepsDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextViewDelegate> {
     NSMutableArray *_arrRowData;
     NSMutableArray *arrData;
     BOOL isEditing;
@@ -163,11 +166,19 @@
 #pragma mark - Action
 
 - (IBAction)btnNextPressed:(UIButton *)btn {
-    self.dataDto.content = arrData;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(indexCell:selectBtnNext:orBtnBack:)]) {
+    AvatarDto *avatar = [[AvatarDto  alloc] init];
+    avatar.name = @"AvatarFood123.jpg";
+    avatar.fileContent = UIImageJPEGRepresentation(self.dataDto.imgAvatar, 1);
+    [App showLoading];
+    [API createAvatarFile:avatar callback:^(BOOL success, AvatarDto *data) {
         
-        [self.delegate indexCell:2 selectBtnNext:YES orBtnBack:NO];
-    }
+        if (success) {
+            self.dataDto.image = SF(@"https://cookbook-server.herokuapp.com/%@",data.path);
+            [API createDetailDish:self.dataDto callback:^(BOOL success, id data) {
+                [App hideLoading];
+            }];
+        }
+    }];
 }
 
 - (IBAction)btnBackPressed:(UIButton *)btn {
