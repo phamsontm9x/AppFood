@@ -7,8 +7,10 @@
 //
 
 #import "BaseCell.h"
+#import "UserVC.h"
 
 @class UserCell;
+@class NewDetailDishVC;
 
 @protocol UserCellDelegate <NSObject>
 
@@ -21,6 +23,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *imgAvatar;
 @property (nonatomic, weak) IBOutlet UITextField *tfEdit;
 @property (nonatomic, weak) IBOutlet UIView *vBack;
+@property (nonatomic, strong) UserVC *rootVC;
 
 @property (nonatomic, weak) id <UserCellDelegate> delegate;
 

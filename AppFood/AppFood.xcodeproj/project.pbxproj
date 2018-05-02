@@ -64,6 +64,9 @@
 		CA96414F2096AD62003FAFC8 /* AvatarDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA96414E2096AD62003FAFC8 /* AvatarDto.m */; };
 		CAE60957205BA4B200BB3D86 /* UserDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE60956205BA4B200BB3D86 /* UserDto.m */; };
 		CAE6095B205BAC5900BB3D86 /* Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE6095A205BAC5900BB3D86 /* Configure.m */; };
+		CB3C64882099E4E100367F02 /* AlertInputFormVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3C64872099E4E100367F02 /* AlertInputFormVC.m */; };
+		CB3C648C2099E5ED00367F02 /* HView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3C648B2099E5ED00367F02 /* HView.m */; };
+		CB3C6490209A101900367F02 /* CommentDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3C648F209A101900367F02 /* CommentDto.m */; };
 		CB51A5742094BC9500DC46B2 /* UserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51A5732094BC9500DC46B2 /* UserVC.m */; };
 		CB51A5782094BF5500DC46B2 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51A5772094BF5500DC46B2 /* UserCell.m */; };
 		F54F4B32B4B708801E871879 /* Pods_AppFood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27F32BDAA9DC9224D7508EA /* Pods_AppFood.framework */; };
@@ -192,6 +195,12 @@
 		CAE60956205BA4B200BB3D86 /* UserDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDto.m; sourceTree = "<group>"; };
 		CAE60959205BAC5900BB3D86 /* Configure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
 		CAE6095A205BAC5900BB3D86 /* Configure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Configure.m; sourceTree = "<group>"; };
+		CB3C64862099E4E100367F02 /* AlertInputFormVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertInputFormVC.h; sourceTree = "<group>"; };
+		CB3C64872099E4E100367F02 /* AlertInputFormVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertInputFormVC.m; sourceTree = "<group>"; };
+		CB3C648A2099E5ED00367F02 /* HView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HView.h; sourceTree = "<group>"; };
+		CB3C648B2099E5ED00367F02 /* HView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HView.m; sourceTree = "<group>"; };
+		CB3C648E209A101900367F02 /* CommentDto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentDto.h; sourceTree = "<group>"; };
+		CB3C648F209A101900367F02 /* CommentDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentDto.m; sourceTree = "<group>"; };
 		CB51A5722094BC9500DC46B2 /* UserVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserVC.h; sourceTree = "<group>"; };
 		CB51A5732094BC9500DC46B2 /* UserVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserVC.m; sourceTree = "<group>"; };
 		CB51A5762094BF5500DC46B2 /* UserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
@@ -510,6 +519,7 @@
 		CA6F272020511625000D38C7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CB3C648D209A0FF500367F02 /* CommentDto */,
 				CA96414C2096AD4C003FAFC8 /* AvatarDto */,
 				CAE60954205BA4A100BB3D86 /* UserDto */,
 				CA7F70E6205A12E2007F93C0 /* DetailDishDto */,
@@ -545,6 +555,7 @@
 		CA6F272420511667000D38C7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CB3C64842099E4CF00367F02 /* Common */,
 				CA70139120762F4F00962831 /* View */,
 				42350B0420750CA000FF1B21 /* HBanner */,
 				42D16B3B205B534300384BC4 /* MButton */,
@@ -762,6 +773,42 @@
 				CAE6095A205BAC5900BB3D86 /* Configure.m */,
 			);
 			path = Configure;
+			sourceTree = "<group>";
+		};
+		CB3C64842099E4CF00367F02 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CB3C64892099E5ED00367F02 /* HView */,
+				CB3C64852099E4E100367F02 /* AlertInputFormVC */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CB3C64852099E4E100367F02 /* AlertInputFormVC */ = {
+			isa = PBXGroup;
+			children = (
+				CB3C64862099E4E100367F02 /* AlertInputFormVC.h */,
+				CB3C64872099E4E100367F02 /* AlertInputFormVC.m */,
+			);
+			path = AlertInputFormVC;
+			sourceTree = "<group>";
+		};
+		CB3C64892099E5ED00367F02 /* HView */ = {
+			isa = PBXGroup;
+			children = (
+				CB3C648A2099E5ED00367F02 /* HView.h */,
+				CB3C648B2099E5ED00367F02 /* HView.m */,
+			);
+			path = HView;
+			sourceTree = "<group>";
+		};
+		CB3C648D209A0FF500367F02 /* CommentDto */ = {
+			isa = PBXGroup;
+			children = (
+				CB3C648E209A101900367F02 /* CommentDto.h */,
+				CB3C648F209A101900367F02 /* CommentDto.m */,
+			);
+			path = CommentDto;
 			sourceTree = "<group>";
 		};
 		CB51A5712094BC7B00DC46B2 /* UserVC */ = {
@@ -1033,11 +1080,14 @@
 				CA4311F1205971DA003A3568 /* API.m in Sources */,
 				CA70139420762F4F00962831 /* UIView+Util.m in Sources */,
 				42D94A3E2058C5A6008C5202 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
+				CB3C6490209A101900367F02 /* CommentDto.m in Sources */,
 				42D94A2F2058C582008C5202 /* SlideNavigationController.m in Sources */,
 				CA7F70ED205A132B007F93C0 /* ListDishDto.m in Sources */,
+				CB3C648C2099E5ED00367F02 /* HView.m in Sources */,
 				CA7D32DB2052729E00599755 /* DishTypeListVC.m in Sources */,
 				CA86F0102077D43E00115699 /* StepsDetailDishCell.m in Sources */,
 				CA7D32CB20526AC600599755 /* BaseDto.m in Sources */,
+				CB3C64882099E4E100367F02 /* AlertInputFormVC.m in Sources */,
 				42D16B45205B65EB00384BC4 /* WelcomeVC.m in Sources */,
 				42D94A422058C5A6008C5202 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				CA11035E205A686300905CC4 /* DishListVC.m in Sources */,

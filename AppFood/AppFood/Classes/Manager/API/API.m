@@ -13,6 +13,7 @@
 #import "Configure.h"
 #import "AppDelegate.h"
 #import "AvatarDto.h"
+#import "CommentDto.h"
 
 @interface _API ()
 @property (nonatomic, assign) NSInteger _countRequest;
@@ -292,6 +293,26 @@
               header:@{@"Content-Type": SF(@"multipart/form-data; boundary=%@", avatar._boundary)}
                 body:avatar
         successClass:[AvatarDto class]
+            callback:callback];
+}
+
+#pragma mark - Comment
+
+- (void)getAllComment:(NSString *)foodId callback:(APICallback)callback {
+    [self processAPI:SF(@"comment/%@",foodId)
+              method:METHOD_GET
+              header:nil
+                body:nil
+        successClass:[ListCommentDto class]
+            callback:callback];
+}
+
+- (void)writeComment:(CommentDto *)dto callback:(APICallback)callback {
+    [self processAPI:SF(@"comment/%@/create",dto.foodId)
+              method:METHOD_POST
+              header:nil
+                body:dto
+        successClass:[ListCommentDto class]
             callback:callback];
 }
 

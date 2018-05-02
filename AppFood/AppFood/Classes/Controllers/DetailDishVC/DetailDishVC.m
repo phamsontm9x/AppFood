@@ -12,6 +12,7 @@
 #import "FileHelper.h"
 #import "API.h"
 #import "AppDelegate.h"
+#import "AlertInputFormVC.h"
 
 #define offset_HeaderStop 160
 #define offset_B_LabelHeader 160
@@ -27,7 +28,8 @@
 
 - (void)viewDidLoad
 {
-    [self initVar];
+    [self initFoodDetail];
+    [self initComment];
     [self initUIHeader];
     [super viewDidLoad];
 }
@@ -44,13 +46,32 @@
     [self.navigationController setNavigationBarHidden:YES];
 }
 
-- (void)initVar {
+- (void)initFoodDetail {
     [App showLoading];
     [API getDishDetail:_foodId callback:^(BOOL success, id data) {
         [App hideLoading];
         [_tbvContent hideIndicator];
         if (success) {
             _fooddish = data;
+            [_tbvContent reloadData];
+        }
+    }];
+    
+    [API getAllComment:_foodId callback:^(BOOL success, id data) {
+        [_tbvContent hideIndicator];
+        if (success) {
+            _listComment = data;
+            [_tbvContent reloadData];
+        }
+    }];
+}
+
+- (void)initComment {
+    
+    [API getAllComment:_foodId callback:^(BOOL success, id data) {
+        [_tbvContent hideIndicator];
+        if (success) {
+            _listComment = data;
             [_tbvContent reloadData];
         }
     }];
@@ -71,14 +92,18 @@
 #pragma mark -
 #pragma mark Tableview data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger contentRow = _fooddish.content.count + 1;
-    NSInteger materialRow = _fooddish.materials.count + 1;
-    NSInteger total =  contentRow + materialRow + 1;
-    return total;
+    if (section == 0) {
+        NSInteger contentRow = _fooddish.content.count + 1;
+        NSInteger materialRow = _fooddish.materials.count + 1;
+        NSInteger total =  contentRow + materialRow + 1;
+        return total;
+    } else {
+        return _listComment.list.count;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -87,116 +112,145 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger row = indexPath.row;
-    NSInteger contentRow = _fooddish.content.count + 1;
-    NSInteger materialRow = _fooddish.materials.count + 1;
-    NSInteger total =  contentRow + materialRow + 1;
+    NSInteger section = indexPath.section;
     
-    if (row == 0) {
-        return 250;
-    } else if (row > 0 && row <= materialRow)  {
-        if (row == 1 || row == materialRow) {
-            return 50;
-        }
-        return 40;
-    } else if (row >= materialRow + 1 && row < total){
-        if (row == materialRow + 1) {
-            return 50;
-        }
-        else {
-            return 400;
+    if (section == 0) {
+        NSInteger contentRow = _fooddish.content.count + 1;
+        NSInteger materialRow = _fooddish.materials.count + 1;
+        NSInteger total =  contentRow + materialRow + 1;
+        
+        if (row == 0) {
+            return 250;
+        } else if (row > 0 && row <= materialRow)  {
+            if (row == 1 || row == materialRow) {
+                return 50;
+            }
+            return 40;
+        } else if (row >= materialRow + 1 && row < total){
+            if (row == materialRow + 1) {
+                return 50;
+            }
+            else {
+                return 400;
+            }
+        } else {
+            return 40;
         }
     } else {
-        return 40;
+        return 70;
     }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    DetailDishCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoHeaderCell"];
-    cell.lblIngredients.text = SF(@"%ld",_fooddish.materials.count);
-    cell.lblTime.text = _fooddish.time;
-    if (_fooddish.hasSave) {
-        [cell.btnSave setImage:[UIImage imageNamed:@"SaveFill"] forState:UIControlStateNormal];
-    } else {
-        [cell.btnSave setImage:[UIImage imageNamed:@"Save"] forState:UIControlStateNormal];
-    }
-    
-    for (int i = 0; i < [_fooddish.favourite count]; i++) {
-        if ([_fooddish.favourite[i] isEqualToString:Config.userDto._id]) {
-            [cell.btnFavorite setImage:[UIImage imageNamed:@"heartFill"] forState:UIControlStateNormal];
-            break;
+    if (section == 0) {
+        DetailDishCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoHeaderCell"];
+        cell.lblIngredients.text = SF(@"%ld",_fooddish.materials.count);
+        cell.lblTime.text = _fooddish.time;
+        if (_fooddish.hasSave) {
+            [cell.btnSave setImage:[UIImage imageNamed:@"SaveFill"] forState:UIControlStateNormal];
         } else {
-            [cell.btnFavorite setImage:[UIImage imageNamed:@"heart-1"] forState:UIControlStateNormal];
+            [cell.btnSave setImage:[UIImage imageNamed:@"Save"] forState:UIControlStateNormal];
         }
+        
+        for (int i = 0; i < [_fooddish.favourite count]; i++) {
+            if ([_fooddish.favourite[i] isEqualToString:Config.userDto._id]) {
+                [cell.btnFavorite setImage:[UIImage imageNamed:@"heartFill"] forState:UIControlStateNormal];
+                break;
+            } else {
+                [cell.btnFavorite setImage:[UIImage imageNamed:@"heart-1"] forState:UIControlStateNormal];
+            }
+        }
+        
+        cell.delegate = self;
+        
+        return cell;
     }
     
-    cell.delegate = self;
-    
-    return cell;
+    else {
+        DetailDishCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+        cell.lblTitle.text = @"COMMENT";
+        cell.btnAction.hidden = NO;
+        
+        return cell;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger row = indexPath.row;
+    NSInteger section = indexPath.section;
     
-    NSInteger contentRow = _fooddish.content.count + 1;
-    NSInteger materialRow = _fooddish.materials.count + 1;
-    NSInteger total =  contentRow + materialRow + 1;
-    
-    DetailDishCell *cell;
-    if (row == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"YoutubeCell"];
-        cell.wvYoutube.allowsInlineMediaPlayback = YES;
-        cell.wvYoutube.delegate = self;
-        cell.wvYoutube.mediaPlaybackRequiresUserAction = NO;
-        cell.wvYoutube.mediaPlaybackAllowsAirPlay = YES;
-        cell.wvYoutube.scrollView.bounces = NO;
+    if (section == 0) {
+        NSInteger contentRow = _fooddish.content.count + 1;
+        NSInteger materialRow = _fooddish.materials.count + 1;
+        NSInteger total =  contentRow + materialRow + 1;
         
-        NSArray *arrStr = [_fooddish.youtube componentsSeparatedByString:@"/"];
-        NSString *linkUrl = [arrStr lastObject];
-        NSString *embemdHTML = SF(@"<iframe width=""%f"" height=""%f"" src=""https://www.youtube.com/embed/%@"" frameborder=""0"" allow=""autoplay; encrypted-media"" allowfullscreen></iframe>",cell.wvYoutube.frame.size.width, cell.wvYoutube.frame.size.height, linkUrl);
-        [cell.wvYoutube loadHTMLString:embemdHTML baseURL:nil];
-
-    } else if (row > 0 && row <= materialRow) {
-        if (row == 1) {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientHeaderCell"];
-            [cell roundCornersOnTopLeft:YES topRight:YES bottomLeft:NO bottomRight:NO radius:10];
-        
-        } else {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientRowCell"];
-            cell.lblTitle.text = _fooddish.materials[row - 2].material;
-            cell.lblSubTitle.text = _fooddish.materials[row - 2].amount;
-            if (_fooddish.materials.count == row - 1) {
-                cell.csBotRow.constant = 5;
-                cell.lineView.hidden = YES;
-                [cell roundCornersOnTopLeft:NO topRight:NO bottomLeft:YES bottomRight:YES radius:10];
+        DetailDishCell *cell;
+        if (row == 0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"YoutubeCell"];
+            cell.wvYoutube.allowsInlineMediaPlayback = YES;
+            cell.wvYoutube.delegate = self;
+            cell.wvYoutube.mediaPlaybackRequiresUserAction = NO;
+            cell.wvYoutube.mediaPlaybackAllowsAirPlay = YES;
+            cell.wvYoutube.scrollView.bounces = NO;
+            
+            NSArray *arrStr = [_fooddish.youtube componentsSeparatedByString:@"/"];
+            NSString *linkUrl = [arrStr lastObject];
+            NSString *embemdHTML = SF(@"<iframe width=""%f"" height=""%f"" src=""https://www.youtube.com/embed/%@"" frameborder=""0"" allow=""autoplay; encrypted-media"" allowfullscreen></iframe>",cell.wvYoutube.frame.size.width, cell.wvYoutube.frame.size.height, linkUrl);
+            [cell.wvYoutube loadHTMLString:embemdHTML baseURL:nil];
+            
+        } else if (row > 0 && row <= materialRow) {
+            if (row == 1) {
+                cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientHeaderCell"];
+                [cell roundCornersOnTopLeft:YES topRight:YES bottomLeft:NO bottomRight:NO radius:10];
+                
             } else {
-                cell.csBotRow.constant = 0;
-                cell.lineView.hidden = NO;
-                [cell roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:0];
+                cell = [tableView dequeueReusableCellWithIdentifier:@"IngredientRowCell"];
+                cell.lblTitle.text = _fooddish.materials[row - 2].material;
+                cell.lblSubTitle.text = _fooddish.materials[row - 2].amount;
+                if (_fooddish.materials.count == row - 1) {
+                    cell.csBotRow.constant = 5;
+                    cell.lineView.hidden = YES;
+                    [cell roundCornersOnTopLeft:NO topRight:NO bottomLeft:YES bottomRight:YES radius:10];
+                } else {
+                    cell.csBotRow.constant = 0;
+                    cell.lineView.hidden = NO;
+                    [cell roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:0];
+                }
+            }
+        } else if (row >= materialRow + 1 && row < total) {
+            if (row == materialRow + 1) {
+                cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+                cell.lblTitle.text = @"COOK STEPS";
+                cell.btnAction.hidden = YES;
+            } else {
+                cell = [tableView dequeueReusableCellWithIdentifier:@"StepRowCell"];
+                [cell.vBanner setDataDisplay:_fooddish.content[row - materialRow - 2].arrImage];
+                [cell.vBanner setMaxPageControlNumber:_fooddish.content[row - materialRow - 2].arrImage.count];
+                cell.vBanner.delegate = self;
+                
+                NSMutableAttributedString *att = [[NSMutableAttributedString alloc] init];
+                
+                NSString *stepNum = SF(@"Step %ld :\t", row - materialRow - 1);
+                NSString *stepContent = _fooddish.content[row - materialRow - 2].step;
+                
+                [att appendAttributedString:[[NSAttributedString alloc] initWithString:stepNum attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:13]}]];
+                [att appendAttributedString:[[NSAttributedString alloc] initWithString:stepContent]];
+                
+                cell.lblSubTitle.attributedText = att;
             }
         }
-    } else if (row >= materialRow + 1 && row < total) {
-        if (row == materialRow + 1) {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
-            cell.lblTitle.text = @"COOK STEPS";
-        } else {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"StepRowCell"];
-            [cell.vBanner setDataDisplay:_fooddish.content[row - materialRow - 2].arrImage];
-            [cell.vBanner setMaxPageControlNumber:_fooddish.content[row - materialRow - 2].arrImage.count];
-            cell.vBanner.delegate = self;
-
-            NSMutableAttributedString *att = [[NSMutableAttributedString alloc] init];
-
-            NSString *stepNum = SF(@"Step %ld :\t", row - materialRow - 1);
-            NSString *stepContent = _fooddish.content[row - materialRow - 2].step;
-
-            [att appendAttributedString:[[NSAttributedString alloc] initWithString:stepNum attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:13]}]];
-            [att appendAttributedString:[[NSAttributedString alloc] initWithString:stepContent]];
-
-            cell.lblSubTitle.attributedText = att;
-        }
+        
+        return cell;
+    } else {
+        DetailDishCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+        cell.lblTitle.text = _listComment.list[row].username;
+        cell.lblSubTitle.text = _listComment.list[row].content;
+        [cell.imgIcon roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:cell.imgIcon.frame.size.height/2];
+        [cell.imgIcon sd_setImageWithURL:[NSURL URLWithString: _listComment.list[row].image] placeholderImage:[UIImage imageNamed:@"logo"]];
+        
+        return cell;
     }
     
-    return cell;
 }
 
 #pragma mark - Action
@@ -213,6 +267,26 @@
     NSInteger materialRow = _fooddish.materials.count + 2;
     NSIndexPath *index = [NSIndexPath indexPathForRow:materialRow inSection:0] ;
     [_tbvContent scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
+- (IBAction)leaveComment:(UIButton *)sender {
+    [AlertInputFormVC showAlertInputOneForm:@"Leave Comment" oldText:nil nameAction:@"Post" fromVC:self callback:^(NSString *content) {
+        [App showLoading];
+        CommentDto *comment = [[CommentDto alloc] init];
+        comment.foodId = _foodId;
+        comment.content = content;
+        [API writeComment:comment callback:^(BOOL success, id data) {
+            [App hideLoading];
+            [_tbvContent hideIndicator];
+            
+            if (success) {
+                _listComment = data;
+                [self initComment];
+                [_tbvContent reloadData];
+            }
+            
+        }];
+    }];
 }
 
 #pragma mark - ScrollDeletage
@@ -271,10 +345,10 @@
     
     if (!_fooddish.hasSave) {
         [FileHelper saveFoodToFavorate:_fooddish];
-        [self initVar];
+        [self initFoodDetail];
     }else {
         [FileHelper removeFavorite:_fooddish];
-        [self initVar];
+        [self initFoodDetail];
     }
 }
 
@@ -294,7 +368,8 @@
 #pragma mark - Action
 
 - (IBAction)onBtnReloadPressed:(UIButton *)sender {
-    [self initVar];
+    [self initComment];
+    [self initFoodDetail];
 }
 
 @end

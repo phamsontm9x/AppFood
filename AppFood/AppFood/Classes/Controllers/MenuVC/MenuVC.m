@@ -52,6 +52,7 @@ typedef enum : NSUInteger {
 
 - (void)initUI {
     [_imageAvatar roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:_imageAvatar.frame.size.height/2];
+    [_imageAvatar sd_setImageWithURL:[NSURL URLWithString: Config.userDto.image] placeholderImage:[UIImage imageNamed:@"logo"]];
     _vUser.layer.cornerRadius = 10;
     _lblUserName.text = Config.userDto.fullName;
     _csRightView.constant = PORTRANIT_SLIDE_OFFSET + 10;

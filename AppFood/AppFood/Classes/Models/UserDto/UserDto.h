@@ -7,6 +7,7 @@
 //
 
 #import "BaseDto.h"
+#import <UIKit/UIKit.h>
 
 @interface UserDto : BaseDto
 
@@ -18,6 +19,8 @@
 @property (nonatomic, strong) NSString *phone;
 @property (assign, nonatomic) BOOL gender;
 @property (nonatomic, strong) NSString *birthday;
-@property (nonatomic, strong) NSString *created;	
+@property (nonatomic, strong) NSString *created;
+@property (strong, nonatomic) NSString *image;
+@property (strong, nonatomic) UIImage *imgAvatar;
 
 @end

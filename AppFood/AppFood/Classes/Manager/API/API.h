@@ -18,6 +18,7 @@
 @class DetailDishDto;
 @class ListDishDto;
 @class DishTypeDto;
+@class CommentDto;
 
 typedef void (^APICallback)(BOOL success, id data);
 
@@ -55,5 +56,9 @@ typedef void (^APICallback)(BOOL success, id data);
 
 #pragma mark - Image
 - (void)createAvatarFile:(AvatarDto*)avatar callback:(APICallback)callback;
+
+#pragma mark - Comment
+- (void)writeComment:(CommentDto *)dto callback:(APICallback)callback;
+- (void)getAllComment:(NSString *)foodId callback:(APICallback)callback;
 
 @end

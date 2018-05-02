@@ -9,6 +9,7 @@
 #import "BaseVC.h"
 #import "ListDishDto.h"
 #import "DetailDishDto.h"
+#import "CommentDto.h"
 
 @interface DetailDishVC : BaseVC
 
@@ -33,6 +34,8 @@
 
 
 @property (nonatomic, strong) DetailDishDto *fooddish;
+@property (nonatomic, strong) ListCommentDto *listComment;
+
 @property (nonatomic, strong) NSString *foodId;
 @property (nonatomic, strong) NSString *image;
 @property (nonatomic, strong) NSString *des;

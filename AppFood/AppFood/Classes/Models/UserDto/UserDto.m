@@ -23,6 +23,7 @@
             IO(phone);
             IO(birthday);
             IB(gender);
+            IO(image);
         }
     }
     return self;
@@ -38,6 +39,7 @@
     JO(phone);
     JO(address);
     JO(birthday);
+    JO(image);
     JB(gender);
     return dic;
 }
@@ -54,11 +56,13 @@
         JO(address);
         JO(phone);
         JO(birthday);
+        JO(image);
         JB(gender);
     } else {
         JO(email);
         JO(password);
         JO(fullName);
+        JO(image);
         JO(address);
         JO(phone);
         JO(birthday);
