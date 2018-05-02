@@ -60,7 +60,6 @@
 		CA86F0052077D3E400115699 /* InfoDetailDishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA86F0042077D3E400115699 /* InfoDetailDishCell.m */; };
 		CA86F00C2077D41C00115699 /* IngredientDetailDishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA86F00B2077D41C00115699 /* IngredientDetailDishCell.m */; };
 		CA86F0102077D43E00115699 /* StepsDetailDishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA86F00F2077D43E00115699 /* StepsDetailDishCell.m */; };
-		CA86F0142077D45200115699 /* TypeDetailDishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA86F0132077D45200115699 /* TypeDetailDishCell.m */; };
 		CA96414F2096AD62003FAFC8 /* AvatarDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA96414E2096AD62003FAFC8 /* AvatarDto.m */; };
 		CAE60957205BA4B200BB3D86 /* UserDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE60956205BA4B200BB3D86 /* UserDto.m */; };
 		CAE6095B205BAC5900BB3D86 /* Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE6095A205BAC5900BB3D86 /* Configure.m */; };
@@ -187,8 +186,6 @@
 		CA86F00B2077D41C00115699 /* IngredientDetailDishCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientDetailDishCell.m; sourceTree = "<group>"; };
 		CA86F00E2077D43E00115699 /* StepsDetailDishCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StepsDetailDishCell.h; sourceTree = "<group>"; };
 		CA86F00F2077D43E00115699 /* StepsDetailDishCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StepsDetailDishCell.m; sourceTree = "<group>"; };
-		CA86F0122077D45200115699 /* TypeDetailDishCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeDetailDishCell.h; sourceTree = "<group>"; };
-		CA86F0132077D45200115699 /* TypeDetailDishCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TypeDetailDishCell.m; sourceTree = "<group>"; };
 		CA96414D2096AD62003FAFC8 /* AvatarDto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvatarDto.h; sourceTree = "<group>"; };
 		CA96414E2096AD62003FAFC8 /* AvatarDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AvatarDto.m; sourceTree = "<group>"; };
 		CAE60955205BA4B200BB3D86 /* UserDto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDto.h; sourceTree = "<group>"; };
@@ -693,7 +690,6 @@
 			isa = PBXGroup;
 			children = (
 				4209EEC02078718D00371F9B /* NewDetailDishTbvCell */,
-				CA86F0112077D44200115699 /* TypeDetailDishCell */,
 				CA86F00D2077D42C00115699 /* StepsDetailDishCell */,
 				CA86F0062077D3E800115699 /* IngredientDetailDishCell */,
 				CA86EFFE2077D38D00115699 /* InfoDetailDishCell */,
@@ -737,15 +733,6 @@
 				CA86F00F2077D43E00115699 /* StepsDetailDishCell.m */,
 			);
 			path = StepsDetailDishCell;
-			sourceTree = "<group>";
-		};
-		CA86F0112077D44200115699 /* TypeDetailDishCell */ = {
-			isa = PBXGroup;
-			children = (
-				CA86F0122077D45200115699 /* TypeDetailDishCell.h */,
-				CA86F0132077D45200115699 /* TypeDetailDishCell.m */,
-			);
-			path = TypeDetailDishCell;
 			sourceTree = "<group>";
 		};
 		CA96414C2096AD4C003FAFC8 /* AvatarDto */ = {
@@ -1093,7 +1080,6 @@
 				CA11035E205A686300905CC4 /* DishListVC.m in Sources */,
 				CB51A5742094BC9500DC46B2 /* UserVC.m in Sources */,
 				42D16B3E205B534300384BC4 /* MButton.m in Sources */,
-				CA86F0142077D45200115699 /* TypeDetailDishCell.m in Sources */,
 				42D94A402058C5A6008C5202 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				CA7D32CF20526AE900599755 /* MenuDto.m in Sources */,
 				CA6F27072051154D000D38C7 /* main.m in Sources */,

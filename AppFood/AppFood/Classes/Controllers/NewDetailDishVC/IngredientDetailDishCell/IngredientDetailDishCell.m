@@ -10,6 +10,7 @@
 #import "NewDetailDishTbvCell.h"
 #import "DetailDishDto.h"
 #import "MaterialsDetailDishDto.h"
+#import "AlertInputFormVC.h"
 
 @interface IngredientDetailDishCell() <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate> {
     NSMutableArray *_arrRowData;
@@ -81,12 +82,8 @@
     } else {
         MaterialsDetailDishDto *data = listData[row -1];
         cell = [tableView dequeueReusableCellWithIdentifier:@"NDIngredientDetailCell"];
-        cell.tfAmout.text = data.amount;
-        cell.tfName.text = data.material;
-        cell.tfAmout.delegate = self;
-        cell.tfName.delegate = self;
-        cell.tfAmout.tag = row;
-        cell.tfName.tag = row ;
+        cell.lblSubTitle.text = data.amount;
+        cell.lblTitle.text = data.material;
     }
     return cell;
 }
@@ -140,17 +137,13 @@
     
     if (row >= totalRow) {
         [self tableView:tableView commitEditingStyle:UITableViewCellEditingStyleInsert forRowAtIndexPath:indexPath];
-    }
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    NSIndexPath *index = [NSIndexPath indexPathForRow:textField.tag inSection:0];
-    NewDetailDishTbvCell *cell = [_tbvIngredient cellForRowAtIndexPath:index];
-    MaterialsDetailDishDto *data = listData[textField.tag - 1];
-    if (textField == cell.tfName) {
-        data.material = cell.tfName.text;
-    } else {
-        data.amount = cell.tfAmout.text;
+    } else if (row > 0 && row < totalRow) {
+        MaterialsDetailDishDto *data = listData[row - 1];
+        [AlertInputFormVC showAlertInputTwoFormWithPlaceHolders:@[@"Material", @"Amount"] arrOldTexts:@[(data.material == nil) ? @"" : data.material, (data.amount == nil) ? @"" : data.amount] nameAction:@"Done" fromVC:self.rootVC callback:^(NSString *str1, NSString *str2) {
+            data.material = str1;
+            data.amount = str2;
+            [_tbvIngredient reloadData];
+        }];
     }
 }
 

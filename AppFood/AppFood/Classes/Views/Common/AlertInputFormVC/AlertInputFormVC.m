@@ -71,6 +71,13 @@
             break;
         }
             
+        case INPUT_STYLE_TWO:
+        case INPUT_STYLE_IP_ACCESS:
+        {
+            [self setStyleTwoInput];
+            break;
+        }
+            
         default:
             break;
     }

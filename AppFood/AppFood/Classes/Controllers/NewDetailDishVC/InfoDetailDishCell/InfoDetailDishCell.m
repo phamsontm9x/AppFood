@@ -8,12 +8,15 @@
 
 #import "InfoDetailDishCell.h"
 #import "NewDetailDishTbvCell.h"
+#import "AlertInputFormVC.h"
 
 @interface InfoDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate, UIImagePickerControllerDelegate, BaseColCellDelegate, UITextFieldDelegate> {
     
     UIImage *imgAvatar;
     NSString *nameDish;
     NSString *linkDish;
+    NSString *desDish;
+    NSString *timerDish;
 }
 
 @end
@@ -36,6 +39,10 @@
 
 - (void)initVar {
     
+    desDish = @"";
+    linkDish = @"";
+    nameDish = @"";
+    timerDish = @"";
     imgAvatar = [UIImage imageNamed:@"banner"];
 }
 
@@ -85,8 +92,8 @@
         case 1: {
             cell = [tableView dequeueReusableCellWithIdentifier:@"NDInfoDesCell"];
             cell.delegate = self;
-            cell.tfLink.delegate = self;
-            cell.tfLink.tag = 0;
+            cell.lblSubTitle.text = nameDish;
+            cell.tviewDesc.text = desDish;
             cell.imgAvatar.image = imgAvatar;
             break;
         }
@@ -97,8 +104,8 @@
         }
         case 3: {
             cell = [tableView dequeueReusableCellWithIdentifier:@"NDInfoYoutubeCell"];
-            cell.tfLink.delegate = self;
-            cell.tfLink.tag = 1;
+            cell.lblSubTitle.text = linkDish;
+            cell.delegate = self;
             break;
         }
         case 4: {
@@ -108,6 +115,8 @@
         }
         case 5: {
             cell = [tableView dequeueReusableCellWithIdentifier:@"NDInfoTimeCell"];
+            cell.delegate = self;
+            cell.lblDuration.text = SF(@"%@ minutes", timerDish);
             break;
         }
             
@@ -115,6 +124,27 @@
             break;
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger row = indexPath.row;
+    
+    switch (row) {
+        case 3: {
+            [AlertInputFormVC showAlertInputOneForm:@"Enter link" oldText:linkDish nameAction:@"Done" fromVC:self.rootVC callback:^(NSString *content) {
+                linkDish = content;
+                [self updateUI];
+            }];
+        }
+        case 5: {
+            [AlertInputFormVC showAlertInputType:INPUT_STYLE_ONE oldText:timerDish placeHolder:@"Timer" keyboardType:UIKeyboardTypeNumberPad btnDoneTitle:@"Done" fromVC:self.rootVC callback:^(NSString *content) {
+                timerDish = content;
+                [self updateUI];
+            }];
+        }
+        default:
+            break;
+    }
 }
 
 #pragma mark - NewDetailDishCellDelegate
@@ -188,17 +218,27 @@
     self.dataDto.imgAvatar = imgAvatar;
     self.dataDto.name = nameDish;
     self.dataDto.youtube = linkDish;
+    self.dataDto.time = timerDish;
+    self.dataDto.decriptions = desDish;
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(indexCell:selectBtnNext:orBtnBack:)]) {
         [self.delegate indexCell:0 selectBtnNext:YES orBtnBack:NO];
     }
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    if (textField.tag == 0) {
-        nameDish = textField.text;
-    } else {
-        linkDish = textField.text;
-    }
+- (void)newDetailDishTbvCell:(NewDetailDishTbvCell *)cell onEditDesPressed:(UIButton *)btn {
+    [AlertInputFormVC showAlertInputOneForm:@"Enter description" oldText:desDish nameAction:@"Done" fromVC:self.rootVC callback:^(NSString *content) {
+        desDish = content;
+        [self updateUI];
+    }];
 }
+
+- (void)newDetailDishTbvCell:(NewDetailDishTbvCell *)cell onEditNamePressed:(UIButton *)btn {
+    [AlertInputFormVC showAlertInputOneForm:@"Enter name" oldText:nameDish nameAction:@"Done" fromVC:self.rootVC callback:^(NSString *content) {
+        nameDish = content;
+        [self updateUI];
+    }];
+}
+
+
 @end

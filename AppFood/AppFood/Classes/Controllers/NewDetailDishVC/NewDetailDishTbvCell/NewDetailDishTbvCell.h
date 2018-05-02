@@ -15,7 +15,8 @@
 @protocol NewDetailDishTbvCellDelegate <NSObject>
 
 - (void)newDetailDishTbvCell:(NewDetailDishTbvCell *)cell onBtnPressed:(UIButton *)btn;
-
+- (void)newDetailDishTbvCell:(NewDetailDishTbvCell *)cell onEditDesPressed:(UIButton *)btn;
+- (void)newDetailDishTbvCell:(NewDetailDishTbvCell *)cell onEditNamePressed:(UIButton *)btn;
 
 @optional
 

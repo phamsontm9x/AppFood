@@ -33,4 +33,22 @@
     }
 }
 
+- (IBAction)onBtnEditName:(UIButton *)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(newDetailDishTbvCell:onEditNamePressed:)]) {
+        [_delegate newDetailDishTbvCell:self onEditNamePressed:sender];
+    }
+}
+
+- (IBAction)onBtnEditDes:(UIButton *)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(newDetailDishTbvCell:onEditDesPressed:)]) {
+        [_delegate newDetailDishTbvCell:self onEditDesPressed:sender];
+    }
+}
+
+- (IBAction)onBtnEditLink:(UIButton *)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(newDetailDishTbvCell:onBtnPressed:)]) {
+        [_delegate newDetailDishTbvCell:self onBtnPressed:sender];
+    }
+}
+
 @end

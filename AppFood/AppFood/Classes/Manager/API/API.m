@@ -137,7 +137,6 @@
                                 if (![token isEqualToString:@""] && token != nil) {
                                     App.configure.token = token;
                                 }
-                                 cb(YES, successClass ? [[successClass alloc] initWithData:content] : nil);
                             }
                         }
                     }

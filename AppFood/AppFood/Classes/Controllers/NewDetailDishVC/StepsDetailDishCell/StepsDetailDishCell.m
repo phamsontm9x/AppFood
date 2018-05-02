@@ -14,6 +14,7 @@
 #import "AvatarDto.h"
 #import "API.h"
 #import "DetailDishDto.h"
+#import "AlertInputFormVC.h"
 
 @interface StepsDetailDishCell() <UITableViewDelegate, UITableViewDataSource, NewDetailDishTbvCellDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextViewDelegate> {
     NSMutableArray *_arrRowData;
@@ -86,7 +87,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"NDStepDetailCell"];
         [cell.vStep roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:cell.vStep.frame.size.width/2];
         [cell.tviewDesc roundCornersOnTopLeft:YES topRight:YES bottomLeft:YES bottomRight:YES radius:6];
-        cell.lblTitle.text = SF(@"%ld",row - 1);
+        cell.lblTitle.text = SF(@"%ld",row);
         cell.tviewDesc.text = dto.step;
         cell.tviewDesc.delegate = self;
         cell.tviewDesc.tag = row;
@@ -163,9 +164,24 @@
     }];
 }
 
+- (void)newDetailDishTbvCell:(NewDetailDishTbvCell *)cell onEditDesPressed:(UIButton *)btn {
+    
+    NSIndexPath *indexPath = [_tbvStep indexPathForCell:cell];
+    NSInteger row = indexPath.row;
+    ContentDetailDishDto *data = arrData[row - 1];
+    
+    [AlertInputFormVC showAlertInputOneForm:@"Step description" withKeyboardType:UIKeyboardTypeDefault oldText:(data.step == nil) ? @"" : data.step nameAction:@"Done" fromVC:self.rootVC callback:^(NSString *content) {
+        data.step = content;
+        [_tbvStep reloadData];
+    }];
+}
+
 #pragma mark - Action
 
 - (IBAction)btnNextPressed:(UIButton *)btn {
+    
+    self.dataDto.content = arrData;
+    
     AvatarDto *avatar = [[AvatarDto  alloc] init];
     avatar.name = @"AvatarFood123.jpg";
     avatar.fileContent = UIImageJPEGRepresentation(self.dataDto.imgAvatar, 1);
@@ -176,6 +192,9 @@
             self.dataDto.image = SF(@"https://cookbook-server.herokuapp.com/%@",data.path);
             [API createDetailDish:self.dataDto callback:^(BOOL success, id data) {
                 [App hideLoading];
+                if (success) {
+                    [self.rootVC.navigationController popViewControllerAnimated:YES];
+                }
             }];
         }
     }];
@@ -248,16 +267,21 @@
     ContentDetailDishDto *data = arrData[index];
     ImageContentDetailDishDto *dto = [[ImageContentDetailDishDto alloc] init];
     dto.img = img;
-    [data.arrImage addObject:dto];
-    [_tbvStep reloadData];
-}
+    
+    AvatarDto *avatar = [[AvatarDto  alloc] init];
+    avatar.name = @"AvatarFood123.jpg";
+    avatar.fileContent = UIImageJPEGRepresentation(dto.img, 1);
+    [App showLoading];
+    [API createAvatarFile:avatar callback:^(BOOL success, AvatarDto *dt) {
+        [App hideLoading];
+        if (success) {
+            dto.image = SF(@"https://cookbook-server.herokuapp.com/%@",dt.path);
+            [data.arrImage addObject:dto];
+        }
+        [_tbvStep reloadData];
 
-- (void)textViewDidEndEditing:(UITextView *)textView {
-    NSIndexPath *index = [NSIndexPath indexPathForRow:textView.tag-1 inSection:0];
-    NewDetailDishTbvCell *cell = [_tbvStep cellForRowAtIndexPath:index];
-    ContentDetailDishDto *data = arrData[textView.tag-1];
-    data.step = cell.tviewDesc.text;
+    }];
+    
 }
-
 
 @end
